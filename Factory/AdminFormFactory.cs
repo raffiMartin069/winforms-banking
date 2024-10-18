@@ -43,5 +43,19 @@ namespace Martinez_BankApp.Factory
 			createNewAccountWindow.MdiParent = _adminMdiForm;
 			createNewAccountWindow.Show();
 		}
+
+		public void AdminSearchAccount()
+		{
+			var updateExistingAccount = new AdminSearchAccountForm();
+			updateExistingAccount.MdiParent = _adminMdiForm;
+			updateExistingAccount.Show();
+		}
+
+		public void AdminListOfCustomer()
+		{
+			var listOfCustomer = new AdminCustomerListForm();
+			listOfCustomer.MdiParent = _adminMdiForm;
+			listOfCustomer.Show();
+		}
 	}
 }

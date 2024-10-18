@@ -423,12 +423,12 @@
 			this.label12.AutoSize = true;
 			this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 			this.label12.ForeColor = System.Drawing.Color.White;
-			this.label12.Location = new System.Drawing.Point(591, 45);
+			this.label12.Location = new System.Drawing.Point(609, 45);
 			this.label12.Margin = new System.Windows.Forms.Padding(0);
 			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(218, 21);
+			this.label12.Size = new System.Drawing.Size(181, 21);
 			this.label12.TabIndex = 2;
-			this.label12.Text = "Admin Update New Account";
+			this.label12.Text = "Admin Update Account";
 			this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// FullNameTextBox
@@ -553,7 +553,7 @@
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.tableLayoutPanel4);
 			this.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.MinimumSize = new System.Drawing.Size(1400, 900);
 			this.Name = "AdminUpdateAccountForm";
 			this.Text = "AdminUpdateAccountForm";

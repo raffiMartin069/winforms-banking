@@ -57,11 +57,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Forms\Admin\AdminCustomerListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\Admin\AdminCustomerListForm.Designer.cs">
+      <DependentUpon>AdminCustomerListForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Forms\Admin\AdminDepositForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Forms\Admin\AdminDepositForm.Designer.cs">
       <DependentUpon>AdminDepositForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Admin\AdminSearchAccountForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\Admin\AdminSearchAccountForm.Designer.cs">
+      <DependentUpon>AdminSearchAccountForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\Admin\AdminUpdateAccountForm.cs">
       <SubType>Form</SubType>
@@ -118,8 +130,14 @@
     <EmbeddedResource Include="View\Common\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\Admin\AdminCustomerListForm.resx">
+      <DependentUpon>AdminCustomerListForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\Admin\AdminDepositForm.resx">
       <DependentUpon>AdminDepositForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\Admin\AdminSearchAccountForm.resx">
+      <DependentUpon>AdminSearchAccountForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\Admin\AdminUpdateAccountForm.resx">
       <DependentUpon>AdminUpdateAccountForm.cs</DependentUpon>
