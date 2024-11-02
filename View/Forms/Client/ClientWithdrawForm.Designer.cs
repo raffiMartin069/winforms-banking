@@ -44,19 +44,19 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.SaveButton = new System.Windows.Forms.Button();
 			this.ClearAllFieldButton = new System.Windows.Forms.Button();
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.label15 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.tableLayoutPanel4.SuspendLayout();
 			this.flowLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.tableLayoutPanel5.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel4
@@ -275,6 +275,17 @@
 			this.ClearAllFieldButton.Text = "Clear";
 			this.ClearAllFieldButton.UseVisualStyleBackColor = false;
 			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+			this.pictureBox1.Image = global::Martinez_BankApp.Properties.Resources.Pia_Website_SME_Loan_Masthead;
+			this.pictureBox1.Location = new System.Drawing.Point(695, 45);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(675, 675);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.pictureBox1.TabIndex = 1;
+			this.pictureBox1.TabStop = false;
+			// 
 			// label15
 			// 
 			this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -353,17 +364,6 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(1400, 70);
 			this.tableLayoutPanel1.TabIndex = 19;
 			// 
-			// pictureBox1
-			// 
-			this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.pictureBox1.Image = global::Martinez_BankApp.Properties.Resources.Pia_Website_SME_Loan_Masthead;
-			this.pictureBox1.Location = new System.Drawing.Point(695, 45);
-			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(675, 675);
-			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-			this.pictureBox1.TabIndex = 1;
-			this.pictureBox1.TabStop = false;
-			// 
 			// ClientWithdrawForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -386,11 +386,11 @@
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel2.PerformLayout();
 			this.tableLayoutPanel3.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.tableLayoutPanel5.ResumeLayout(false);
 			this.tableLayoutPanel5.PerformLayout();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.ResumeLayout(false);
 
 		}

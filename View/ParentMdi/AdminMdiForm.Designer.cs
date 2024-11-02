@@ -75,33 +75,33 @@
 			// toolStripSeparator7
 			// 
 			this.toolStripSeparator7.Name = "toolStripSeparator7";
-			this.toolStripSeparator7.Size = new System.Drawing.Size(177, 6);
+			this.toolStripSeparator7.Size = new System.Drawing.Size(158, 6);
 			// 
 			// newAccountToolStripMenuItem
 			// 
 			this.newAccountToolStripMenuItem.Name = "newAccountToolStripMenuItem";
-			this.newAccountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.newAccountToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
 			this.newAccountToolStripMenuItem.Text = "New Account";
 			this.newAccountToolStripMenuItem.Click += new System.EventHandler(this.newAccountToolStripMenuItem_Click);
 			// 
 			// updateAccountToolStripMenuItem
 			// 
 			this.updateAccountToolStripMenuItem.Name = "updateAccountToolStripMenuItem";
-			this.updateAccountToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.updateAccountToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
 			this.updateAccountToolStripMenuItem.Text = "Update Account";
 			this.updateAccountToolStripMenuItem.Click += new System.EventHandler(this.updateAccountToolStripMenuItem_Click);
 			// 
 			// searchToolStripMenuItem
 			// 
 			this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-			this.searchToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.searchToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
 			this.searchToolStripMenuItem.Text = "Search";
 			this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
 			// 
 			// listOfCustomerToolStripMenuItem
 			// 
 			this.listOfCustomerToolStripMenuItem.Name = "listOfCustomerToolStripMenuItem";
-			this.listOfCustomerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.listOfCustomerToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
 			this.listOfCustomerToolStripMenuItem.Text = "List of Customer";
 			this.listOfCustomerToolStripMenuItem.Click += new System.EventHandler(this.listOfCustomerToolStripMenuItem_Click);
 			// 
@@ -119,27 +119,27 @@
 			// depositToolStripMenuItem
 			// 
 			this.depositToolStripMenuItem.Name = "depositToolStripMenuItem";
-			this.depositToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.depositToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
 			this.depositToolStripMenuItem.Text = "Deposit";
 			this.depositToolStripMenuItem.Click += new System.EventHandler(this.depositToolStripMenuItem_Click);
 			// 
 			// withdrawToolStripMenuItem
 			// 
 			this.withdrawToolStripMenuItem.Name = "withdrawToolStripMenuItem";
-			this.withdrawToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.withdrawToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
 			this.withdrawToolStripMenuItem.Text = "Withdraw";
 			this.withdrawToolStripMenuItem.Click += new System.EventHandler(this.withdrawToolStripMenuItem_Click);
 			// 
 			// transferToolStripMenuItem
 			// 
 			this.transferToolStripMenuItem.Name = "transferToolStripMenuItem";
-			this.transferToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.transferToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
 			this.transferToolStripMenuItem.Text = "Transfer";
 			// 
 			// fixedDepositFormToolStripMenuItem
 			// 
 			this.fixedDepositFormToolStripMenuItem.Name = "fixedDepositFormToolStripMenuItem";
-			this.fixedDepositFormToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.fixedDepositFormToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
 			this.fixedDepositFormToolStripMenuItem.Text = "Fixed Deposit Form";
 			// 
 			// viewMenu
@@ -153,7 +153,7 @@
 			// fixedDepositToolStripMenuItem
 			// 
 			this.fixedDepositToolStripMenuItem.Name = "fixedDepositToolStripMenuItem";
-			this.fixedDepositToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.fixedDepositToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
 			this.fixedDepositToolStripMenuItem.Text = "Fixed Deposit";
 			// 
 			// AdminMdiForm
@@ -171,7 +171,7 @@
 			this.MinimumSize = new System.Drawing.Size(1450, 900);
 			this.Name = "AdminMdiForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "MdiForm";
+			this.Text = "Administrator Mdi Form";
 			this.menuStrip.ResumeLayout(false);
 			this.menuStrip.PerformLayout();
 			this.ResumeLayout(false);

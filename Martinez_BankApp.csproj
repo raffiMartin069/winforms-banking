@@ -178,6 +178,8 @@
     <None Include="resources\img\diwata.png" />
     <None Include="resources\img\Pia Website_SME Loan Masthead.png" />
     <None Include="resources\img\invest.png" />
+    <None Include="resources\img\homepages-woman-using-calculator-312x232px.png.png" />
+    <None Include="resources\img\Hero-Banner-Image_Apply_OPTION1.png" />
     <Content Include="resources\img\planning.jpg" />
   </ItemGroup>
   <ItemGroup>

@@ -73,6 +73,26 @@ namespace Martinez_BankApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Hero_Banner_Image_Apply_OPTION1 {
+            get {
+                object obj = ResourceManager.GetObject("Hero-Banner-Image_Apply_OPTION1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap homepages_woman_using_calculator_312x232px_png {
+            get {
+                object obj = ResourceManager.GetObject("homepages-woman-using-calculator-312x232px.png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap invest {
             get {
                 object obj = ResourceManager.GetObject("invest", resourceCulture);
