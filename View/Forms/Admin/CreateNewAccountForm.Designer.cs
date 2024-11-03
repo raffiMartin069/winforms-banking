@@ -48,6 +48,15 @@
 			this.DateOfBirth = new System.Windows.Forms.DateTimePicker();
 			this.MaritalStatusComboBox = new System.Windows.Forms.ComboBox();
 			this.GenderComboBox = new System.Windows.Forms.ComboBox();
+			this.label14 = new System.Windows.Forms.Label();
+			this.RoleComboBox = new System.Windows.Forms.ComboBox();
+			this.label16 = new System.Windows.Forms.Label();
+			this.EmailTextBox = new System.Windows.Forms.TextBox();
+			this.PasswordTextBox = new System.Windows.Forms.TextBox();
+			this.label17 = new System.Windows.Forms.Label();
+			this.label18 = new System.Windows.Forms.Label();
+			this.RepeatPasswordTextBox = new System.Windows.Forms.TextBox();
+			this.ShowPasswordCheckBox = new System.Windows.Forms.CheckBox();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
@@ -83,28 +92,37 @@
 			this.tableLayoutPanel2.ColumnCount = 2;
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.Controls.Add(this.FathersNameTextBox, 1, 8);
-			this.tableLayoutPanel2.Controls.Add(this.label8, 0, 8);
-			this.tableLayoutPanel2.Controls.Add(this.MothersNameTextBox, 1, 7);
-			this.tableLayoutPanel2.Controls.Add(this.label7, 0, 7);
-			this.tableLayoutPanel2.Controls.Add(this.label6, 0, 6);
-			this.tableLayoutPanel2.Controls.Add(this.label5, 0, 5);
-			this.tableLayoutPanel2.Controls.Add(this.AddressTextBox, 1, 4);
-			this.tableLayoutPanel2.Controls.Add(this.label4, 0, 4);
-			this.tableLayoutPanel2.Controls.Add(this.PhoneTextBox, 1, 3);
-			this.tableLayoutPanel2.Controls.Add(this.label3, 0, 3);
+			this.tableLayoutPanel2.Controls.Add(this.FathersNameTextBox, 1, 12);
+			this.tableLayoutPanel2.Controls.Add(this.label8, 0, 12);
+			this.tableLayoutPanel2.Controls.Add(this.MothersNameTextBox, 1, 11);
+			this.tableLayoutPanel2.Controls.Add(this.label7, 0, 11);
+			this.tableLayoutPanel2.Controls.Add(this.label6, 0, 10);
+			this.tableLayoutPanel2.Controls.Add(this.label5, 0, 9);
+			this.tableLayoutPanel2.Controls.Add(this.AddressTextBox, 1, 8);
+			this.tableLayoutPanel2.Controls.Add(this.label4, 0, 8);
+			this.tableLayoutPanel2.Controls.Add(this.PhoneTextBox, 1, 7);
+			this.tableLayoutPanel2.Controls.Add(this.label3, 0, 7);
 			this.tableLayoutPanel2.Controls.Add(this.label2, 0, 2);
 			this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.BalanceTextBox, 1, 10);
-			this.tableLayoutPanel2.Controls.Add(this.label9, 0, 10);
+			this.tableLayoutPanel2.Controls.Add(this.BalanceTextBox, 1, 15);
+			this.tableLayoutPanel2.Controls.Add(this.label9, 0, 15);
 			this.tableLayoutPanel2.Controls.Add(this.label10, 1, 1);
 			this.tableLayoutPanel2.Controls.Add(this.FullNameTextBox, 1, 0);
 			this.tableLayoutPanel2.Controls.Add(this.DateOfBirth, 1, 2);
-			this.tableLayoutPanel2.Controls.Add(this.MaritalStatusComboBox, 1, 5);
-			this.tableLayoutPanel2.Controls.Add(this.GenderComboBox, 1, 6);
+			this.tableLayoutPanel2.Controls.Add(this.MaritalStatusComboBox, 1, 9);
+			this.tableLayoutPanel2.Controls.Add(this.GenderComboBox, 1, 10);
+			this.tableLayoutPanel2.Controls.Add(this.label14, 0, 14);
+			this.tableLayoutPanel2.Controls.Add(this.RoleComboBox, 1, 14);
+			this.tableLayoutPanel2.Controls.Add(this.label16, 0, 3);
+			this.tableLayoutPanel2.Controls.Add(this.EmailTextBox, 1, 3);
+			this.tableLayoutPanel2.Controls.Add(this.PasswordTextBox, 1, 4);
+			this.tableLayoutPanel2.Controls.Add(this.label17, 0, 4);
+			this.tableLayoutPanel2.Controls.Add(this.label18, 0, 5);
+			this.tableLayoutPanel2.Controls.Add(this.RepeatPasswordTextBox, 1, 5);
+			this.tableLayoutPanel2.Controls.Add(this.ShowPasswordCheckBox, 1, 6);
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(9, 8);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 11;
+			this.tableLayoutPanel2.RowCount = 16;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -116,13 +134,18 @@
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(629, 420);
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(629, 619);
 			this.tableLayoutPanel2.TabIndex = 3;
 			// 
 			// FathersNameTextBox
 			// 
 			this.FathersNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.FathersNameTextBox.Location = new System.Drawing.Point(171, 339);
+			this.FathersNameTextBox.Location = new System.Drawing.Point(171, 496);
 			this.FathersNameTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.FathersNameTextBox.Name = "FathersNameTextBox";
 			this.FathersNameTextBox.Size = new System.Drawing.Size(455, 29);
@@ -133,7 +156,7 @@
 			this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label8.AutoSize = true;
 			this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label8.Location = new System.Drawing.Point(3, 341);
+			this.label8.Location = new System.Drawing.Point(3, 498);
 			this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label8.Name = "label8";
 			this.label8.Size = new System.Drawing.Size(162, 21);
@@ -143,7 +166,7 @@
 			// MothersNameTextBox
 			// 
 			this.MothersNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.MothersNameTextBox.Location = new System.Drawing.Point(171, 297);
+			this.MothersNameTextBox.Location = new System.Drawing.Point(171, 454);
 			this.MothersNameTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.MothersNameTextBox.Name = "MothersNameTextBox";
 			this.MothersNameTextBox.Size = new System.Drawing.Size(455, 29);
@@ -154,7 +177,7 @@
 			this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(3, 299);
+			this.label7.Location = new System.Drawing.Point(3, 456);
 			this.label7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label7.Name = "label7";
 			this.label7.Size = new System.Drawing.Size(162, 21);
@@ -166,7 +189,7 @@
 			this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label6.AutoSize = true;
 			this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label6.Location = new System.Drawing.Point(3, 257);
+			this.label6.Location = new System.Drawing.Point(3, 414);
 			this.label6.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label6.Name = "label6";
 			this.label6.Size = new System.Drawing.Size(162, 21);
@@ -178,7 +201,7 @@
 			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(3, 210);
+			this.label5.Location = new System.Drawing.Point(3, 367);
 			this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label5.Name = "label5";
 			this.label5.Size = new System.Drawing.Size(162, 21);
@@ -188,7 +211,7 @@
 			// AddressTextBox
 			// 
 			this.AddressTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.AddressTextBox.Location = new System.Drawing.Point(171, 161);
+			this.AddressTextBox.Location = new System.Drawing.Point(171, 318);
 			this.AddressTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.AddressTextBox.Name = "AddressTextBox";
 			this.AddressTextBox.Size = new System.Drawing.Size(455, 29);
@@ -199,7 +222,7 @@
 			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label4.Location = new System.Drawing.Point(3, 163);
+			this.label4.Location = new System.Drawing.Point(3, 320);
 			this.label4.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(162, 21);
@@ -209,7 +232,7 @@
 			// PhoneTextBox
 			// 
 			this.PhoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.PhoneTextBox.Location = new System.Drawing.Point(171, 119);
+			this.PhoneTextBox.Location = new System.Drawing.Point(171, 276);
 			this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.PhoneTextBox.Name = "PhoneTextBox";
 			this.PhoneTextBox.Size = new System.Drawing.Size(455, 29);
@@ -220,7 +243,7 @@
 			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label3.Location = new System.Drawing.Point(3, 121);
+			this.label3.Location = new System.Drawing.Point(3, 278);
 			this.label3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(162, 21);
@@ -253,7 +276,7 @@
 			// BalanceTextBox
 			// 
 			this.BalanceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.BalanceTextBox.Location = new System.Drawing.Point(171, 381);
+			this.BalanceTextBox.Location = new System.Drawing.Point(171, 580);
 			this.BalanceTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.BalanceTextBox.Name = "BalanceTextBox";
 			this.BalanceTextBox.Size = new System.Drawing.Size(455, 29);
@@ -264,7 +287,7 @@
 			this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label9.AutoSize = true;
 			this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label9.Location = new System.Drawing.Point(3, 383);
+			this.label9.Location = new System.Drawing.Point(3, 582);
 			this.label9.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label9.Name = "label9";
 			this.label9.Size = new System.Drawing.Size(162, 21);
@@ -305,7 +328,7 @@
 			// 
 			this.MaritalStatusComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.MaritalStatusComboBox.FormattingEnabled = true;
-			this.MaritalStatusComboBox.Location = new System.Drawing.Point(171, 203);
+			this.MaritalStatusComboBox.Location = new System.Drawing.Point(171, 360);
 			this.MaritalStatusComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
 			this.MaritalStatusComboBox.Name = "MaritalStatusComboBox";
 			this.MaritalStatusComboBox.Size = new System.Drawing.Size(455, 29);
@@ -315,11 +338,108 @@
 			// 
 			this.GenderComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.GenderComboBox.FormattingEnabled = true;
-			this.GenderComboBox.Location = new System.Drawing.Point(171, 255);
+			this.GenderComboBox.Location = new System.Drawing.Point(171, 412);
 			this.GenderComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.GenderComboBox.Name = "GenderComboBox";
 			this.GenderComboBox.Size = new System.Drawing.Size(455, 29);
 			this.GenderComboBox.TabIndex = 20;
+			// 
+			// label14
+			// 
+			this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label14.AutoSize = true;
+			this.label14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label14.Location = new System.Drawing.Point(3, 540);
+			this.label14.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+			this.label14.Name = "label14";
+			this.label14.Size = new System.Drawing.Size(162, 21);
+			this.label14.TabIndex = 21;
+			this.label14.Text = "Role";
+			// 
+			// RoleComboBox
+			// 
+			this.RoleComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.RoleComboBox.FormattingEnabled = true;
+			this.RoleComboBox.Location = new System.Drawing.Point(171, 538);
+			this.RoleComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+			this.RoleComboBox.Name = "RoleComboBox";
+			this.RoleComboBox.Size = new System.Drawing.Size(455, 29);
+			this.RoleComboBox.TabIndex = 23;
+			// 
+			// label16
+			// 
+			this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label16.AutoSize = true;
+			this.label16.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label16.Location = new System.Drawing.Point(3, 121);
+			this.label16.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+			this.label16.Name = "label16";
+			this.label16.Size = new System.Drawing.Size(162, 21);
+			this.label16.TabIndex = 24;
+			this.label16.Text = "Email";
+			// 
+			// EmailTextBox
+			// 
+			this.EmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.EmailTextBox.Location = new System.Drawing.Point(171, 119);
+			this.EmailTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+			this.EmailTextBox.Name = "EmailTextBox";
+			this.EmailTextBox.Size = new System.Drawing.Size(455, 29);
+			this.EmailTextBox.TabIndex = 15;
+			// 
+			// PasswordTextBox
+			// 
+			this.PasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.PasswordTextBox.Location = new System.Drawing.Point(171, 161);
+			this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+			this.PasswordTextBox.Name = "PasswordTextBox";
+			this.PasswordTextBox.Size = new System.Drawing.Size(455, 29);
+			this.PasswordTextBox.TabIndex = 15;
+			this.PasswordTextBox.UseSystemPasswordChar = true;
+			// 
+			// label17
+			// 
+			this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label17.AutoSize = true;
+			this.label17.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label17.Location = new System.Drawing.Point(3, 163);
+			this.label17.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+			this.label17.Name = "label17";
+			this.label17.Size = new System.Drawing.Size(162, 21);
+			this.label17.TabIndex = 25;
+			this.label17.Text = "Password";
+			// 
+			// label18
+			// 
+			this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label18.AutoSize = true;
+			this.label18.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label18.Location = new System.Drawing.Point(3, 205);
+			this.label18.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+			this.label18.Name = "label18";
+			this.label18.Size = new System.Drawing.Size(162, 21);
+			this.label18.TabIndex = 25;
+			this.label18.Text = "Repeat Password";
+			// 
+			// RepeatPasswordTextBox
+			// 
+			this.RepeatPasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.RepeatPasswordTextBox.Location = new System.Drawing.Point(171, 203);
+			this.RepeatPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+			this.RepeatPasswordTextBox.Name = "RepeatPasswordTextBox";
+			this.RepeatPasswordTextBox.Size = new System.Drawing.Size(455, 29);
+			this.RepeatPasswordTextBox.TabIndex = 15;
+			this.RepeatPasswordTextBox.UseSystemPasswordChar = true;
+			// 
+			// ShowPasswordCheckBox
+			// 
+			this.ShowPasswordCheckBox.AutoSize = true;
+			this.ShowPasswordCheckBox.Location = new System.Drawing.Point(171, 245);
+			this.ShowPasswordCheckBox.Name = "ShowPasswordCheckBox";
+			this.ShowPasswordCheckBox.Size = new System.Drawing.Size(138, 25);
+			this.ShowPasswordCheckBox.TabIndex = 26;
+			this.ShowPasswordCheckBox.Text = "Show Password";
+			this.ShowPasswordCheckBox.UseVisualStyleBackColor = true;
 			// 
 			// label11
 			// 
@@ -371,12 +491,12 @@
 			this.flowLayoutPanel2.Controls.Add(this.tableLayoutPanel2);
 			this.flowLayoutPanel2.Controls.Add(this.tableLayoutPanel3);
 			this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-			this.flowLayoutPanel2.Location = new System.Drawing.Point(43, 150);
+			this.flowLayoutPanel2.Location = new System.Drawing.Point(43, 50);
 			this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
 			this.flowLayoutPanel2.MinimumSize = new System.Drawing.Size(510, 468);
 			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
 			this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(5);
-			this.flowLayoutPanel2.Size = new System.Drawing.Size(646, 498);
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(646, 697);
 			this.flowLayoutPanel2.TabIndex = 0;
 			// 
 			// tableLayoutPanel3
@@ -389,7 +509,7 @@
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel3.Controls.Add(this.SaveButton, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.ClearAllFieldButton, 1, 0);
-			this.tableLayoutPanel3.Location = new System.Drawing.Point(8, 434);
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(8, 633);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 1;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -616,5 +736,14 @@
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn sample;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.TextBox EmailTextBox;
+		private System.Windows.Forms.ComboBox RoleComboBox;
+		private System.Windows.Forms.Label label14;
+		private System.Windows.Forms.Label label16;
+		private System.Windows.Forms.Label label17;
+		private System.Windows.Forms.TextBox PasswordTextBox;
+		private System.Windows.Forms.Label label18;
+		private System.Windows.Forms.TextBox RepeatPasswordTextBox;
+		private System.Windows.Forms.CheckBox ShowPasswordCheckBox;
 	}
 }
