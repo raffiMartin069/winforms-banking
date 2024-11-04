@@ -3,21 +3,20 @@ GO
 
 DECLARE	@return_value int
 
-EXEC	@return_value = [dbo].[SP_AddClient]
+EXEC	@return_value = [dbo].[SP_UpdateUserInfo]
+		@UserId = 2021,
 		@FullName = N'Internal Test',
-		@DateOfBirth = '01/01/1991',
-		@Email = N'internal.testswed33@gmail222.com',
-		@Password = N'test',
-		@RepeatPassword = N'test',
-		@Phone = N'09111111111',
-		@Address = N'sample street, 0000, barangay sample, sample city',
-		@MaritalStatus = N'married',
-		@Gender = N'male',
-		@MotherName = N'sample sample',
-		@FatherName = N'sample sample',
-		@Role = N'clients'
-
-select * from [Role]
+		@DateOfBirth = '01/01/1999',
+		@Email = N'internal.test@gmail.com3',
+		@Password = N'test1',
+		@RepeatPassword = N'test1',
+		@Phone = N'09111111116',
+		@Address = N'sample street, 0000, barangay sample, sample citys',
+		@MaritalStatus = N'marrieds',
+		@Gender = N'males',
+		@MotherName = N'sample samples',
+		@FatherName = N'sample samplez',
+		@Role = N'Client'
 
 select u.Id as 'User Id', u.FullName, u.DateOfBirth,
 	u.Gender, u.AddressId, u.RoleId,
