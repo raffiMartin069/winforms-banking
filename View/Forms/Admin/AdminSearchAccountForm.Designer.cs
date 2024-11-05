@@ -209,7 +209,7 @@
 			this.sample.Name = "sample";
 			this.sample.ReadOnly = true;
 			// 
-			// AdminSearchAccount
+			// AdminSearchAccountForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -218,9 +218,9 @@
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.tableLayoutPanel5);
 			this.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+			this.Margin = new System.Windows.Forms.Padding(4);
 			this.MinimumSize = new System.Drawing.Size(1400, 900);
-			this.Name = "AdminSearchAccount";
+			this.Name = "AdminSearchAccountForm";
 			this.Text = "AdminSearchAccount";
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
