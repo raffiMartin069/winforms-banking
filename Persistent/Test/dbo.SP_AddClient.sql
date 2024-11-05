@@ -15,37 +15,41 @@ EXEC	@return_value = [dbo].[SP_AddClient]
 		@Gender = N'male',
 		@MotherName = N'sample sample',
 		@FatherName = N'sample sample',
-		@Role = N'clients'
-
-select * from [Role]
+		@Role = N'clients',
+		@Balance = N'100.00'
 
 select u.Id as 'User Id', u.FullName, u.DateOfBirth,
-	u.Gender, u.AddressId, u.RoleId,
-	p.Id as 'Phone Id', p.Number,
-	c.Id as 'Credential Id', c.Email, c.[Password],
-	a.Id as 'Home Address Id', a.HomeAddress,
-	r.Id as 'Role Id', r.[Type],
-	prnt.Id as 'Parent Id', prnt.FatherName, prnt.MotherName,
-	m.Id as 'Marital Status Id', m.[Status]
-	from [User] as u
-	full outer join
-	[Credential] as c
-	on u.Id = c.Id
-	full outer join
-	[Phone] as p
-	on u.Id = p.Id
-	full outer join 
-	[Address] as a
-	on u.AddressId = a.Id
-	full outer join
-	[Role] as r
-	on u.RoleId = r.Id
-	full outer join
-	[Parent] as prnt
-	on u.Id = prnt.Id
-	full outer join
-	[Marital_Status] as m
-	on u.Id = m.Id
+		u.Gender, acc.Id as 'Account Number', bal.Amount as 'Current Balance', p.Number,
+		c.Email, a.HomeAddress, r.[Type], prnt.FatherName, prnt.MotherName,
+		m.[Status]
+		from [User] as u
+		full outer join
+		[Credential] as c
+		on u.Id = c.Id
+		full outer join
+		[Phone] as p
+		on u.Id = p.Id
+		full outer join 
+		[Address] as a
+		on u.AddressId = a.Id
+		inner join
+		[Role] as r
+		on r.Id = u.RoleId
+		full outer join
+		[Parent] as prnt
+		on u.Id = prnt.Id
+		inner join
+		[Marital_Status] as m
+		on  m.Id = u.MaritalStatusId
+		inner join
+		Account as acc
+		on u.Id = acc.UserId
+		inner join
+		Balance as bal
+		on acc.Id = bal.Id
+		where r.[Type] = 'Client'
+
+
 
 SELECT	'Return Value' = @return_value
 
