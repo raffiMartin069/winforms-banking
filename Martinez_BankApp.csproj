@@ -181,6 +181,8 @@
     <None Include="resources\img\homepages-woman-using-calculator-312x232px.png.png" />
     <None Include="resources\img\Hero-Banner-Image_Apply_OPTION1.png" />
     <Content Include="Persistent\Database\BankApp.sql" />
+    <Content Include="Persistent\Database\Functions.sql" />
+    <Content Include="Persistent\Database\StoredProcedures.sql" />
     <Content Include="resources\img\planning.jpg" />
   </ItemGroup>
   <ItemGroup>

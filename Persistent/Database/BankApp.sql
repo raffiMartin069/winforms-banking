@@ -244,3 +244,75 @@ create table Balance
 );
 
 drop table Balance
+-- -------------------------------------------------------------------
+create table WithdrawMode
+(
+	Id int primary key identity(10001,1),
+	[Type] varchar(255) not null unique,
+);
+
+create table DepositMode
+(
+	Id int primary key identity(10001,1),
+	[Type] varchar(255) not null unique,
+);
+
+create table DepositLogs
+(
+	Id int primary key identity(10001,1),
+	CurrentBalance decimal not null,
+	DepositAmount decimal not null,
+	DepositDate date default getdate(),
+	AccountId int not null,
+	DepositModeId int not null,
+	foreign key(AccountId) references Account(Id)
+		on delete cascade
+		on update cascade,
+	foreign key(DepositModeId) references DepositMode(Id)
+		on delete cascade
+		on update cascade
+);
+
+alter table DepositLogs
+	add AccountNumber varchar(255) not null
+
+alter table DepositLogs
+	drop column AccountNumber
+
+alter table DepositLogs
+	add FullName varchar(255) not null
+
+alter table DepositLogs
+	add NewBalance decimal not null
+
+alter table DepositLogs
+	add DepositTime time default cast(getdate() as time) not null
+
+create table WithdrawLogs
+(
+	Id int primary key identity(10001,1),
+	CurrentBalance decimal not null,
+	WithdrawAmount decimal not null,
+	WithdrawDate date default getdate(),
+	AccountId int not null,
+	WithdrawModeId int not null,
+	constraint CHK_Withdraw_Less_Than_Current_Balance check(WithdrawAmount < CurrentBalance), -- Withdraw amount should be less than the amount of the balance inside the account
+	foreign key(AccountId) references Account(Id)
+		on delete cascade
+		on update cascade,
+	foreign key(WithdrawModeId) references WithdrawMode(Id)
+		on delete cascade
+		on update cascade
+);
+
+alter table WithdrawLogs
+	add AccountNumber varchar(255) not null
+
+alter table WithdrawLogs
+	drop column AccountNumber
+
+alter table WithdrawLogs
+	add FullName varchar(255) not null
+
+insert into WithdrawMode values('Over The Counter'), ('ATM'), ('Check'), ('Debit'), ('Online Bank')
+insert into DepositMode values('Over The Counter'), ('ATM'), ('Mail'), ('Online Bank')

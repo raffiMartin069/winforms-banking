@@ -1,8 +1,32 @@
-use BankApp
-
 /*
 	All functions
 */
+use BankApp
+
+create or alter function FN_CalculateDeposit(@Amount decimal, @CurrentBalance decimal)
+	returns decimal
+	as
+	begin
+		return (@Amount + @CurrentBalance)
+	end;
+
+create or alter function FN_Deposit_IsNameExist(@FullName varchar(255), @AccountNumber varchar(255))
+	returns bit
+	as
+	begin
+		declare @IsExist varchar(255);
+
+		set @IsExist = (select u.FullName from Account as acc inner join [User] as u on acc.UserId = u.Id where u.FullName = @FullName and acc.Id = @AccountNumber);
+
+		if @IsExist is not null or @IsExist != ''
+		begin
+			return 1;
+		end;
+
+		return 0;
+	end;
+
+
 create or alter function FN_SearchByKey(@Key varchar(255))
 	returns table
 	return 
@@ -51,41 +75,35 @@ create or alter function FN_SearchByKey(@Key varchar(255))
 		r.[Type] like @Key  + '%'
 	)
 
-create or alter function FN_DisaplayAllCustomerRecord()
+create or alter function FN_DisplayNewAccountCreated()
 	returns table
 	return 
 	(
-		select u.Id as 'User Id', u.FullName, u.DateOfBirth,
-		u.Gender, acc.Id as 'Account Number', bal.Amount as 'Current Balance', p.Number,
-		c.Email, a.HomeAddress, r.[Type], prnt.FatherName, prnt.MotherName,
-		m.[Status]
-		from [User] as u
-		full outer join
-		[Credential] as c
-		on u.Id = c.Id
-		full outer join
-		[Phone] as p
-		on u.Id = p.Id
-		full outer join 
-		[Address] as a
-		on u.AddressId = a.Id
+		select u.Id as 'User Identification', u.DateOfBirth as 'Date of Birth', cred.Email,
+		ph.Number as 'Phone Number', addr.HomeAddress as 'Home Address', ms.Status as 'Marital Status',
+		u.Gender, prnt.MotherName as 'Mother''s Name', prnt.FatherName as 'Father''s Name', bal.Amount as 'Account Balance' from [User] as u
 		inner join
-		[Role] as r
-		on r.Id = u.RoleId
-		full outer join
+		[Credential] as cred
+		on u.Id = cred.Id
+		inner join
+		[Phone] as ph
+		on u.Id = ph.Id
+		inner join
+		[Address] as addr
+		on u.AddressId = addr.Id
+		inner join
+		[Marital_Status] as ms
+		on u.MaritalStatusId = ms.Id
+		inner join
 		[Parent] as prnt
 		on u.Id = prnt.Id
 		inner join
-		[Marital_Status] as m
-		on  m.Id = u.MaritalStatusId
-		inner join
-		Account as acc
+		[Account] as acc
 		on u.Id = acc.UserId
 		inner join
-		Balance as bal
+		[Balance] as bal
 		on acc.Id = bal.Id
-		where r.[Type] = 'Client'
-	)
+	);
 
 create or alter function FN_Get_All_User_Related_Records()
 	returns table
