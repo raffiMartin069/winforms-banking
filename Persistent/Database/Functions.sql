@@ -3,6 +3,13 @@
 */
 use BankApp
 
+create or alter function FN_CalculateWithdrawal(@Amount decimal, @CurrentBalance decimal)
+	returns decimal
+	as
+	begin
+		return (@CurrentBalance - @Amount)
+	end;
+
 create or alter function FN_CalculateDeposit(@Amount decimal, @CurrentBalance decimal)
 	returns decimal
 	as
@@ -79,9 +86,9 @@ create or alter function FN_DisplayNewAccountCreated()
 	returns table
 	return 
 	(
-		select u.Id as 'User Identification', u.DateOfBirth as 'Date of Birth', cred.Email,
+		select u.Id as 'User Identification', u.FullName as 'Client''s Full Name', u.DateOfBirth as 'Date of Birth', cred.Email,
 		ph.Number as 'Phone Number', addr.HomeAddress as 'Home Address', ms.Status as 'Marital Status',
-		u.Gender, prnt.MotherName as 'Mother''s Name', prnt.FatherName as 'Father''s Name', bal.Amount as 'Account Balance' from [User] as u
+		u.Gender, prnt.MotherName as 'Mother''s Name', prnt.FatherName as 'Father''s Name',acc.Id as 'Account Number', bal.Amount as 'Account Balance' from [User] as u
 		inner join
 		[Credential] as cred
 		on u.Id = cred.Id

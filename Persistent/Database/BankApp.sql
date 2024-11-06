@@ -316,3 +316,20 @@ alter table WithdrawLogs
 
 insert into WithdrawMode values('Over The Counter'), ('ATM'), ('Check'), ('Debit'), ('Online Bank')
 insert into DepositMode values('Over The Counter'), ('ATM'), ('Mail'), ('Online Bank')
+
+select * from WithdrawLogs
+
+alter table WithdrawLogs
+	add NewBalance decimal not null
+
+alter table WithdrawLogs
+	add WithdrawTime time default cast(getdate() as time) not null
+
+SELECT DB_ID() AS [Database ID];  
+GO
+
+DBCC OPENTRAN (BankApp) WITH TABLERESULTS, NO_INFOMSGS;
+
+SELECT * 
+FROM sys.dm_exec_sessions 
+WHERE session_id = 52;
