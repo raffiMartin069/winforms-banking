@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,8 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\Admin\NewAccountDto.cs" />
     <Compile Include="Factory\AdminFormFactory.cs" />
     <Compile Include="Factory\ClientFormFactory.cs" />
+    <Compile Include="Persistent\Data\DBContext.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DBContext.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\Admin\CreateNewAccountRepository.cs" />
+    <Compile Include="Service\Admin\CreateNewAccountService.cs" />
     <Compile Include="Service\Common\LoginService.cs" />
     <Compile Include="View\Common\LoginForm.cs">
       <SubType>Form</SubType>
@@ -160,6 +169,15 @@
     <EmbeddedResource Include="View\ParentMdi\ClientMdiForm.resx">
       <DependentUpon>ClientMdiForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Persistent\Data\DBContext.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DBContext.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Persistent\Data\DBContext.dbml.layout">
+      <DependentUpon>DBContext.dbml</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\Martinez_BankApp.Persistent.Data.SP_GetAllGenderResult.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -180,13 +198,14 @@
     <None Include="resources\img\invest.png" />
     <None Include="resources\img\homepages-woman-using-calculator-312x232px.png.png" />
     <None Include="resources\img\Hero-Banner-Image_Apply_OPTION1.png" />
-    <Content Include="Persistent\Database\BankApp.sql" />
-    <Content Include="Persistent\Database\Functions.sql" />
-    <Content Include="Persistent\Database\StoredProcedures.sql" />
+    <Content Include="Persistent\Script\BankApp.sql" />
+    <Content Include="Persistent\Script\Functions.sql" />
+    <Content Include="Persistent\Script\StoredProcedures.sql" />
     <Content Include="resources\img\planning.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Model\" />
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

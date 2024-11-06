@@ -28,6 +28,9 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.FathersNameTextBox = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
@@ -45,9 +48,11 @@
 			this.label9 = new System.Windows.Forms.Label();
 			this.label10 = new System.Windows.Forms.Label();
 			this.FullNameTextBox = new System.Windows.Forms.TextBox();
-			this.DateOfBirth = new System.Windows.Forms.DateTimePicker();
+			this.DateOfBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
 			this.MaritalStatusComboBox = new System.Windows.Forms.ComboBox();
 			this.GenderComboBox = new System.Windows.Forms.ComboBox();
+			this.sPGetAllGenderResultBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+			this.sPGetAllGenderResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.label14 = new System.Windows.Forms.Label();
 			this.RoleComboBox = new System.Windows.Forms.ComboBox();
 			this.label16 = new System.Windows.Forms.Label();
@@ -70,17 +75,18 @@
 			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
 			this.label13 = new System.Windows.Forms.Label();
 			this.textBox10 = new System.Windows.Forms.TextBox();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.sample = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.NewAccountsDataTable = new System.Windows.Forms.DataGridView();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.sPGetAllGenderResultBindingSource1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.sPGetAllGenderResultBindingSource)).BeginInit();
 			this.flowLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.tableLayoutPanel5.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel6.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewAccountsDataTable)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -108,7 +114,7 @@
 			this.tableLayoutPanel2.Controls.Add(this.label9, 0, 15);
 			this.tableLayoutPanel2.Controls.Add(this.label10, 1, 1);
 			this.tableLayoutPanel2.Controls.Add(this.FullNameTextBox, 1, 0);
-			this.tableLayoutPanel2.Controls.Add(this.DateOfBirth, 1, 2);
+			this.tableLayoutPanel2.Controls.Add(this.DateOfBirthDateTimePicker, 1, 2);
 			this.tableLayoutPanel2.Controls.Add(this.MaritalStatusComboBox, 1, 9);
 			this.tableLayoutPanel2.Controls.Add(this.GenderComboBox, 1, 10);
 			this.tableLayoutPanel2.Controls.Add(this.label14, 0, 14);
@@ -315,14 +321,14 @@
 			this.FullNameTextBox.Size = new System.Drawing.Size(455, 29);
 			this.FullNameTextBox.TabIndex = 1;
 			// 
-			// DateOfBirth
+			// DateOfBirthDateTimePicker
 			// 
-			this.DateOfBirth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.DateOfBirth.Location = new System.Drawing.Point(171, 67);
-			this.DateOfBirth.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-			this.DateOfBirth.Name = "DateOfBirth";
-			this.DateOfBirth.Size = new System.Drawing.Size(455, 29);
-			this.DateOfBirth.TabIndex = 19;
+			this.DateOfBirthDateTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.DateOfBirthDateTimePicker.Location = new System.Drawing.Point(171, 67);
+			this.DateOfBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+			this.DateOfBirthDateTimePicker.Name = "DateOfBirthDateTimePicker";
+			this.DateOfBirthDateTimePicker.Size = new System.Drawing.Size(455, 29);
+			this.DateOfBirthDateTimePicker.TabIndex = 19;
 			// 
 			// MaritalStatusComboBox
 			// 
@@ -337,12 +343,24 @@
 			// GenderComboBox
 			// 
 			this.GenderComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.GenderComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sPGetAllGenderResultBindingSource1, "Type", true));
+			this.GenderComboBox.DataSource = this.sPGetAllGenderResultBindingSource;
+			this.GenderComboBox.DisplayMember = "Type";
 			this.GenderComboBox.FormattingEnabled = true;
 			this.GenderComboBox.Location = new System.Drawing.Point(171, 412);
 			this.GenderComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.GenderComboBox.Name = "GenderComboBox";
 			this.GenderComboBox.Size = new System.Drawing.Size(455, 29);
 			this.GenderComboBox.TabIndex = 20;
+			this.GenderComboBox.ValueMember = "Type";
+			// 
+			// sPGetAllGenderResultBindingSource1
+			// 
+			this.sPGetAllGenderResultBindingSource1.DataSource = typeof(Martinez_BankApp.Persistent.Data.SP_GetAllGenderResult);
+			// 
+			// sPGetAllGenderResultBindingSource
+			// 
+			this.sPGetAllGenderResultBindingSource.DataSource = typeof(Martinez_BankApp.Persistent.Data.SP_GetAllGenderResult);
 			// 
 			// label14
 			// 
@@ -440,6 +458,7 @@
 			this.ShowPasswordCheckBox.TabIndex = 26;
 			this.ShowPasswordCheckBox.Text = "Show Password";
 			this.ShowPasswordCheckBox.UseVisualStyleBackColor = true;
+			this.ShowPasswordCheckBox.CheckedChanged += new System.EventHandler(this.ShowPasswordCheckBox_CheckedChanged);
 			// 
 			// label11
 			// 
@@ -529,6 +548,7 @@
 			this.SaveButton.TabIndex = 0;
 			this.SaveButton.Text = "Save";
 			this.SaveButton.UseVisualStyleBackColor = false;
+			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
 			// 
 			// ClearAllFieldButton
 			// 
@@ -543,6 +563,7 @@
 			this.ClearAllFieldButton.TabIndex = 0;
 			this.ClearAllFieldButton.Text = "Clear";
 			this.ClearAllFieldButton.UseVisualStyleBackColor = false;
+			this.ClearAllFieldButton.Click += new System.EventHandler(this.ClearAllFieldButton_Click);
 			// 
 			// tableLayoutPanel5
 			// 
@@ -581,7 +602,7 @@
 			this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel6);
-			this.flowLayoutPanel1.Controls.Add(this.dataGridView1);
+			this.flowLayoutPanel1.Controls.Add(this.NewAccountsDataTable);
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(695, 136);
 			this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(694, 519);
@@ -624,26 +645,34 @@
 			this.textBox10.Size = new System.Drawing.Size(601, 29);
 			this.textBox10.TabIndex = 1;
 			// 
-			// dataGridView1
+			// NewAccountsDataTable
 			// 
-			this.dataGridView1.AllowUserToAddRows = false;
-			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.sample});
-			this.dataGridView1.Location = new System.Drawing.Point(3, 44);
-			this.dataGridView1.MinimumSize = new System.Drawing.Size(670, 400);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(670, 447);
-			this.dataGridView1.TabIndex = 0;
-			// 
-			// sample
-			// 
-			this.sample.HeaderText = "Column1";
-			this.sample.Name = "sample";
-			this.sample.ReadOnly = true;
+			this.NewAccountsDataTable.AllowUserToAddRows = false;
+			this.NewAccountsDataTable.AllowUserToDeleteRows = false;
+			this.NewAccountsDataTable.AllowUserToResizeColumns = false;
+			this.NewAccountsDataTable.AllowUserToResizeRows = false;
+			this.NewAccountsDataTable.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.NewAccountsDataTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.NewAccountsDataTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			this.NewAccountsDataTable.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.NewAccountsDataTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			this.NewAccountsDataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.NewAccountsDataTable.Location = new System.Drawing.Point(3, 44);
+			this.NewAccountsDataTable.MinimumSize = new System.Drawing.Size(670, 400);
+			this.NewAccountsDataTable.Name = "NewAccountsDataTable";
+			this.NewAccountsDataTable.ReadOnly = true;
+			dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(3);
+			this.NewAccountsDataTable.RowsDefaultCellStyle = dataGridViewCellStyle6;
+			this.NewAccountsDataTable.Size = new System.Drawing.Size(670, 447);
+			this.NewAccountsDataTable.TabIndex = 0;
 			// 
 			// tableLayoutPanel1
 			// 
@@ -678,8 +707,11 @@
 			this.Name = "CreateNewAccountForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "CreateNewAccountForm";
+			this.Load += new System.EventHandler(this.CreateNewAccountForm_Load);
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel2.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.sPGetAllGenderResultBindingSource1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.sPGetAllGenderResultBindingSource)).EndInit();
 			this.flowLayoutPanel2.ResumeLayout(false);
 			this.flowLayoutPanel2.PerformLayout();
 			this.tableLayoutPanel3.ResumeLayout(false);
@@ -691,7 +723,7 @@
 			this.flowLayoutPanel1.PerformLayout();
 			this.tableLayoutPanel6.ResumeLayout(false);
 			this.tableLayoutPanel6.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.NewAccountsDataTable)).EndInit();
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.ResumeLayout(false);
@@ -717,7 +749,7 @@
 		private System.Windows.Forms.Label label9;
 		private System.Windows.Forms.Label label10;
 		private System.Windows.Forms.TextBox FullNameTextBox;
-		private System.Windows.Forms.DateTimePicker DateOfBirth;
+		private System.Windows.Forms.DateTimePicker DateOfBirthDateTimePicker;
 		private System.Windows.Forms.ComboBox MaritalStatusComboBox;
 		private System.Windows.Forms.ComboBox GenderComboBox;
 		private System.Windows.Forms.Label label11;
@@ -733,8 +765,7 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.TextBox textBox10;
-		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn sample;
+		private System.Windows.Forms.DataGridView NewAccountsDataTable;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.TextBox EmailTextBox;
 		private System.Windows.Forms.ComboBox RoleComboBox;
@@ -745,5 +776,7 @@
 		private System.Windows.Forms.Label label18;
 		private System.Windows.Forms.TextBox RepeatPasswordTextBox;
 		private System.Windows.Forms.CheckBox ShowPasswordCheckBox;
+		private System.Windows.Forms.BindingSource sPGetAllGenderResultBindingSource1;
+		private System.Windows.Forms.BindingSource sPGetAllGenderResultBindingSource;
 	}
 }

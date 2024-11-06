@@ -45,8 +45,6 @@ create or alter procedure SP_AddClient
 
 			set @Get_Marital_Status_Id_Reference = (select ms.Id from Marital_Status as ms where ms.[Status] = @MaritalStatus )
 
-			select * from dbo.FN_Get_All_User_Related_Records()
-
 			if @Get_Role_Id_Reference is null or @Get_Role_Id_Reference = ''
 				begin
 					raiserror('No matching role found', 16, 16);
@@ -59,7 +57,7 @@ create or alter procedure SP_AddClient
 					return;
 				end;
 
-			insert into [User] values(@FullName, @DateOfBirth, @Gender, @Get_Role_Id_Reference, @AddressId, @Get_Marital_Status_Id_Reference);
+			insert into [User] values(@FullName, @DateOfBirth, @Get_Role_Id_Reference, @AddressId, @Get_Marital_Status_Id_Reference,  @Gender);
 			set @UserId = SCOPE_IDENTITY();
 
 			insert into Client values(@UserId);
@@ -129,12 +127,16 @@ select * from [Credential]
 select * from [Role]
 select * from [Address]
 
-delete from [User];
-delete from [Client];
-delete from [Credential];
+delete from Account;
 delete from [Address];
+delete from Balance;
+delete from [Credential];
+delete from DepositLogs
 delete from [Phone];
 delete from [Parent];
+delete from [User];
+delete from WithdrawLogs
+
 
 delete from [Marital_Status];
 delete from [Role];
@@ -411,3 +413,16 @@ create or alter procedure SP_Withdraw
 	end;
 
 select * from dbo.FN_DisplayNewAccountCreated()
+
+-- -------------------------------------------------------------------
+create or alter procedure SP_GetAllMartiralStatus
+	as
+	select * from Marital_Status
+
+create or alter procedure SP_GetAllRoles
+	as
+	select * from [Role]
+
+create or alter procedure SP_GetAllGender
+	as
+	select * from Gender order by Id

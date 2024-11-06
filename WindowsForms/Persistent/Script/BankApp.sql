@@ -1,12 +1,27 @@
 ﻿-- create database BankApp
 
 use BankApp
-
-
 /*
 	This table should only accept a type of Admin and Client
 	and nothing else.
 */
+
+create table Gender
+(
+	Id int primary key identity(1,1),
+	[Type] varchar(100) not null unique
+);
+
+INSERT INTO Gender ([Type]) VALUES
+('Male'),
+('Female'),
+('Non-Binary'),
+('Genderqueer / Gender Non-Conforming'),
+('Transgender'),
+('Other'),
+('Prefer Not to Say');
+
+
 create table [Role]
 (
 	Id int primary key identity(1,1),
@@ -57,6 +72,15 @@ create table [User]
 /*
 	Alter tables for USER
 */
+alter table [User]
+	add Gender varchar(255)
+
+alter table [User]
+	drop column GenderId
+
+	
+select * from [User]
+
 alter table [User]
 	add RoleId int not null
 

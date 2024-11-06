@@ -1,8 +1,0 @@
-﻿CREATE TABLE [dbo].[Account] (
-    [Id]     INT IDENTITY (10001, 1) NOT NULL,
-    [UserId] INT NOT NULL,
-    PRIMARY KEY CLUSTERED ([Id] ASC),
-    FOREIGN KEY ([UserId]) REFERENCES [dbo].[User] ([Id]) ON DELETE CASCADE ON UPDATE CASCADE,
-    UNIQUE NONCLUSTERED ([UserId] ASC)
-);
-
