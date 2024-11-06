@@ -333,3 +333,5 @@ DBCC OPENTRAN (BankApp) WITH TABLERESULTS, NO_INFOMSGS;
 SELECT * 
 FROM sys.dm_exec_sessions 
 WHERE session_id = 52;
+
+kill 52;

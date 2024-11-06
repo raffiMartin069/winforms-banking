@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{58488C56-202B-4C81-BE66-838FDB17BCB4}</ProjectGuid>
+    <ProjectGuid>{843A5865-D90F-420E-8EAF-FC0D68593128}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Martinez_BankApp</RootNamespace>
     <AssemblyName>Martinez_BankApp</AssemblyName>
