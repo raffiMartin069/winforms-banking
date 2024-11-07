@@ -28,9 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.FathersNameTextBox = new System.Windows.Forms.TextBox();
 			this.label8 = new System.Windows.Forms.Label();
@@ -51,8 +50,6 @@
 			this.DateOfBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
 			this.MaritalStatusComboBox = new System.Windows.Forms.ComboBox();
 			this.GenderComboBox = new System.Windows.Forms.ComboBox();
-			this.sPGetAllGenderResultBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-			this.sPGetAllGenderResultBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.label14 = new System.Windows.Forms.Label();
 			this.RoleComboBox = new System.Windows.Forms.ComboBox();
 			this.label16 = new System.Windows.Forms.Label();
@@ -72,19 +69,19 @@
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+			this.ProfileImagePictureBox = new System.Windows.Forms.PictureBox();
 			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
 			this.label13 = new System.Windows.Forms.Label();
-			this.textBox10 = new System.Windows.Forms.TextBox();
+			this.SearchBoxTextField = new System.Windows.Forms.TextBox();
 			this.NewAccountsDataTable = new System.Windows.Forms.DataGridView();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.sPGetAllGenderResultBindingSource1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.sPGetAllGenderResultBindingSource)).BeginInit();
 			this.flowLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.tableLayoutPanel5.SuspendLayout();
 			this.tableLayoutPanel4.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ProfileImagePictureBox)).BeginInit();
 			this.tableLayoutPanel6.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NewAccountsDataTable)).BeginInit();
 			this.tableLayoutPanel1.SuspendLayout();
@@ -343,8 +340,6 @@
 			// GenderComboBox
 			// 
 			this.GenderComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.GenderComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.sPGetAllGenderResultBindingSource1, "Type", true));
-			this.GenderComboBox.DataSource = this.sPGetAllGenderResultBindingSource;
 			this.GenderComboBox.DisplayMember = "Type";
 			this.GenderComboBox.FormattingEnabled = true;
 			this.GenderComboBox.Location = new System.Drawing.Point(171, 412);
@@ -353,14 +348,6 @@
 			this.GenderComboBox.Size = new System.Drawing.Size(455, 29);
 			this.GenderComboBox.TabIndex = 20;
 			this.GenderComboBox.ValueMember = "Type";
-			// 
-			// sPGetAllGenderResultBindingSource1
-			// 
-			this.sPGetAllGenderResultBindingSource1.DataSource = typeof(Martinez_BankApp.Persistent.Data.SP_GetAllGenderResult);
-			// 
-			// sPGetAllGenderResultBindingSource
-			// 
-			this.sPGetAllGenderResultBindingSource.DataSource = typeof(Martinez_BankApp.Persistent.Data.SP_GetAllGenderResult);
 			// 
 			// label14
 			// 
@@ -601,14 +588,29 @@
 			// 
 			this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.flowLayoutPanel1.Controls.Add(this.ProfileImagePictureBox);
 			this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel6);
 			this.flowLayoutPanel1.Controls.Add(this.NewAccountsDataTable);
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(695, 136);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(695, 47);
 			this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(694, 519);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-			this.flowLayoutPanel1.Size = new System.Drawing.Size(694, 519);
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(694, 697);
 			this.flowLayoutPanel1.TabIndex = 1;
+			// 
+			// ProfileImagePictureBox
+			// 
+			this.ProfileImagePictureBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.ProfileImagePictureBox.ErrorImage = global::Martinez_BankApp.Properties.Resources._default;
+			this.ProfileImagePictureBox.Image = global::Martinez_BankApp.Properties.Resources._default;
+			this.ProfileImagePictureBox.InitialImage = global::Martinez_BankApp.Properties.Resources._default;
+			this.ProfileImagePictureBox.Location = new System.Drawing.Point(248, 3);
+			this.ProfileImagePictureBox.MinimumSize = new System.Drawing.Size(180, 180);
+			this.ProfileImagePictureBox.Name = "ProfileImagePictureBox";
+			this.ProfileImagePictureBox.Size = new System.Drawing.Size(180, 180);
+			this.ProfileImagePictureBox.TabIndex = 2;
+			this.ProfileImagePictureBox.TabStop = false;
+			this.ProfileImagePictureBox.Click += new System.EventHandler(this.ProfileImagePictureBox_Click);
 			// 
 			// tableLayoutPanel6
 			// 
@@ -619,8 +621,8 @@
 			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel6.Controls.Add(this.label13, 0, 0);
-			this.tableLayoutPanel6.Controls.Add(this.textBox10, 1, 0);
-			this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel6.Controls.Add(this.SearchBoxTextField, 1, 0);
+			this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 189);
 			this.tableLayoutPanel6.Name = "tableLayoutPanel6";
 			this.tableLayoutPanel6.RowCount = 1;
 			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -637,13 +639,14 @@
 			this.label13.TabIndex = 0;
 			this.label13.Text = "Search";
 			// 
-			// textBox10
+			// SearchBoxTextField
 			// 
-			this.textBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.textBox10.Location = new System.Drawing.Point(66, 3);
-			this.textBox10.Name = "textBox10";
-			this.textBox10.Size = new System.Drawing.Size(601, 29);
-			this.textBox10.TabIndex = 1;
+			this.SearchBoxTextField.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.SearchBoxTextField.Location = new System.Drawing.Point(66, 3);
+			this.SearchBoxTextField.Name = "SearchBoxTextField";
+			this.SearchBoxTextField.Size = new System.Drawing.Size(601, 29);
+			this.SearchBoxTextField.TabIndex = 1;
+			this.SearchBoxTextField.TextChanged += new System.EventHandler(this.SearchBoxTextField_TextChanged);
 			// 
 			// NewAccountsDataTable
 			// 
@@ -655,22 +658,22 @@
 			this.NewAccountsDataTable.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.NewAccountsDataTable.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
 			this.NewAccountsDataTable.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.NewAccountsDataTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.NewAccountsDataTable.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.NewAccountsDataTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.NewAccountsDataTable.Location = new System.Drawing.Point(3, 44);
+			this.NewAccountsDataTable.Location = new System.Drawing.Point(3, 230);
 			this.NewAccountsDataTable.MinimumSize = new System.Drawing.Size(670, 400);
 			this.NewAccountsDataTable.Name = "NewAccountsDataTable";
 			this.NewAccountsDataTable.ReadOnly = true;
-			dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(3);
-			this.NewAccountsDataTable.RowsDefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3);
+			this.NewAccountsDataTable.RowsDefaultCellStyle = dataGridViewCellStyle2;
 			this.NewAccountsDataTable.Size = new System.Drawing.Size(670, 447);
 			this.NewAccountsDataTable.TabIndex = 0;
 			// 
@@ -710,8 +713,6 @@
 			this.Load += new System.EventHandler(this.CreateNewAccountForm_Load);
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel2.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.sPGetAllGenderResultBindingSource1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.sPGetAllGenderResultBindingSource)).EndInit();
 			this.flowLayoutPanel2.ResumeLayout(false);
 			this.flowLayoutPanel2.PerformLayout();
 			this.tableLayoutPanel3.ResumeLayout(false);
@@ -721,6 +722,7 @@
 			this.tableLayoutPanel4.PerformLayout();
 			this.flowLayoutPanel1.ResumeLayout(false);
 			this.flowLayoutPanel1.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.ProfileImagePictureBox)).EndInit();
 			this.tableLayoutPanel6.ResumeLayout(false);
 			this.tableLayoutPanel6.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.NewAccountsDataTable)).EndInit();
@@ -764,7 +766,7 @@
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
 		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.TextBox textBox10;
+		private System.Windows.Forms.TextBox SearchBoxTextField;
 		private System.Windows.Forms.DataGridView NewAccountsDataTable;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.TextBox EmailTextBox;
@@ -776,7 +778,6 @@
 		private System.Windows.Forms.Label label18;
 		private System.Windows.Forms.TextBox RepeatPasswordTextBox;
 		private System.Windows.Forms.CheckBox ShowPasswordCheckBox;
-		private System.Windows.Forms.BindingSource sPGetAllGenderResultBindingSource1;
-		private System.Windows.Forms.BindingSource sPGetAllGenderResultBindingSource;
+		private System.Windows.Forms.PictureBox ProfileImagePictureBox;
 	}
 }

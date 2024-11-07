@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BankApp" Class="DBContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BankApp;Integrated Security=True;Encrypt=True;Trust Server Certificate=True" SettingsObjectName="Martinez_BankApp.Properties.Settings" SettingsPropertyName="BankAppConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BankApp;Integrated Security=True;Encrypt=False;Trust Server Certificate=True" SettingsObjectName="Martinez_BankApp.Properties.Settings" SettingsPropertyName="BankAppConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Account" Member="Accounts">
     <Type Name="Account">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -33,7 +33,7 @@
   <Table Name="dbo.Balance" Member="Balances">
     <Type Name="Balance">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="DateEntered" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="TimeEntered" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
       <Association Name="Account_Balance" Member="Account" ThisKey="Id" OtherKey="Id" Type="Account" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
@@ -103,6 +103,13 @@
       <Association Name="User_Phone" Member="User" ThisKey="Id" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.ProfilePicture" Member="ProfilePictures">
+    <Type Name="ProfilePicture">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_ProfilePicture" Member="User" ThisKey="Id" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Role" Member="Roles">
     <Type Name="Role">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -125,6 +132,7 @@
       <Association Name="User_Credential" Member="Credential" ThisKey="Id" OtherKey="Id" Type="Credential" Cardinality="One" />
       <Association Name="User_Parent" Member="Parent" ThisKey="Id" OtherKey="Id" Type="Parent" Cardinality="One" />
       <Association Name="User_Phone" Member="Phone" ThisKey="Id" OtherKey="Id" Type="Phone" Cardinality="One" />
+      <Association Name="User_ProfilePicture" Member="ProfilePicture" ThisKey="Id" OtherKey="Id" Type="ProfilePicture" Cardinality="One" />
       <Association Name="Address_User" Member="Address" ThisKey="AddressId" OtherKey="Id" Type="Address" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Marital_Status_User" Member="Marital_Status" ThisKey="MaritalStatusId" OtherKey="Id" Type="Marital_Status" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Role_User" Member="Role" ThisKey="RoleId" OtherKey="Id" Type="Role" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
@@ -173,6 +181,12 @@
       <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.SP_GetAllMartiralStatus" Method="SP_GetAllMartiralStatus">
+    <ElementType Name="SP_GetAllMartiralStatusResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.SP_AddClient" Method="SP_AddClient">
     <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="VarChar(255)" />
     <Parameter Name="DateOfBirth" Parameter="dateOfBirth" Type="System.DateTime" DbType="Date" />
@@ -186,14 +200,24 @@
     <Parameter Name="MotherName" Parameter="motherName" Type="System.String" DbType="VarChar(255)" />
     <Parameter Name="FatherName" Parameter="fatherName" Type="System.String" DbType="VarChar(255)" />
     <Parameter Name="Role" Parameter="role" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Balance" Parameter="balance" Type="System.Decimal" DbType="Decimal(18,0)" />
+    <Parameter Name="Balance" Parameter="balance" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="ProfileImage" Parameter="profileImage" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
     <ElementType Name="SP_AddClientResult">
-      <Column Name="Message" Type="System.String" DbType="VarChar(27) NOT NULL" CanBeNull="false" />
+      <Column Name="Message" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SP_GetAllMartiralStatus" Method="SP_GetAllMartiralStatus">
-    <ElementType Name="SP_GetAllMartiralStatusResult">
+  <Function Name="dbo.SP_SearchUserByKey" Method="SP_SearchUserByKey">
+    <Parameter Name="Key" Parameter="key" Type="System.String" DbType="VarChar(255)" />
+    <ElementType Name="SP_SearchUserByKeyResult">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="HomeAddress" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Number" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="[Name of Father]" Member="Name_of_Father" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="[Name of Mother]" Member="Name_of_Mother" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>

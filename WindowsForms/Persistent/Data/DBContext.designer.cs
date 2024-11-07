@@ -69,6 +69,9 @@ namespace Martinez_BankApp.Persistent.Data
     partial void InsertPhone(Phone instance);
     partial void UpdatePhone(Phone instance);
     partial void DeletePhone(Phone instance);
+    partial void InsertProfilePicture(ProfilePicture instance);
+    partial void UpdateProfilePicture(ProfilePicture instance);
+    partial void DeleteProfilePicture(ProfilePicture instance);
     partial void InsertRole(Role instance);
     partial void UpdateRole(Role instance);
     partial void DeleteRole(Role instance);
@@ -214,6 +217,14 @@ namespace Martinez_BankApp.Persistent.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<ProfilePicture> ProfilePictures
+		{
+			get
+			{
+				return this.GetTable<ProfilePicture>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Role> Roles
 		{
 			get
@@ -259,18 +270,25 @@ namespace Martinez_BankApp.Persistent.Data
 			return ((ISingleResult<SP_GetAllRolesResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_AddClient")]
-		public ISingleResult<SP_AddClientResult> SP_AddClient([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="VarChar(255)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateOfBirth", DbType="Date")] System.Nullable<System.DateTime> dateOfBirth, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(255)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(255)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RepeatPassword", DbType="VarChar(255)")] string repeatPassword, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Phone", DbType="Char(15)")] string phone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="VarChar(255)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaritalStatus", DbType="VarChar(255)")] string maritalStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="VarChar(255)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotherName", DbType="VarChar(255)")] string motherName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FatherName", DbType="VarChar(255)")] string fatherName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Role", DbType="VarChar(100)")] string role, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Balance", DbType="Decimal(18,0)")] System.Nullable<decimal> balance)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fullName, dateOfBirth, email, password, repeatPassword, phone, address, maritalStatus, gender, motherName, fatherName, role, balance);
-			return ((ISingleResult<SP_AddClientResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GetAllMartiralStatus")]
 		public ISingleResult<SP_GetAllMartiralStatusResult> SP_GetAllMartiralStatus()
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_GetAllMartiralStatusResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_AddClient")]
+		public ISingleResult<SP_AddClientResult> SP_AddClient([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="VarChar(255)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateOfBirth", DbType="Date")] System.Nullable<System.DateTime> dateOfBirth, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(255)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(255)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RepeatPassword", DbType="VarChar(255)")] string repeatPassword, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Phone", DbType="Char(15)")] string phone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="VarChar(255)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaritalStatus", DbType="VarChar(255)")] string maritalStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="VarChar(255)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotherName", DbType="VarChar(255)")] string motherName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FatherName", DbType="VarChar(255)")] string fatherName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Role", DbType="VarChar(100)")] string role, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Balance", DbType="Decimal(18,2)")] System.Nullable<decimal> balance, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProfileImage", DbType="VarBinary(MAX)")] System.Data.Linq.Binary profileImage)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fullName, dateOfBirth, email, password, repeatPassword, phone, address, maritalStatus, gender, motherName, fatherName, role, balance, profileImage);
+			return ((ISingleResult<SP_AddClientResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_SearchUserByKey")]
+		public ISingleResult<SP_SearchUserByKeyResult> SP_SearchUserByKey([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Key", DbType="VarChar(255)")] string key)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), key);
+			return ((ISingleResult<SP_SearchUserByKeyResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -880,7 +898,7 @@ namespace Martinez_BankApp.Persistent.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,0)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,2)")]
 		public System.Nullable<decimal> Amount
 		{
 			get
@@ -2177,6 +2195,133 @@ namespace Martinez_BankApp.Persistent.Data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ProfilePicture")]
+	public partial class ProfilePicture : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Data.Linq.Binary _Image;
+		
+		private EntityRef<User> _User;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnImageChanging(System.Data.Linq.Binary value);
+    partial void OnImageChanged();
+    #endregion
+		
+		public ProfilePicture()
+		{
+			this._User = default(EntityRef<User>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					if (this._User.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarBinary(MAX) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_ProfilePicture", Storage="_User", ThisKey="Id", OtherKey="Id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public User User
+		{
+			get
+			{
+				return this._User.Entity;
+			}
+			set
+			{
+				User previousValue = this._User.Entity;
+				if (((previousValue != value) 
+							|| (this._User.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._User.Entity = null;
+						previousValue.ProfilePicture = null;
+					}
+					this._User.Entity = value;
+					if ((value != null))
+					{
+						value.ProfilePicture = this;
+						this._Id = value.Id;
+					}
+					else
+					{
+						this._Id = default(int);
+					}
+					this.SendPropertyChanged("User");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Role")]
 	public partial class Role : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2323,6 +2468,8 @@ namespace Martinez_BankApp.Persistent.Data
 		
 		private EntityRef<Phone> _Phone;
 		
+		private EntityRef<ProfilePicture> _ProfilePicture;
+		
 		private EntityRef<Address> _Address;
 		
 		private EntityRef<Marital_Status> _Marital_Status;
@@ -2357,6 +2504,7 @@ namespace Martinez_BankApp.Persistent.Data
 			this._Credential = default(EntityRef<Credential>);
 			this._Parent = default(EntityRef<Parent>);
 			this._Phone = default(EntityRef<Phone>);
+			this._ProfilePicture = default(EntityRef<ProfilePicture>);
 			this._Address = default(EntityRef<Address>);
 			this._Marital_Status = default(EntityRef<Marital_Status>);
 			this._Role = default(EntityRef<Role>);
@@ -2669,6 +2817,35 @@ namespace Martinez_BankApp.Persistent.Data
 						value.User = this;
 					}
 					this.SendPropertyChanged("Phone");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="User_ProfilePicture", Storage="_ProfilePicture", ThisKey="Id", OtherKey="Id", IsUnique=true, IsForeignKey=false)]
+		public ProfilePicture ProfilePicture
+		{
+			get
+			{
+				return this._ProfilePicture.Entity;
+			}
+			set
+			{
+				ProfilePicture previousValue = this._ProfilePicture.Entity;
+				if (((previousValue != value) 
+							|| (this._ProfilePicture.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ProfilePicture.Entity = null;
+						previousValue.User = null;
+					}
+					this._ProfilePicture.Entity = value;
+					if ((value != null))
+					{
+						value.User = this;
+					}
+					this.SendPropertyChanged("ProfilePicture");
 				}
 			}
 		}
@@ -3456,32 +3633,6 @@ namespace Martinez_BankApp.Persistent.Data
 		}
 	}
 	
-	public partial class SP_AddClientResult
-	{
-		
-		private string _Message;
-		
-		public SP_AddClientResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(27) NOT NULL", CanBeNull=false)]
-		public string Message
-		{
-			get
-			{
-				return this._Message;
-			}
-			set
-			{
-				if ((this._Message != value))
-				{
-					this._Message = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SP_GetAllMartiralStatusResult
 	{
 		
@@ -3505,6 +3656,220 @@ namespace Martinez_BankApp.Persistent.Data
 				if ((this._Id != value))
 				{
 					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_AddClientResult
+	{
+		
+		private string _Message;
+		
+		public SP_AddClientResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string Message
+		{
+			get
+			{
+				return this._Message;
+			}
+			set
+			{
+				if ((this._Message != value))
+				{
+					this._Message = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_SearchUserByKeyResult
+	{
+		
+		private int _Id;
+		
+		private string _FullName;
+		
+		private string _Gender;
+		
+		private string _Type;
+		
+		private string _HomeAddress;
+		
+		private string _Email;
+		
+		private string _Number;
+		
+		private string _Name_of_Father;
+		
+		private string _Name_of_Mother;
+		
+		private string _Status;
+		
+		public SP_SearchUserByKeyResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FullName", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string FullName
+		{
+			get
+			{
+				return this._FullName;
+			}
+			set
+			{
+				if ((this._FullName != value))
+				{
+					this._FullName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="VarChar(255)")]
+		public string Gender
+		{
+			get
+			{
+				return this._Gender;
+			}
+			set
+			{
+				if ((this._Gender != value))
+				{
+					this._Gender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this._Type = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HomeAddress", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string HomeAddress
+		{
+			get
+			{
+				return this._HomeAddress;
+			}
+			set
+			{
+				if ((this._HomeAddress != value))
+				{
+					this._HomeAddress = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="Char(15)")]
+		public string Number
+		{
+			get
+			{
+				return this._Number;
+			}
+			set
+			{
+				if ((this._Number != value))
+				{
+					this._Number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Name of Father]", Storage="_Name_of_Father", DbType="VarChar(255)")]
+		public string Name_of_Father
+		{
+			get
+			{
+				return this._Name_of_Father;
+			}
+			set
+			{
+				if ((this._Name_of_Father != value))
+				{
+					this._Name_of_Father = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Name of Mother]", Storage="_Name_of_Mother", DbType="VarChar(255)")]
+		public string Name_of_Mother
+		{
+			get
+			{
+				return this._Name_of_Mother;
+			}
+			set
+			{
+				if ((this._Name_of_Mother != value))
+				{
+					this._Name_of_Mother = value;
 				}
 			}
 		}

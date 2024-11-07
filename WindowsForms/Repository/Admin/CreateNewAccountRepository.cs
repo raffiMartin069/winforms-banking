@@ -24,18 +24,20 @@ namespace Martinez_BankApp.Repository.Admin
 
 		public ISingleResult<SP_DisplayNewAccountCreatedResult> GetAllNewAccountCreated() => _context.SP_DisplayNewAccountCreated();
 
-		public string AddAccount(NewAccountDto dto)
+		public string AddAccount(NewAccount dto)
 		{
 			var result = _context.SP_AddClient(dto.FullName, dto.DateOfBirth, dto.Email, 
 				dto.Password, dto.RepeatPassword, dto.Phone, 
 				dto.Address, dto.MaritalStatus, dto.Gender, 
 				dto.MotherName, dto.FatherName, dto.Role, 
-				dto.Balance).SingleOrDefault();
+				dto.Balance, dto.ProfilePicture).SingleOrDefault();
 
 			if(result.Message == "1")
 				throw new Exception("Failed to create new account");
 
 			return result.Message;
 		}
+
+		public ISingleResult<SP_SearchUserByKeyResult> FindAccountByKey(string key) => _context.SP_SearchUserByKey(key);
 	}
 }

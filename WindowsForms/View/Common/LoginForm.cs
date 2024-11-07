@@ -1,4 +1,4 @@
-﻿using Martinez_BankApp.Service.Common;
+﻿using Martinez_BankApp.Repository.Authentication;
 using System;
 using System.Windows.Forms;
 
@@ -13,13 +13,13 @@ namespace Martinez_BankApp
 
         private void LoginButton_Click(object sender, EventArgs e)
 		{
-			LoginService loginService = new LoginService();
+			ClientLoginRepository _repository = new ClientLoginRepository();
 			bool isValid = false;
 			try
 			{
 				string username = UserNameTextField.Text;
 				string password = PasswordTextField.Text;
-				loginService.GetUserCredential(username, password);
+				_repository.GetUserCredential(username, password);
 			}
 			catch (Exception ex)
 			{

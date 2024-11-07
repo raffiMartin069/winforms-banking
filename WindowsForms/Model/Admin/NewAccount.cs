@@ -2,13 +2,13 @@
 
 namespace Martinez_BankApp.Dto.Admin
 {
-	public class NewAccountDto
+	public class NewAccount
 	{
-		public NewAccountDto(string fullname, DateTime dateOfBirth,
+		public NewAccount(string fullname, DateTime dateOfBirth,
 			string email, string password, string repeatpassword,
 			string phone, string address, string maritalStatus, 
 			string gender, string motherName, string fatherName, 
-			string role, decimal balance)
+			string role, decimal balance, byte[] profilePicture)
         {
 			FullName = fullname;
 			DateOfBirth = dateOfBirth;
@@ -23,6 +23,7 @@ namespace Martinez_BankApp.Dto.Admin
 			FatherName = fatherName;
 			Role = role;
 			Balance = balance;
+			ProfilePicture = profilePicture;
 		}
 
         public string FullName { get; private set; }
@@ -38,6 +39,7 @@ namespace Martinez_BankApp.Dto.Admin
 		public string FatherName { get; private set; }
 		public string Role { get; private set; }
 		public decimal Balance { get; private set; }
+		public byte[] ProfilePicture { get; private set; }
 
 	}
 }

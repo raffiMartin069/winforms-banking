@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dto\Admin\NewAccountDto.cs" />
+    <Compile Include="Model\Admin\NewAccount.cs" />
     <Compile Include="Factory\AdminFormFactory.cs" />
     <Compile Include="Factory\ClientFormFactory.cs" />
     <Compile Include="Persistent\Data\DBContext.designer.cs">
@@ -56,8 +56,8 @@
       <DependentUpon>DBContext.dbml</DependentUpon>
     </Compile>
     <Compile Include="Repository\Admin\CreateNewAccountRepository.cs" />
-    <Compile Include="Service\Admin\CreateNewAccountService.cs" />
-    <Compile Include="Service\Common\LoginService.cs" />
+    <Compile Include="Repository\Authentication\ClientLoginRepository.cs" />
+    <Compile Include="Utility\ProfilePictureUtility.cs" />
     <Compile Include="View\Common\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,6 +201,7 @@
     <Content Include="Persistent\Script\BankApp.sql" />
     <Content Include="Persistent\Script\Functions.sql" />
     <Content Include="Persistent\Script\StoredProcedures.sql" />
+    <None Include="resources\img\default.png" />
     <Content Include="resources\img\planning.jpg" />
   </ItemGroup>
   <ItemGroup />
