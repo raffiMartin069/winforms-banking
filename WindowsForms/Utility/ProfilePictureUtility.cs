@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,12 +14,7 @@ namespace Martinez_BankApp.Utility
 	{
 		private const string ALLOWED_FORMAT = "Image Files(*.bmp; *.jpg; *.jpeg; *.png; *.gif)|*.bmp;*.jpg;*.jpeg;*.png;*.gif";
 
-		public ProfilePictureUtility(PictureBox profileImage)
-        {
-            ProfileImage = profileImage;
-		}
-
-		public PictureBox ProfileImage { get; private set; }
+		public PictureBox ProfileImage { get; set; }
 
 		private void CheckImageNotNull()
 		{
@@ -25,34 +22,55 @@ namespace Martinez_BankApp.Utility
 				throw new Exception("Please select an image first.");
 		}
 
-		public byte[] ConvertImageToByteArray()
+		public Image ConvertyByteArrayToImage(byte[] imageByte)
 		{
-			byte[] image = null;
+			if(imageByte == null || imageByte.Length == 0)
+				return null;
 
-			CheckImageNotNull();
-			using (MemoryStream stream = new MemoryStream())
+			using(MemoryStream stream = new MemoryStream(imageByte))
 			{
-				ProfileImage.Image.Save(stream, ProfileImage.Image.RawFormat);
-				image = stream.ToArray();
+				var image = Image.FromStream(stream);
+				return image;
 			}
-			return image;
 		}
 
-			/**
-			 * <summary>
-			 * Allows a user to open an image selector dialog and select an image for profile picture
-			 * </summary>
-			 * **/
-			public void OpenProfilePictureSelector()
+		public byte[] ConvertImageToByteArray()
+		{
+			try
+			{
+				byte[] image = null;
+				CheckImageNotNull();
+				using (MemoryStream stream = new MemoryStream())
+				{
+					ProfileImage.Image.Save(stream, ProfileImage.Image.RawFormat);
+					image = stream.ToArray();
+				}
+				return image;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("No image found.");
+				Debug.WriteLine(ex.Message);
+				return null;
+			}
+		}
+
+		/**
+		 * <summary>
+		 * Allows a user to open an image selector dialog and select an image for profile picture
+		 * </summary>
+		 * **/
+		public void OpenProfilePictureSelector()
 		{
 			using (OpenFileDialog dialog = new OpenFileDialog())
 			{
 				dialog.Filter = ALLOWED_FORMAT;
-				if (dialog.ShowDialog() == DialogResult.OK)
-				{
-					ProfileImage.Image = new System.Drawing.Bitmap(dialog.FileName);
-					ProfileImage.SizeMode = PictureBoxSizeMode.StretchImage;
-				}
+
+				if (dialog.ShowDialog() != DialogResult.OK)
+					return;
+
+				ProfileImage.Image = new System.Drawing.Bitmap(dialog.FileName);
+				ProfileImage.SizeMode = PictureBoxSizeMode.StretchImage;
 			}
 		}
 	}

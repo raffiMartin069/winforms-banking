@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Admin\Image.cs" />
     <Compile Include="Model\Admin\NewAccount.cs" />
     <Compile Include="Factory\AdminFormFactory.cs" />
     <Compile Include="Factory\ClientFormFactory.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Repository\Admin\CreateNewAccountRepository.cs" />
     <Compile Include="Repository\Authentication\ClientLoginRepository.cs" />
     <Compile Include="Utility\ProfilePictureUtility.cs" />
+    <Compile Include="Utility\TableGenerator.cs" />
     <Compile Include="View\Common\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,7 +206,9 @@
     <None Include="resources\img\default.png" />
     <Content Include="resources\img\planning.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="resources\img\test\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>

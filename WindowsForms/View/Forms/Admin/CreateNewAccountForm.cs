@@ -3,7 +3,12 @@ using Martinez_BankApp.Persistent.Data;
 using Martinez_BankApp.Repository.Admin;
 using Martinez_BankApp.Utility;
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Martinez_BankApp.View.Forms.Admin
@@ -29,10 +34,18 @@ namespace Martinez_BankApp.View.Forms.Admin
 		 * **/
 		private void GenerateGenderType()
 		{
-			var genderTypes = _repository.GetAllGender();
-			GenderComboBox.DisplayMember = "Type";
-			GenderComboBox.ValueMember = "Id";
-			GenderComboBox.DataSource = genderTypes;
+			try
+			{
+				var genderTypes = _repository.GetAllGender();
+				GenderComboBox.DisplayMember = "Type";
+				GenderComboBox.ValueMember = "Id";
+				GenderComboBox.DataSource = genderTypes;
+			}
+			catch (Exception ex)
+			{
+				MessagePrompt("List of gender is empty");
+				Debug.WriteLine(ex.Message);
+			}
 		}
 
 		/**
@@ -43,10 +56,18 @@ namespace Martinez_BankApp.View.Forms.Admin
 		 * **/
 		private void GenerateMaritalStatus()
 		{
-			var maritalStat = _repository.GetAllMaritalStatus();
-			MaritalStatusComboBox.DisplayMember = "Status";
-			MaritalStatusComboBox.ValueMember = "Id";
-			MaritalStatusComboBox.DataSource = maritalStat;
+			try
+			{
+				var maritalStat = _repository.GetAllMaritalStatus();
+				MaritalStatusComboBox.DisplayMember = "Status";
+				MaritalStatusComboBox.ValueMember = "Id";
+				MaritalStatusComboBox.DataSource = maritalStat;
+			}
+			catch (Exception ex)
+			{
+				MessagePrompt("List of marital status is empty.");
+				Debug.WriteLine(ex.Message);
+			}
 		}
 
 		/**
@@ -57,10 +78,18 @@ namespace Martinez_BankApp.View.Forms.Admin
 		 * **/
 		private void GenerateRole()
 		{
-			var role = _repository.GetAllRole();
-			RoleComboBox.DisplayMember = "Type";
-			RoleComboBox.ValueMember = "Id";
-			RoleComboBox.DataSource = role;
+			try
+			{
+				var role = _repository.GetAllRole();
+				RoleComboBox.DisplayMember = "Type";
+				RoleComboBox.ValueMember = "Id";
+				RoleComboBox.DataSource = role;
+			}
+			catch (Exception ex)
+			{
+				MessagePrompt("List of role is empty.");
+				Debug.WriteLine(ex.Message);
+			}
 		}
 
 		/**
@@ -96,13 +125,84 @@ namespace Martinez_BankApp.View.Forms.Admin
 			}
 		}
 
+		/**
+		 * <summary>
+		 * I made the column name and header to be the same to avoid confusion.
+		 * Both of them can be the same which I decided to just use this method
+		 * instead of creating for another method that would handle all headers.
+		 * </summary>
+		 * **/
+		private List<string> ColumnNameAndHeaderList()
+		{
+			return new List<string>
+			{
+				"User Identification",
+				"Profile Photo",
+				"Full Name",
+				"Date of Birth",
+				"Email",
+				"Phone Number",
+				"Home Address",
+				"Marital Status",
+				"Gender",
+				"Mother's Name",
+				"Father's Name",
+				"Account Number",
+				"Amount Balance"
+			};
+		}
+
+		private void CreateTableRow(List<SP_DisplayNewAccountCreatedResult> data, ProfilePictureUtility profileUtility)
+		{
+			foreach (var row in data)
+			{
+				int index = NewAccountsDataTable.Rows.Add();
+				DataGridViewRow newRow = NewAccountsDataTable.Rows[index];
+				newRow.Cells["User Identification"].Value = row.User_Identification.ToString();
+				var img = profileUtility.ConvertyByteArrayToImage(row.Profile_Photo.ToArray());
+				var resizedImg = new Bitmap(img, new Size(50, 50));
+				newRow.Cells["Profile Photo"].Value = resizedImg;
+				newRow.Cells["Full Name"].Value = row.Client_s_Full_Name;
+				newRow.Cells["Date of Birth"].Value = row.Date_of_Birth;
+				newRow.Cells["Email"].Value = row.Email;
+				newRow.Cells["Phone Number"].Value = row.Phone_Number;
+				newRow.Cells["Home Address"].Value = row.Home_Address;
+				newRow.Cells["Marital Status"].Value = row.Marital_Status;
+				newRow.Cells["Gender"].Value = row.Gender;
+				newRow.Cells["Mother's Name"].Value = row.Mother_s_Name;
+				newRow.Cells["Father's Name"].Value = row.Father_s_Name;
+				newRow.Cells["Account Number"].Value = row.Account_Number;
+				newRow.Cells["Amount Balance"].Value = row.Account_Balance;
+			}
+		}
+
+		private DataGridView CreateStaticColumns()
+		{
+			var tableGenerator = new TableGenerator(NewAccountsDataTable, ColumnNameAndHeaderList(), ColumnNameAndHeaderList());
+			return tableGenerator.GenerateTableCoumns();
+		}
+
 		private void DisplayAllNewAccount()
 		{
-			var data = _repository.GetAllNewAccountCreated();
-			if (data == null)
+			try
+			{
+				var listOfImages = new List<Image>();
+				var profileUtility = new ProfilePictureUtility();
+				var data = _repository.GetAllNewAccountCreated()?.ToList();
+				if (data == null)
+				{
+					MessagePrompt("No information to be displayed yet.");
+					return;
+				}
+
+				CreateStaticColumns();
+				CreateTableRow(data, profileUtility);
+			}
+			catch (Exception ex)
+			{
 				MessagePrompt("No information to be displayed yet.");
-			NewAccountsDataTable.DataSource = data;
-			LoopThroughColumnHeader(NewAccountsDataTable);
+				Debug.WriteLine(ex.Message);
+			}
 		}
 
 		private void MessagePrompt(string message) => MessageBox.Show(message);
@@ -142,7 +242,9 @@ namespace Martinez_BankApp.View.Forms.Admin
 			try
 			{
 				AddAccountHelperMethod(DateOfBirthDateTimePicker.Value.ToString(), BalanceTextBox.Text);
+				
 				byte[] profile = _profilePictureBytes;
+		
 				// Pass as data transfer objects, this model does not have any logic!
 				var account = new NewAccount
 					(FullNameTextBox.Text, DateOfBirthDateTimePicker.Value, EmailTextBox.Text,
@@ -225,12 +327,19 @@ namespace Martinez_BankApp.View.Forms.Admin
 		// This is a byte array to store the profile picture
 		// This will be used to store the profile picture in the database
 		// This will be used to display the profile picture in the form
-
 		private void ProfileImagePictureBox_Click(object sender, EventArgs e)
 		{
-			var utility = new ProfilePictureUtility(ProfileImagePictureBox);
-			utility.OpenProfilePictureSelector();
-			_profilePictureBytes = utility.ConvertImageToByteArray();
+			try
+			{
+				var utility = new ProfilePictureUtility();
+				utility.ProfileImage = ProfileImagePictureBox;
+				utility.OpenProfilePictureSelector();
+				_profilePictureBytes = utility.ConvertImageToByteArray();
+			}
+			catch(Exception ex)
+			{
+				MessagePrompt(ex.Message);
+			}
 		}
 
 		private void SearchBoxTextField_TextChanged(object sender, EventArgs e)

@@ -1,7 +1,9 @@
 ﻿using Martinez_BankApp.Dto.Admin;
+using Martinez_BankApp.Model.Admin;
 using Martinez_BankApp.Persistent.Data;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data.Linq;
 using System.Linq;
 
@@ -23,6 +25,10 @@ namespace Martinez_BankApp.Repository.Admin
 		public IEnumerable GetAllMaritalStatus() => _context.SP_GetAllMartiralStatus();
 
 		public ISingleResult<SP_DisplayNewAccountCreatedResult> GetAllNewAccountCreated() => _context.SP_DisplayNewAccountCreated();
+
+		//public IEnumerable GetImages() => from image in _context.ProfilePictures select new { image.Image, image.Id };
+
+		public IEnumerable<Image> GetImages() => _context.ProfilePictures.Select(image => new Image(image.Id, image.Image.ToArray()));
 
 		public string AddAccount(NewAccount dto)
 		{

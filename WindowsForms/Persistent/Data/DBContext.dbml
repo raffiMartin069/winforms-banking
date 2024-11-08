@@ -159,22 +159,6 @@
       <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SP_DisplayNewAccountCreated" Method="SP_DisplayNewAccountCreated">
-    <ElementType Name="SP_DisplayNewAccountCreatedResult">
-      <Column Name="[User Identification]" Member="User_Identification" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="[Client's Full Name]" Member="Client_s_Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="[Date of Birth]" Member="Date_of_Birth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="[Phone Number]" Member="Phone_Number" Type="System.String" DbType="Char(15)" CanBeNull="true" />
-      <Column Name="[Home Address]" Member="Home_Address" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="[Marital Status]" Member="Marital_Status" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="[Mother's Name]" Member="Mother_s_Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="[Father's Name]" Member="Father_s_Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="[Account Number]" Member="Account_Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="[Account Balance]" Member="Account_Balance" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.SP_GetAllRoles" Method="SP_GetAllRoles">
     <ElementType Name="SP_GetAllRolesResult">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -219,6 +203,23 @@
       <Column Name="[Name of Father]" Member="Name_of_Father" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="[Name of Mother]" Member="Name_of_Mother" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="Status" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_DisplayNewAccountCreated" Method="SP_DisplayNewAccountCreated">
+    <ElementType Name="SP_DisplayNewAccountCreatedResult">
+      <Column Name="[User Identification]" Member="User_Identification" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Client's Full Name]" Member="Client_s_Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="[Date of Birth]" Member="Date_of_Birth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="[Phone Number]" Member="Phone_Number" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="[Home Address]" Member="Home_Address" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="[Marital Status]" Member="Marital_Status" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="[Mother's Name]" Member="Mother_s_Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="[Father's Name]" Member="Father_s_Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="[Account Number]" Member="Account_Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Account Balance]" Member="Account_Balance" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="[Profile Photo]" Member="Profile_Photo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>
