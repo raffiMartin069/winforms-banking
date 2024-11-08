@@ -1,4 +1,6 @@
-﻿using Martinez_BankApp.View.Forms.Admin;
+﻿using Martinez_BankApp.Persistent.Data;
+using Martinez_BankApp.Repository.Admin;
+using Martinez_BankApp.View.Forms.Admin;
 using Martinez_BankApp.View.ParentMdi;
 using System;
 using System.Collections.Generic;
@@ -25,9 +27,12 @@ namespace Martinez_BankApp.Factory
 
 		public void AdminUpdateAccountForm()
 		{
-			var adminUpdateAccountForm = new AdminUpdateAccountForm();
-			adminUpdateAccountForm.MdiParent = _adminMdiForm;
-			adminUpdateAccountForm.Show();
+			using(var _context = new DBContextDataContext())
+			{
+				var adminUpdateAccountForm = new AdminUpdateAccountForm(new AdminUpdateAccountRepository(_context));
+				adminUpdateAccountForm.MdiParent = _adminMdiForm;
+				adminUpdateAccountForm.Show();
+			}
 		}
 
 		public void AdminWithdrawForm()
@@ -39,9 +44,12 @@ namespace Martinez_BankApp.Factory
 
 		public void CreateNewAccountForm()
 		{
-			var createNewAccountWindow = new CreateNewAccountForm();
-			createNewAccountWindow.MdiParent = _adminMdiForm;
-			createNewAccountWindow.Show();
+			using(var _context = new DBContextDataContext())
+			{
+				var createNewAccountWindow = new CreateNewAccountForm(new CreateNewAccountRepository(_context));
+				createNewAccountWindow.MdiParent = _adminMdiForm;
+				createNewAccountWindow.Show();
+			}
 		}
 
 		public void AdminSearchAccount()

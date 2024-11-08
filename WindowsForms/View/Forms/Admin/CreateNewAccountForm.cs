@@ -15,15 +15,16 @@ namespace Martinez_BankApp.View.Forms.Admin
 {
 	public partial class CreateNewAccountForm : Form
 	{
-		private CreateNewAccountRepository _repository = new CreateNewAccountRepository(new DBContextDataContext());
+		private CreateNewAccountRepository _repository;
 		private const string DEFAULT_MARITAL_STATUS_COMBO_BOX = "Single";
 		private const string DEFAULT_GENDER_COMBO_BOX = "Male";
 		private const string DEFAULT_ROLE_COMBO_BOX = "Client";
 		private byte[] _profilePictureBytes;
 
-		public CreateNewAccountForm()
+		public CreateNewAccountForm(CreateNewAccountRepository repository)
 		{
 			InitializeComponent();
+			_repository = repository;
 		}
 
 		/**
@@ -111,92 +112,33 @@ namespace Martinez_BankApp.View.Forms.Admin
 			DefaultValuesForComboBox();
 		}
 
-		/**
-		 * <summary>
-		 *	Helper method to loop through the column header and replace underscore with space
-		 *	<seealso cref="DisplayAllNewAccount()"/>
-		 * </summary>
-		 * **/
-		private static void LoopThroughColumnHeader(DataGridView view)
+		private static void ModifyTableHeaders(DataGridView view)
 		{
-			foreach (DataGridViewColumn column in view.Columns)
-			{
-				column.HeaderText = column.HeaderText.Replace("_", " ");
-			}
-		}
-
-		/**
-		 * <summary>
-		 * I made the column name and header to be the same to avoid confusion.
-		 * Both of them can be the same which I decided to just use this method
-		 * instead of creating for another method that would handle all headers.
-		 * </summary>
-		 * **/
-		private List<string> ColumnNameAndHeaderList()
-		{
-			return new List<string>
-			{
-				"User Identification",
-				"Profile Photo",
-				"Full Name",
-				"Date of Birth",
-				"Email",
-				"Phone Number",
-				"Home Address",
-				"Marital Status",
-				"Gender",
-				"Mother's Name",
-				"Father's Name",
-				"Account Number",
-				"Amount Balance"
-			};
-		}
-
-		private void CreateTableRow(List<SP_DisplayNewAccountCreatedResult> data, ProfilePictureUtility profileUtility)
-		{
-			foreach (var row in data)
-			{
-				int index = NewAccountsDataTable.Rows.Add();
-				DataGridViewRow newRow = NewAccountsDataTable.Rows[index];
-				newRow.Cells["User Identification"].Value = row.User_Identification.ToString();
-				var img = profileUtility.ConvertyByteArrayToImage(row.Profile_Photo.ToArray());
-				var resizedImg = new Bitmap(img, new Size(50, 50));
-				newRow.Cells["Profile Photo"].Value = resizedImg;
-				newRow.Cells["Full Name"].Value = row.Client_s_Full_Name;
-				newRow.Cells["Date of Birth"].Value = row.Date_of_Birth;
-				newRow.Cells["Email"].Value = row.Email;
-				newRow.Cells["Phone Number"].Value = row.Phone_Number;
-				newRow.Cells["Home Address"].Value = row.Home_Address;
-				newRow.Cells["Marital Status"].Value = row.Marital_Status;
-				newRow.Cells["Gender"].Value = row.Gender;
-				newRow.Cells["Mother's Name"].Value = row.Mother_s_Name;
-				newRow.Cells["Father's Name"].Value = row.Father_s_Name;
-				newRow.Cells["Account Number"].Value = row.Account_Number;
-				newRow.Cells["Amount Balance"].Value = row.Account_Balance;
-			}
-		}
-
-		private DataGridView CreateStaticColumns()
-		{
-			var tableGenerator = new TableGenerator(NewAccountsDataTable, ColumnNameAndHeaderList(), ColumnNameAndHeaderList());
-			return tableGenerator.GenerateTableCoumns();
+			view.Columns["UserId"].HeaderText = "User ID";
+			view.Columns["FullName"].HeaderText = "Full Name";
+			view.Columns["DateOfBirth"].HeaderText = "Date of Birth";
+			view.Columns["PhoneNumber"].HeaderText = "Phone Number";
+			view.Columns["HomeAddress"].HeaderText = "Home Address";
+			view.Columns["MaritalStatus"].HeaderText = "Marital Status";
+			view.Columns["MotherName"].HeaderText = "Mother's Name";
+			view.Columns["FatherName"].HeaderText = "Father's Name";
+			view.Columns["AccountId"].HeaderText = "Account ID";
+			view.Columns["ProfilePhoto"].HeaderText = "Profile Photo";
 		}
 
 		private void DisplayAllNewAccount()
 		{
 			try
 			{
-				var listOfImages = new List<Image>();
-				var profileUtility = new ProfilePictureUtility();
-				var data = _repository.GetAllNewAccountCreated()?.ToList();
+				var data = _repository.GetAllAccount()?.ToList();
 				if (data == null)
 				{
 					MessagePrompt("No information to be displayed yet.");
 					return;
 				}
-
-				CreateStaticColumns();
-				CreateTableRow(data, profileUtility);
+				NewAccountsDataTable.DataSource = data;
+				NewAccountsDataTable.Columns["OriginalProfilePhoto"].Visible = false;
+				ModifyTableHeaders(NewAccountsDataTable);
 			}
 			catch (Exception ex)
 			{
@@ -227,7 +169,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 		 * This method is called if the operation is successful.
 		 * <br/>
 		 * <br/>
-		 * <seealso cref="CreateNewAccountRepository.AddAccount(NewAccount)"/>
+		 * <seealso cref="CreateNewAccountRepository.AddAccount(CreateAccountDto)"/>
 		 * </summary>
 		 * **/
 		private void AddAccountOnSuccessSave()
@@ -246,14 +188,12 @@ namespace Martinez_BankApp.View.Forms.Admin
 				byte[] profile = _profilePictureBytes;
 		
 				// Pass as data transfer objects, this model does not have any logic!
-				var account = new NewAccount
+				var account = new CreateAccountDto
 					(FullNameTextBox.Text, DateOfBirthDateTimePicker.Value, EmailTextBox.Text,
 					PasswordTextBox.Text, RepeatPasswordTextBox.Text, PhoneTextBox.Text,
 					AddressTextBox.Text, MaritalStatusComboBox.Text, GenderComboBox.Text,
 					MothersNameTextBox.Text, FathersNameTextBox.Text, RoleComboBox.Text, decimal.Parse(BalanceTextBox.Text), profile);
-
-
-				string result = _repository.AddAccount(account);
+				string result = _repository.CreateAccount(account);
 				
 				if(result == "0")
 				{
@@ -345,6 +285,15 @@ namespace Martinez_BankApp.View.Forms.Admin
 		private void SearchBoxTextField_TextChanged(object sender, EventArgs e)
 		{
 			NewAccountsDataTable.DataSource = _repository.FindAccountByKey(SearchBoxTextField.Text);
+		}
+
+
+		private void AllowNumericOnlyOnPress(object sender, KeyPressEventArgs e)
+		{
+			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+			{
+				e.Handled = true;
+			}
 		}
 	}
 }

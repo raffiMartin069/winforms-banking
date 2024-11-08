@@ -171,7 +171,8 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SP_AddClient" Method="SP_AddClient">
+  <Function Name="dbo.SP_UpdateUserInfo" Method="SP_UpdateUserInfo">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
     <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="VarChar(255)" />
     <Parameter Name="DateOfBirth" Parameter="dateOfBirth" Type="System.DateTime" DbType="Date" />
     <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(255)" />
@@ -186,8 +187,8 @@
     <Parameter Name="Role" Parameter="role" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="Balance" Parameter="balance" Type="System.Decimal" DbType="Decimal(18,2)" />
     <Parameter Name="ProfileImage" Parameter="profileImage" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
-    <ElementType Name="SP_AddClientResult">
-      <Column Name="Message" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    <ElementType Name="SP_UpdateUserInfoResult">
+      <Column Name="Message" Type="System.String" DbType="VarChar(27) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.SP_SearchUserByKey" Method="SP_SearchUserByKey">
@@ -205,8 +206,8 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SP_DisplayNewAccountCreated" Method="SP_DisplayNewAccountCreated">
-    <ElementType Name="SP_DisplayNewAccountCreatedResult">
+  <Function Name="dbo.SP_GetAllAccount" Method="SP_GetAllAccount">
+    <ElementType Name="SP_GetAllAccountResult">
       <Column Name="[User Identification]" Member="User_Identification" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="[Client's Full Name]" Member="Client_s_Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
       <Column Name="[Date of Birth]" Member="Date_of_Birth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
@@ -218,8 +219,28 @@
       <Column Name="[Mother's Name]" Member="Mother_s_Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="[Father's Name]" Member="Father_s_Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="[Account Number]" Member="Account_Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="[Account Balance]" Member="Account_Balance" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="[Account Balance]" Member="Account_Balance" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
       <Column Name="[Profile Photo]" Member="Profile_Photo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Role" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_CreateAccount" Method="SP_CreateAccount">
+    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="DateOfBirth" Parameter="dateOfBirth" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="RepeatPassword" Parameter="repeatPassword" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="Char(15)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="MaritalStatus" Parameter="maritalStatus" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="MotherName" Parameter="motherName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="FatherName" Parameter="fatherName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Role" Parameter="role" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Balance" Parameter="balance" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="ProfileImage" Parameter="profileImage" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <ElementType Name="SP_CreateAccountResult">
+      <Column Name="Message" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

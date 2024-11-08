@@ -2,9 +2,9 @@
 
 namespace Martinez_BankApp.Dto.Admin
 {
-	public class NewAccount
+	public class CreateAccountDto
 	{
-		public NewAccount(string fullname, DateTime dateOfBirth,
+		public CreateAccountDto(string fullname, DateTime dateOfBirth,
 			string email, string password, string repeatpassword,
 			string phone, string address, string maritalStatus, 
 			string gender, string motherName, string fatherName, 

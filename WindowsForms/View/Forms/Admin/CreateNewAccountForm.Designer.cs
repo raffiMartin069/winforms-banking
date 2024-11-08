@@ -237,9 +237,11 @@
 			this.PhoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.PhoneTextBox.Location = new System.Drawing.Point(171, 276);
 			this.PhoneTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+			this.PhoneTextBox.MaxLength = 11;
 			this.PhoneTextBox.Name = "PhoneTextBox";
 			this.PhoneTextBox.Size = new System.Drawing.Size(455, 29);
 			this.PhoneTextBox.TabIndex = 5;
+			this.PhoneTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AllowNumericOnlyOnPress);
 			// 
 			// label3
 			// 
