@@ -1,30 +1,24 @@
 ﻿using Martinez_BankApp.Dto.Admin;
-using Martinez_BankApp.Persistent.Data;
 using Martinez_BankApp.Repository.Admin;
 using Martinez_BankApp.Utility;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Martinez_BankApp.View.Forms.Admin
 {
 	public partial class AdminUpdateAccountForm : Form
 	{
-		private AdminUpdateAccountRepository _repository;
+		private UpdateAccountRepository _repository;
 		private byte[] _profilePictureBytes;
 		private const string DEFAULT_MARITAL_STATUS_COMBO_BOX = "Single";
 		private const string DEFAULT_GENDER_COMBO_BOX = "Male";
 		private const string DEFAULT_ROLE_COMBO_BOX = "Client";
 		private int _userId = 0;
 
-		public AdminUpdateAccountForm(AdminUpdateAccountRepository repository)
+		public AdminUpdateAccountForm(UpdateAccountRepository repository)
 		{
 			InitializeComponent();
 			_repository = repository;

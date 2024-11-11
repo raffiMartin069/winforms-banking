@@ -28,6 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.label8 = new System.Windows.Forms.Label();
 			this.OldBalanceTextBox = new System.Windows.Forms.TextBox();
@@ -53,8 +55,7 @@
 			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
 			this.label13 = new System.Windows.Forms.Label();
 			this.textBox10 = new System.Windows.Forms.TextBox();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.sample = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.DepositDataGridView = new System.Windows.Forms.DataGridView();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.flowLayoutPanel2.SuspendLayout();
@@ -63,7 +64,7 @@
 			this.tableLayoutPanel4.SuspendLayout();
 			this.flowLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel6.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.DepositDataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// tableLayoutPanel2
@@ -116,6 +117,7 @@
 			// OldBalanceTextBox
 			// 
 			this.OldBalanceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.OldBalanceTextBox.Enabled = false;
 			this.OldBalanceTextBox.Location = new System.Drawing.Point(144, 87);
 			this.OldBalanceTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.OldBalanceTextBox.Name = "OldBalanceTextBox";
@@ -157,6 +159,7 @@
 			// AccountNumberTextBox
 			// 
 			this.AccountNumberTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.AccountNumberTextBox.Enabled = false;
 			this.AccountNumberTextBox.Location = new System.Drawing.Point(144, 3);
 			this.AccountNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.AccountNumberTextBox.Name = "AccountNumberTextBox";
@@ -200,6 +203,7 @@
 			// NameTextBox
 			// 
 			this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.NameTextBox.Enabled = false;
 			this.NameTextBox.Location = new System.Drawing.Point(144, 45);
 			this.NameTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.NameTextBox.Name = "NameTextBox";
@@ -236,6 +240,7 @@
 			this.SaveButton.TabIndex = 0;
 			this.SaveButton.Text = "Withdraw";
 			this.SaveButton.UseVisualStyleBackColor = false;
+			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
 			// 
 			// ClearAllFieldButton
 			// 
@@ -250,6 +255,7 @@
 			this.ClearAllFieldButton.TabIndex = 0;
 			this.ClearAllFieldButton.Text = "Clear";
 			this.ClearAllFieldButton.UseVisualStyleBackColor = false;
+			this.ClearAllFieldButton.Click += new System.EventHandler(this.ClearAllFieldButton_Click);
 			// 
 			// flowLayoutPanel2
 			// 
@@ -364,7 +370,7 @@
 			this.flowLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Left;
 			this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel6);
-			this.flowLayoutPanel1.Controls.Add(this.dataGridView1);
+			this.flowLayoutPanel1.Controls.Add(this.DepositDataGridView);
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(695, 63);
 			this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(694, 519);
@@ -408,26 +414,39 @@
 			this.textBox10.Size = new System.Drawing.Size(601, 29);
 			this.textBox10.TabIndex = 1;
 			// 
-			// dataGridView1
+			// DepositDataGridView
 			// 
-			this.dataGridView1.AllowUserToAddRows = false;
-			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.sample});
-			this.dataGridView1.Location = new System.Drawing.Point(3, 54);
-			this.dataGridView1.MinimumSize = new System.Drawing.Size(670, 400);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(670, 673);
-			this.dataGridView1.TabIndex = 0;
-			// 
-			// sample
-			// 
-			this.sample.HeaderText = "Column1";
-			this.sample.Name = "sample";
-			this.sample.ReadOnly = true;
+			this.DepositDataGridView.AllowUserToAddRows = false;
+			this.DepositDataGridView.AllowUserToDeleteRows = false;
+			this.DepositDataGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.DepositDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.DepositDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.DepositDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			this.DepositDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3);
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.DepositDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+			this.DepositDataGridView.Location = new System.Drawing.Point(3, 54);
+			this.DepositDataGridView.MinimumSize = new System.Drawing.Size(670, 400);
+			this.DepositDataGridView.Name = "DepositDataGridView";
+			this.DepositDataGridView.ReadOnly = true;
+			this.DepositDataGridView.Size = new System.Drawing.Size(670, 673);
+			this.DepositDataGridView.TabIndex = 0;
+			this.DepositDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DepositDataGridView_CellContentClick);
 			// 
 			// AdminDepositForm
 			// 
@@ -443,6 +462,7 @@
 			this.MinimumSize = new System.Drawing.Size(1400, 900);
 			this.Name = "AdminDepositForm";
 			this.Text = "AdminDepositForm";
+			this.Load += new System.EventHandler(this.AdminDepositForm_Load);
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel2.PerformLayout();
 			this.tableLayoutPanel3.ResumeLayout(false);
@@ -458,7 +478,7 @@
 			this.flowLayoutPanel1.PerformLayout();
 			this.tableLayoutPanel6.ResumeLayout(false);
 			this.tableLayoutPanel6.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.DepositDataGridView)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -490,7 +510,6 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.TextBox textBox10;
-		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn sample;
+		private System.Windows.Forms.DataGridView DepositDataGridView;
 	}
 }

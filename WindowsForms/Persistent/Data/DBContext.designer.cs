@@ -297,6 +297,27 @@ namespace Martinez_BankApp.Persistent.Data
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fullName, dateOfBirth, email, password, repeatPassword, phone, address, maritalStatus, gender, motherName, fatherName, role, balance, profileImage);
 			return ((ISingleResult<SP_CreateAccountResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GetAllDepositRecord")]
+		public ISingleResult<SP_GetAllDepositRecordResult> SP_GetAllDepositRecord()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_GetAllDepositRecordResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_AddDeposit")]
+		public ISingleResult<SP_AddDepositResult> SP_AddDeposit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccountNumber", DbType="Int")] System.Nullable<int> accountNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="VarChar(255)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CurrentBalance", DbType="Decimal(18,0)")] System.Nullable<decimal> currentBalance, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ModeOfDeposit", DbType="VarChar(255)")] string modeOfDeposit, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DepositAmount", DbType="Decimal(18,0)")] System.Nullable<decimal> depositAmount)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accountNumber, fullName, currentBalance, modeOfDeposit, depositAmount);
+			return ((ISingleResult<SP_AddDepositResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GetAllDepositMode")]
+		public ISingleResult<SP_GetAllDepositModeResult> SP_GetAllDepositMode()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_GetAllDepositModeResult>)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Account")]
@@ -3955,6 +3976,174 @@ namespace Martinez_BankApp.Persistent.Data
 				if ((this._Message != value))
 				{
 					this._Message = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GetAllDepositRecordResult
+	{
+		
+		private int _Account_Id;
+		
+		private string _Full_Name;
+		
+		private string _Gender;
+		
+		private System.DateTime _DateOfBirth;
+		
+		private System.Nullable<decimal> _Amount;
+		
+		public SP_GetAllDepositRecordResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Account Id]", Storage="_Account_Id", DbType="Int NOT NULL")]
+		public int Account_Id
+		{
+			get
+			{
+				return this._Account_Id;
+			}
+			set
+			{
+				if ((this._Account_Id != value))
+				{
+					this._Account_Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Full Name]", Storage="_Full_Name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Full_Name
+		{
+			get
+			{
+				return this._Full_Name;
+			}
+			set
+			{
+				if ((this._Full_Name != value))
+				{
+					this._Full_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="VarChar(255)")]
+		public string Gender
+		{
+			get
+			{
+				return this._Gender;
+			}
+			set
+			{
+				if ((this._Gender != value))
+				{
+					this._Gender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfBirth", DbType="Date NOT NULL")]
+		public System.DateTime DateOfBirth
+		{
+			get
+			{
+				return this._DateOfBirth;
+			}
+			set
+			{
+				if ((this._DateOfBirth != value))
+				{
+					this._DateOfBirth = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this._Amount = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_AddDepositResult
+	{
+		
+		private string _Message;
+		
+		public SP_AddDepositResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(18) NOT NULL", CanBeNull=false)]
+		public string Message
+		{
+			get
+			{
+				return this._Message;
+			}
+			set
+			{
+				if ((this._Message != value))
+				{
+					this._Message = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GetAllDepositModeResult
+	{
+		
+		private int _Id;
+		
+		private string _Type;
+		
+		public SP_GetAllDepositModeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this._Type = value;
 				}
 			}
 		}

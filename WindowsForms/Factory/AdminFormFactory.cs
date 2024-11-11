@@ -21,15 +21,18 @@ namespace Martinez_BankApp.Factory
 
 		public void AdminDepositForm()
 		{
-			var adminDepositForm = new AdminDepositForm();
+			var context = new DBContextDataContext();
+			var repository = new DepositRepository(context);
+			var adminDepositForm = new AdminDepositForm(repository);
 			adminDepositForm.MdiParent = _adminMdiForm;
 			adminDepositForm.Show();
 		}
 
 		public void AdminUpdateAccountForm()
 		{
-			var _context = new DBContextDataContext();
-			var adminUpdateAccountForm = new AdminUpdateAccountForm(new AdminUpdateAccountRepository(_context));
+			var context = new DBContextDataContext();
+			var repository = new UpdateAccountRepository(context);
+			var adminUpdateAccountForm = new AdminUpdateAccountForm(repository);
 			adminUpdateAccountForm.MdiParent = _adminMdiForm;
 			adminUpdateAccountForm.Show();
 		}
@@ -43,12 +46,11 @@ namespace Martinez_BankApp.Factory
 
 		public void CreateNewAccountForm()
 		{
-			using(var _context = new DBContextDataContext())
-			{
-				var createNewAccountWindow = new CreateNewAccountForm(new CreateNewAccountRepository(_context));
-				createNewAccountWindow.MdiParent = _adminMdiForm;
-				createNewAccountWindow.Show();
-			}
+			var context = new DBContextDataContext();
+			var repository = new CreateNewAccountRepository(context);
+			var createNewAccountWindow = new CreateNewAccountForm(new CreateNewAccountRepository(context));
+			createNewAccountWindow.MdiParent = _adminMdiForm;
+			createNewAccountWindow.Show();	
 		}
 
 		public void AdminSearchAccount()

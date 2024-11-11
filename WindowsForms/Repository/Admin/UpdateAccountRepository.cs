@@ -11,11 +11,11 @@ using Account = Martinez_BankApp.Model.Admin.Account;
 
 namespace Martinez_BankApp.Repository.Admin
 {
-	public class AdminUpdateAccountRepository
+	public class UpdateAccountRepository
 	{
         private readonly DBContextDataContext _context;
 
-		public AdminUpdateAccountRepository(DBContextDataContext context)
+		public UpdateAccountRepository(DBContextDataContext context)
 		{
 			_context = context;
 		}
