@@ -2,7 +2,9 @@
 using Martinez_BankApp.Dto.Admin;
 using Martinez_BankApp.Persistent.Data;
 using Martinez_BankApp.Utility;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Drawing;
 using System.Linq;
 using Account = Martinez_BankApp.Model.Admin.Account;
@@ -16,6 +18,16 @@ namespace Martinez_BankApp.Repository.Admin
 		public AdminUpdateAccountRepository(DBContextDataContext context)
 		{
 			_context = context;
+		}
+		public IEnumerable GetAllGender() => _context.SP_GetAllGender();
+
+		public IEnumerable GetAllRole() => _context.SP_GetAllRoles();
+
+		public IEnumerable GetAllMaritalStatus() => _context.SP_GetAllMartiralStatus();
+
+		private Bitmap GetAllAccountHelper(Binary raw_photo, ProfilePictureUtility imageUtil)
+		{
+			return raw_photo.Length < 1 ? null : new Bitmap(imageUtil.ConvertyByteArrayToImage(raw_photo.ToArray()), new Size(60, imageUtil.ConvertyByteArrayToImage(raw_photo.ToArray()).Height * 50 / imageUtil.ConvertyByteArrayToImage(raw_photo.ToArray()).Width));
 		}
 
 		public IEnumerable<Account> GetAllAccount()
@@ -37,13 +49,12 @@ namespace Martinez_BankApp.Repository.Admin
 							 FatherName = row.Father_s_Name,
 							 AccountId = row.Account_Number,
 							 Balance = row.Account_Balance,
-							 ProfilePhoto = new Bitmap(imageUtil.ConvertyByteArrayToImage(row.Profile_Photo.ToArray()),
-							 new Size(60, imageUtil.ConvertyByteArrayToImage(row.Profile_Photo.ToArray()).Height * 50 / imageUtil.ConvertyByteArrayToImage(row.Profile_Photo.ToArray()).Width)),
+							 ProfilePhoto = imageUtil.ConvertByteArrayToBitmap(row.Profile_Photo.ToArray()),
 							 OriginalProfilePhoto = imageUtil.ConvertyByteArrayToImage(row.Profile_Photo.ToArray())
 						 };
 			return result;
 		}
-		
+
 		public string UpdateAccount(UpdateAccountDto account)
 		{
 			var result = _context.SP_UpdateUserInfo
@@ -52,10 +63,9 @@ namespace Martinez_BankApp.Repository.Admin
 				account.Phone, account.Address, account.MaritalStatus,
 				account.Gender, account.MotherName, account.FatherName,
 				account.Role, account.Balance, account.ProfilePicture)
-				.AsEnumerable()
-				.ToString();
+				.SingleOrDefault();
 
-			return result;
+			return result.Message;
 		}
 	}
 }

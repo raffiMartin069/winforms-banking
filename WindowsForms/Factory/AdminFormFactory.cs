@@ -5,6 +5,7 @@ using Martinez_BankApp.View.ParentMdi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -27,12 +28,10 @@ namespace Martinez_BankApp.Factory
 
 		public void AdminUpdateAccountForm()
 		{
-			using(var _context = new DBContextDataContext())
-			{
-				var adminUpdateAccountForm = new AdminUpdateAccountForm(new AdminUpdateAccountRepository(_context));
-				adminUpdateAccountForm.MdiParent = _adminMdiForm;
-				adminUpdateAccountForm.Show();
-			}
+			var _context = new DBContextDataContext();
+			var adminUpdateAccountForm = new AdminUpdateAccountForm(new AdminUpdateAccountRepository(_context));
+			adminUpdateAccountForm.MdiParent = _adminMdiForm;
+			adminUpdateAccountForm.Show();
 		}
 
 		public void AdminWithdrawForm()

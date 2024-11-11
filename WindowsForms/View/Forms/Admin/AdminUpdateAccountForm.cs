@@ -1,10 +1,12 @@
 ﻿using Martinez_BankApp.Dto.Admin;
 using Martinez_BankApp.Persistent.Data;
 using Martinez_BankApp.Repository.Admin;
+using Martinez_BankApp.Utility;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,6 +18,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 	public partial class AdminUpdateAccountForm : Form
 	{
 		private AdminUpdateAccountRepository _repository;
+		private byte[] _profilePictureBytes;
 		private const string DEFAULT_MARITAL_STATUS_COMBO_BOX = "Single";
 		private const string DEFAULT_GENDER_COMBO_BOX = "Male";
 		private const string DEFAULT_ROLE_COMBO_BOX = "Client";
@@ -34,6 +37,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 				var accounts = _repository.GetAllAccount()?.ToList();
 				AccountDataGridView.DataSource = accounts;
 				AccountDataGridView.Columns["OriginalProfilePhoto"].Visible = false;
+
 				return AccountDataGridView;
 			}
 			catch(Exception ex)
@@ -43,9 +47,88 @@ namespace Martinez_BankApp.View.Forms.Admin
 			}
 		}
 
+		/**
+		 * <summary>
+		 *	This will query the database for genders to be populated in the Gender Combo Box
+		 *	<seealso cref="CreateNewAccountPresenter.GetAllGender"/>
+		 * </summary>
+		 * **/
+		private void GenerateGenderType()
+		{
+			try
+			{
+				var genderTypes = _repository.GetAllGender();
+				GenderComboBox.DisplayMember = "Type";
+				GenderComboBox.ValueMember = "Id";
+				GenderComboBox.DataSource = genderTypes;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("List of gender is empty");
+				Debug.WriteLine(ex.Message);
+			}
+		}
+
+		/**
+		 * <summary>
+		 *	This will query the database for genders to be populated in the Marital Status Combo Box
+		 *	<seealso cref="CreateNewAccountPresenter.GetAllMaritalStatus"/>
+		 * </summary>
+		 * **/
+		private void GenerateMaritalStatus()
+		{
+			try
+			{
+				var maritalStat = _repository.GetAllMaritalStatus();
+				MaritalStatusComboBox.DisplayMember = "Status";
+				MaritalStatusComboBox.ValueMember = "Id";
+				MaritalStatusComboBox.DataSource = maritalStat;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("List of marital status is empty.");
+				Debug.WriteLine(ex.Message);
+			}
+		}
+
+		/**
+		 * <summary>
+		 *	This will query the database for genders to be populated in the Role Combo Box
+		 *	<seealso cref="CreateNewAccountPresenter.GetAllRole"/>
+		 * </summary>
+		 * **/
+		private void GenerateRole()
+		{
+			try
+			{
+				var role = _repository.GetAllRole();
+				RoleComboBox.DisplayMember = "Type";
+				RoleComboBox.ValueMember = "Id";
+				RoleComboBox.DataSource = role;
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show("List of role is empty.");
+				Debug.WriteLine(ex.Message);
+			}
+		}
+
+		/**
+		 * <summary>
+		 * Helper method to show all drop down components
+		 * <summary/>
+		 * **/
+		private void ShowAllDropDownComponents()
+		{
+			GenerateGenderType();
+			GenerateMaritalStatus();
+			GenerateRole();
+		}
+
 		private void AdminUpdateAccountForm_Load(object sender, EventArgs e)
 		{
 			PopulateTable();
+			ShowAllDropDownComponents();
 		}
 
 		private void DefaultValuesForComboBox()
@@ -55,8 +138,15 @@ namespace Martinez_BankApp.View.Forms.Admin
 			RoleComboBox.Text = DEFAULT_ROLE_COMBO_BOX;
 		}
 
+		private void SetImageDefaultValue()
+		{
+			if (ProfileImagePictureBox.Image is null)
+				ProfileImagePictureBox.Image = ProfileImagePictureBox.ErrorImage;
+		}
+
 		private void SetFieldsToDefault()
 		{
+			_userId = 0;
 			FullNameTextBox.Clear();
 			DateOfBirthDateTimePicker.Value.ToLocalTime();
 			EmailTextBox.Clear();
@@ -103,8 +193,6 @@ namespace Martinez_BankApp.View.Forms.Admin
 
 		private decimal RemoveBalanceCurreny()
 		{
-			
-
 			if (BalanceTextBox.Text == null)
 			{
 				return 0;
@@ -112,7 +200,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 
 			string strippedBalance = BalanceTextBox.Text.Replace("Php ", "");
 			
-			if (decimal.TryParse(strippedBalance, out decimal balance))
+			if (!decimal.TryParse(strippedBalance, out decimal balance))
 			{
 				throw new Exception("Invalid Balance");
 			}
@@ -132,6 +220,11 @@ namespace Martinez_BankApp.View.Forms.Admin
 			try
 			{
 				decimal balance = RemoveBalanceCurreny();
+
+				var imageUtility = new ProfilePictureUtility();
+				var setImage = imageUtility.ProfileImage = ProfileImagePictureBox;
+				_profilePictureBytes = imageUtility.ConvertImageToByteArray();
+
 				var accountDto = new UpdateAccountDto
 					(
 						_userId,
@@ -147,10 +240,16 @@ namespace Martinez_BankApp.View.Forms.Admin
 						MothersNameTextBox.Text,
 						FathersNameTextBox.Text,
 						RoleComboBox.Text,
-						decimal.Parse(BalanceTextBox.Text),
-						null
+						balance,
+						_profilePictureBytes
 					);
-				_repository.UpdateAccount(accountDto);
+
+				string resultMessage = _repository.UpdateAccount(accountDto).ToString();
+				
+				PopulateTable();
+				SetFieldsToDefault();
+				
+				MessageBox.Show(resultMessage);
 			}
 			catch(Exception ex)
 			{
@@ -180,6 +279,31 @@ namespace Martinez_BankApp.View.Forms.Admin
 				PasswordTextBox.UseSystemPasswordChar = !isVisible;
 				RepeatPasswordTextBox.UseSystemPasswordChar = !isVisible;
 				ShowPasswordCheckBox.Text = show;
+			}
+		}
+
+		private void ProfileImagePictureBox_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				var utility = new ProfilePictureUtility();
+				utility.ProfileImage = ProfileImagePictureBox;
+				utility.OpenProfilePictureSelector();
+				_profilePictureBytes = utility.ConvertImageToByteArray();
+				
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				return;
+			}
+		}
+
+		private void AllowNumericOnlyOnPress(object sender, KeyPressEventArgs e)
+		{
+			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+			{
+				e.Handled = true;
 			}
 		}
 	}

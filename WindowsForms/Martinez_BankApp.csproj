@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contract\Admin\ICommonForm.cs" />
     <Compile Include="Dto\Admin\UpdateAccountDto.cs" />
     <Compile Include="Model\Admin\Account.cs" />
     <Compile Include="Dto\Admin\CreateAccountDto.cs" />

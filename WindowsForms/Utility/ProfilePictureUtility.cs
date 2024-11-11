@@ -22,6 +22,62 @@ namespace Martinez_BankApp.Utility
 				throw new Exception("Please select an image first.");
 		}
 
+		/**
+		 * <summary>
+		 *	Converts an image to a byte array
+		 *	<seealso cref="ConvertImageToByteArray"/>
+		 * </summary>
+		 * **/
+		private Bitmap BitMapConversion(Image image)
+		{
+			var bitmap = new Bitmap(image, new Size(60, image.Height * 50 / image.Width));
+			return bitmap;
+		}
+
+		/**
+		 * <summary>
+		 *	Returns a default image if no image is found
+		 * </summary>
+		 * **/
+		private Bitmap GetDefaultImage()
+		{
+			var path = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\resources\img\default.png"));
+			if (!File.Exists(path))
+			{
+				MessageBox.Show("Default image not found.");
+				return null;
+			}
+			var defaultImage = Image.FromFile(path);
+			var defaultBitmap = new Bitmap(defaultImage, new Size(60, defaultImage.Height * 50 / defaultImage.Width));
+			return defaultBitmap;
+		}
+
+		/**
+		 * <summary>
+		 *	Converts a byte array to a bitmap
+		 *	<seealso cref="BitMapConversion(Image)"/>
+		 * </summary>
+		 * **/
+		public Bitmap ConvertByteArrayToBitmap(byte[] imageByte)
+		{
+			if (imageByte == null || imageByte.Length == 0)
+			{
+				return GetDefaultImage();
+			}
+
+			using (MemoryStream stream = new MemoryStream(imageByte))
+			{
+				var image = Image.FromStream(stream);
+				var bitmap = BitMapConversion(image);
+				return bitmap;
+			}
+		}
+
+		/**
+		 * <summary>
+		 *	Converts a byte array to an image
+		 * </summary>
+		 * **/
 		public Image ConvertyByteArrayToImage(byte[] imageByte)
 		{
 			if(imageByte == null || imageByte.Length == 0)
@@ -34,6 +90,11 @@ namespace Martinez_BankApp.Utility
 			}
 		}
 
+		/**
+		 * <summary>
+		 *	Converts an image to a byte array
+		 * </summary>
+		 * **/
 		public byte[] ConvertImageToByteArray()
 		{
 			try
