@@ -1,4 +1,5 @@
 ﻿using Martinez_BankApp.Dto.Admin;
+using Martinez_BankApp.Model.Admin;
 using Martinez_BankApp.Repository.Admin;
 using System;
 using System.Collections.Generic;
@@ -30,14 +31,25 @@ namespace Martinez_BankApp.View.Forms.Admin
 		{
 			try
 			{
-				var dto = new DepositDto
-				(
-					int.Parse(AccountNumberTextBox.Text),
+				var model = new Deposit
+					(AccountNumberTextBox.Text,
 					NameTextBox.Text,
-					decimal.Parse(OldBalanceTextBox.Text),
+					OldBalanceTextBox.Text,
 					ModeComboBox.Text,
-					decimal.Parse(AmountTextBox.Text)
-				);
+					AmountTextBox.Text);
+
+				var data = model.Validate();
+
+				if(data == null)
+				{
+					MessageBox.Show("Please fill all fields.");
+					return;
+				}
+
+				var message = _repository.AddDeposit(data);
+
+				DepositRecord();
+				MessageBox.Show(message);
 			}
 			catch(Exception ex)
 			{
@@ -60,7 +72,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 		{
 			AccountNumberTextBox.Text = DepositDataGridView.CurrentRow.Cells[0].Value.ToString();
 			NameTextBox.Text = DepositDataGridView.CurrentRow.Cells[1].Value.ToString();
-			OldBalanceTextBox.Text = DepositDataGridView.CurrentRow.Cells[2].Value.ToString();
+			OldBalanceTextBox.Text = DepositDataGridView.CurrentRow.Cells[4].Value.ToString();
 		}
 
 
@@ -85,6 +97,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 			DepositDataGridView.Columns["Account_Id"].HeaderText = "Account Id";
 			DepositDataGridView.Columns["Full_Name"].HeaderText = "Full Name";
 			DepositDataGridView.Columns["DateOfBirth"].HeaderText = "Date Of Birth";
+			DepositDataGridView.Columns["CurrentBalance"].HeaderText = "Current Balance";
 		}
 
 		private void DepositRecord()

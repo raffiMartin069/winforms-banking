@@ -125,7 +125,7 @@
         <classShapeMoniker Id="770f988b-ab54-490e-ba3b-132f0c3da409" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 10.625); (4.5 : 9.34699625651042); (4.94791916666667 : 9.34699625651042 : JumpStart); (5.11458583333333 : 9.34699625651042 : JumpEnd); (6.25 : 9.34699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.5 : 10.625); (4.5 : 9.34699625651042); (6.25 : 9.34699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DBContextDataContext/User/User_Account" />
       <nodes>
         <classShapeMoniker Id="fca289fc-74fd-4018-89aa-0f95442ee455" />
@@ -146,7 +146,7 @@
         <classShapeMoniker Id="2f383b0d-8523-41f4-9b7c-5709b3606a1e" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 12.7804996744792); (4.5 : 15.5681469726562); (6.25 : 15.5681469726562)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.5 : 12.7804996744792); (4.5 : 15.5681469726562); (4.94791916666667 : 15.5681469726562 : JumpStart); (5.11458583333333 : 15.5681469726562 : JumpEnd); (6.25 : 15.5681469726562)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DBContextDataContext/User/User_Credential" />
       <nodes>
         <classShapeMoniker Id="fca289fc-74fd-4018-89aa-0f95442ee455" />
@@ -167,7 +167,7 @@
         <classShapeMoniker Id="f29cd85d-c222-4970-9897-56494b335780" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.9687475 : 12.7804996744792); (3.9687475 : 13.4719962565104); (4.41666666666667 : 13.4719962565104 : JumpStart); (4.58333333333333 : 13.4719962565104 : JumpEnd); (6.25 : 13.4719962565104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(3.9687475 : 12.7804996744792); (3.9687475 : 13.4719962565104); (4.94791916666667 : 13.4719962565104 : JumpStart); (5.11458583333333 : 13.4719962565104 : JumpEnd); (6.25 : 13.4719962565104)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DBContextDataContext/User/User_ProfilePicture" />
       <nodes>
         <classShapeMoniker Id="fca289fc-74fd-4018-89aa-0f95442ee455" />

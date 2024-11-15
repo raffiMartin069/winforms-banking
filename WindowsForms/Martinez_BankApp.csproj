@@ -53,6 +53,7 @@
     <Compile Include="Dto\Admin\CreateAccountDto.cs" />
     <Compile Include="Factory\AdminFormFactory.cs" />
     <Compile Include="Factory\ClientFormFactory.cs" />
+    <Compile Include="Model\Admin\Deposit.cs" />
     <Compile Include="Persistent\Data\DBContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
