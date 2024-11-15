@@ -1,15 +1,6 @@
-﻿using Martinez_BankApp.Dto.Admin;
-using Martinez_BankApp.Model.Admin;
+﻿using Martinez_BankApp.InputModel.Model.Admin;
 using Martinez_BankApp.Repository.Admin;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Martinez_BankApp.View.Forms.Admin
@@ -48,7 +39,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 
 				var message = _repository.AddDeposit(data);
 
-				DepositRecord();
+				GetAllRecord();
 				MessageBox.Show(message);
 			}
 			catch(Exception ex)
@@ -65,7 +56,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 
 		private void AdminDepositForm_Load(object sender, EventArgs e)
 		{
-			DepositRecord();
+			GetAllRecord();
 			DepositMode();
 		}
 		private void DepositDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -97,14 +88,24 @@ namespace Martinez_BankApp.View.Forms.Admin
 			DepositDataGridView.Columns["Account_Id"].HeaderText = "Account Id";
 			DepositDataGridView.Columns["Full_Name"].HeaderText = "Full Name";
 			DepositDataGridView.Columns["DateOfBirth"].HeaderText = "Date Of Birth";
-			DepositDataGridView.Columns["CurrentBalance"].HeaderText = "Current Balance";
+			DepositDataGridView.Columns["Amount"].HeaderText = "Balance";
+			DepositDataGridView.Columns["NewBalance"].HeaderText = "Balance History";
+			DepositDataGridView.Columns["DepositDate"].HeaderText = "Deposit Date";
+			DepositDataGridView.Columns["DepositTime"].HeaderText = "Deposit Time";
 		}
 
-		private void DepositRecord()
+		private void GetAllRecord()
 		{
 			var records = _repository.GetAllRecord();
 			DepositDataGridView.DataSource = records;
 			TableHeader();
+		}
+
+		private void SearchRecordTextBox_TextChanged(object sender, EventArgs e)
+		{
+			string key = SearchRecordTextBox.Text;
+			var data = _repository.FindRecordByKey(key);
+			DepositDataGridView.DataSource = data;
 		}
 	}
 }

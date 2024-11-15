@@ -1,20 +1,22 @@
 ﻿using System;
 
-namespace Martinez_BankApp.Dto.Admin
+namespace Martinez_BankApp.Model.Dto.Admin
 {
-	public class CreateAccountDto
+	public class UpdateAccountDto
 	{
-		public CreateAccountDto(string fullname, DateTime dateOfBirth,
-			string email, string password, string repeatpassword,
-			string phone, string address, string maritalStatus, 
+		public UpdateAccountDto
+			(int id, string fullName, DateTime dateOfBirth,
+			string email, string password, string repeatPassword,
+			string phone, string address, string maritalStatus,
 			string gender, string motherName, string fatherName, 
 			string role, decimal balance, byte[] profilePicture)
-        {
-			FullName = fullname;
+		{
+			Id = id;
+			FullName = fullName;
 			DateOfBirth = dateOfBirth;
 			Email = email;
 			Password = password;
-			RepeatPassword = repeatpassword;
+			RepeatPassword = repeatPassword;
 			Phone = phone;
 			Address = address;
 			MaritalStatus = maritalStatus;
@@ -26,7 +28,8 @@ namespace Martinez_BankApp.Dto.Admin
 			ProfilePicture = profilePicture;
 		}
 
-        public string FullName { get; private set; }
+		public int Id { get; private set; }
+		public string FullName { get; private set; }
 		public DateTime DateOfBirth { get; private set; }
 		public string Email { get; private set; }
 		public string Password { get; private set; }
@@ -40,6 +43,5 @@ namespace Martinez_BankApp.Dto.Admin
 		public string Role { get; private set; }
 		public decimal Balance { get; private set; }
 		public byte[] ProfilePicture { get; private set; }
-
 	}
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Martinez_BankApp.Model.Admin
+namespace Martinez_BankApp.Model.InputModel.Admin
 {
 	public class Account
 	{

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Martinez_BankApp.Dto.Admin
+namespace Martinez_BankApp.Model.Dto.Admin
 {
 	public class DepositDto
 	{

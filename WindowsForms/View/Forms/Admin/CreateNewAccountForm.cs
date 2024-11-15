@@ -1,4 +1,4 @@
-﻿using Martinez_BankApp.Dto.Admin;
+﻿using Martinez_BankApp.Model.Dto.Admin;
 using Martinez_BankApp.Persistent.Data;
 using Martinez_BankApp.Repository.Admin;
 using Martinez_BankApp.Utility;

@@ -1,5 +1,4 @@
-﻿
-using Martinez_BankApp.Dto.Admin;
+﻿using Martinez_BankApp.Model.Dto.Admin;
 using Martinez_BankApp.Persistent.Data;
 using Martinez_BankApp.Utility;
 using System.Collections;
@@ -7,7 +6,7 @@ using System.Collections.Generic;
 using System.Data.Linq;
 using System.Drawing;
 using System.Linq;
-using Account = Martinez_BankApp.Model.Admin.Account;
+using Account = Martinez_BankApp.Model.InputModel.Admin.Account;
 
 namespace Martinez_BankApp.Repository.Admin
 {

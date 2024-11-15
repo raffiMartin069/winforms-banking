@@ -47,13 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Dto\Admin\DepositDto.cs" />
-    <Compile Include="Dto\Admin\UpdateAccountDto.cs" />
-    <Compile Include="Model\Admin\Account.cs" />
-    <Compile Include="Dto\Admin\CreateAccountDto.cs" />
     <Compile Include="Factory\AdminFormFactory.cs" />
     <Compile Include="Factory\ClientFormFactory.cs" />
-    <Compile Include="Model\Admin\Deposit.cs" />
+    <Compile Include="Model\Dto\Admin\CreateAccountDto.cs" />
+    <Compile Include="Model\Dto\Admin\DepositDto.cs" />
+    <Compile Include="Model\Dto\Admin\UpdateAccountDto.cs" />
+    <Compile Include="Model\InputModel\Admin\Account.cs" />
+    <Compile Include="Model\InputModel\Admin\Deposit.cs" />
     <Compile Include="Persistent\Data\DBContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

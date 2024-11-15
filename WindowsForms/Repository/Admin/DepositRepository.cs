@@ -1,4 +1,4 @@
-﻿using Martinez_BankApp.Dto.Admin;
+﻿using Martinez_BankApp.Model.Dto.Admin;
 using Martinez_BankApp.Persistent.Data;
 using System;
 using System.Collections;
@@ -16,6 +16,11 @@ namespace Martinez_BankApp.Repository.Admin
 		public DepositRepository(DBContextDataContext context)
 		{
 			_context = context;
+		}
+
+		public IEnumerable FindRecordByKey(string key)
+		{
+			return _context.SP_FindDepositRecordByKey(key);
 		}
 
 		public  IEnumerable GetAllRecord()
