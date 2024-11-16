@@ -2,12 +2,7 @@
 using Martinez_BankApp.Repository.Admin;
 using Martinez_BankApp.View.Forms.Admin;
 using Martinez_BankApp.View.ParentMdi;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Martinez_BankApp.Factory
 {
@@ -19,29 +14,34 @@ namespace Martinez_BankApp.Factory
 			_adminMdiForm = adminMdiForm;
 		}
 
-		public void AdminDepositForm()
+		private void ShowForm(Form form)
+		{
+			form.MdiParent = _adminMdiForm; 
+			form.Show();
+		}
+
+		public void CreateDepositForm()
 		{
 			var context = new DBContextDataContext();
 			var repository = new DepositRepository(context);
 			var adminDepositForm = new AdminDepositForm(repository);
-			adminDepositForm.MdiParent = _adminMdiForm;
-			adminDepositForm.Show();
+			ShowForm(adminDepositForm);
 		}
 
-		public void AdminUpdateAccountForm()
+		public void CreateUpdateAccountForm()
 		{
 			var context = new DBContextDataContext();
 			var repository = new UpdateAccountRepository(context);
 			var adminUpdateAccountForm = new AdminUpdateAccountForm(repository);
-			adminUpdateAccountForm.MdiParent = _adminMdiForm;
-			adminUpdateAccountForm.Show();
+			ShowForm(adminUpdateAccountForm);
 		}
 
-		public void AdminWithdrawForm()
+		public void CreateWithdrawForm()
 		{
-			var admingWithdrawalWindow = new AdminWithdrawForm();
-			admingWithdrawalWindow.MdiParent = _adminMdiForm;
-			admingWithdrawalWindow.Show();
+			var context = new DBContextDataContext();
+			var repository = new WithdrawRepository(context);
+			var admingWithdrawalWindow = new AdminWithdrawForm(repository);
+			ShowForm(admingWithdrawalWindow);
 		}
 
 		public void CreateNewAccountForm()
@@ -49,22 +49,19 @@ namespace Martinez_BankApp.Factory
 			var context = new DBContextDataContext();
 			var repository = new CreateNewAccountRepository(context);
 			var createNewAccountWindow = new CreateNewAccountForm(new CreateNewAccountRepository(context));
-			createNewAccountWindow.MdiParent = _adminMdiForm;
-			createNewAccountWindow.Show();	
+			ShowForm(createNewAccountWindow);
 		}
 
-		public void AdminSearchAccount()
+		public void CreateSearchAccountForm()
 		{
 			var updateExistingAccount = new AdminSearchAccountForm();
-			updateExistingAccount.MdiParent = _adminMdiForm;
-			updateExistingAccount.Show();
+			ShowForm(updateExistingAccount);
 		}
 
-		public void AdminListOfCustomer()
+		public void CreateListOfCustomerForm()
 		{
 			var listOfCustomer = new AdminCustomerListForm();
-			listOfCustomer.MdiParent = _adminMdiForm;
-			listOfCustomer.Show();
+			ShowForm(listOfCustomer);
 		}
 	}
 }

@@ -24,10 +24,17 @@ namespace Martinez_BankApp.Repository.Admin
 
 		public IEnumerable GetAllMaritalStatus() => _context.SP_GetAllMartiralStatus();
 
-		private Bitmap GetAllAccountHelper(Binary raw_photo, ProfilePictureUtility imageUtil)
-		{
-			return raw_photo.Length < 1 ? null : new Bitmap(imageUtil.ConvertyByteArrayToImage(raw_photo.ToArray()), new Size(60, imageUtil.ConvertyByteArrayToImage(raw_photo.ToArray()).Height * 50 / imageUtil.ConvertyByteArrayToImage(raw_photo.ToArray()).Width));
-		}
+		/**
+		 * <summary>
+		 * This method helps the image to be resized, I am planning to move this to a Model class in the future
+		 * </summary>
+		 * **/
+		//private Bitmap GetAllAccountHelper(Binary raw_photo, ProfilePictureUtility imageUtil)
+		//{
+		//	return raw_photo.Length < 1 ? null : new Bitmap(imageUtil.ConvertyByteArrayToImage(raw_photo.ToArray()),
+		//		new Size(60, imageUtil.ConvertyByteArrayToImage(raw_photo.ToArray()).Height * 50 
+		//		/ imageUtil.ConvertyByteArrayToImage(raw_photo.ToArray()).Width));
+		//}
 
 		public IEnumerable<Account> GetAllAccount()
 		{

@@ -1,6 +1,9 @@
 ﻿using Martinez_BankApp.InputModel.Model.Admin;
 using Martinez_BankApp.Repository.Admin;
+using Martinez_BankApp.Utility;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Martinez_BankApp.View.Forms.Admin
@@ -9,13 +12,22 @@ namespace Martinez_BankApp.View.Forms.Admin
 	{
 
 		private readonly DepositRepository _repository;
-		private int _accountId;
+		//private int _accountId;
 		private const string DEFAULT_DEPOSIT_MODE = "ATM";
+		
 
 		public AdminDepositForm(DepositRepository repository)
 		{
 			InitializeComponent();
 			_repository = repository;
+		}
+
+		private void AmountTextBox_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+			{
+				e.Handled = true;
+			}
 		}
 
 		private void SaveButton_Click(object sender, EventArgs e)
@@ -28,19 +40,11 @@ namespace Martinez_BankApp.View.Forms.Admin
 					OldBalanceTextBox.Text,
 					ModeComboBox.Text,
 					AmountTextBox.Text);
-
 				var data = model.Validate();
-
-				if(data == null)
-				{
-					MessageBox.Show("Please fill all fields.");
-					return;
-				}
-
 				var message = _repository.AddDeposit(data);
-
 				GetAllRecord();
 				MessageBox.Show(message);
+				ClearAll();
 			}
 			catch(Exception ex)
 			{
@@ -54,6 +58,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 			ClearAll();
 		}
 
+
 		private void AdminDepositForm_Load(object sender, EventArgs e)
 		{
 			GetAllRecord();
@@ -63,15 +68,17 @@ namespace Martinez_BankApp.View.Forms.Admin
 		{
 			AccountNumberTextBox.Text = DepositDataGridView.CurrentRow.Cells[0].Value.ToString();
 			NameTextBox.Text = DepositDataGridView.CurrentRow.Cells[1].Value.ToString();
-			OldBalanceTextBox.Text = DepositDataGridView.CurrentRow.Cells[4].Value.ToString();
+			
+			var currentBalance = DepositDataGridView.CurrentRow.Cells[4].Value.ToString();
+			OldBalanceTextBox.Text = currentBalance;
+			AccountBalanceLabel.Text = currentBalance; // assign balance for better display
 		}
-
 
 		private void DepositMode()
 		{
-			ModeComboBox.DataSource = _repository.GetAllDepositMode();
-			ModeComboBox.DisplayMember = "Type";
-			ModeComboBox.ValueMember = "Id";
+			var modes = _repository.GetAllDepositMode();
+			var combox = new ComboBoxUtility("Type", "Id", modes, ModeComboBox);
+			combox.CreateComboBox();
 		}
 
 		private void ClearAll()
@@ -85,13 +92,22 @@ namespace Martinez_BankApp.View.Forms.Admin
 
 		private void TableHeader()
 		{
-			DepositDataGridView.Columns["Account_Id"].HeaderText = "Account Id";
-			DepositDataGridView.Columns["Full_Name"].HeaderText = "Full Name";
-			DepositDataGridView.Columns["DateOfBirth"].HeaderText = "Date Of Birth";
-			DepositDataGridView.Columns["Amount"].HeaderText = "Balance";
-			DepositDataGridView.Columns["NewBalance"].HeaderText = "Balance History";
-			DepositDataGridView.Columns["DepositDate"].HeaderText = "Deposit Date";
-			DepositDataGridView.Columns["DepositTime"].HeaderText = "Deposit Time";
+			if(DepositDataGridView.Columns["Amount"].HeaderText.Equals("Amount"))
+				DepositDataGridView.Columns["Amount"].Visible = false;
+			
+			var tableUtil = new TableUtility(DepositDataGridView);
+
+			var headers = new Dictionary<string, string>()
+			{
+				{"Account_Id", "Account Id" },
+				{"Full_Name", "Full Name" },
+				{"Gender", "Gender" },
+				{"DateOfBirth", "Date Of Birth" },
+				{"NewBalance", "Deposit Balance History" },
+				{"DepositDate", "Deposit Date" },
+				{"DepositTime", "Deposit Time" },
+			};
+			tableUtil.SetColumnHeader(headers);
 		}
 
 		private void GetAllRecord()

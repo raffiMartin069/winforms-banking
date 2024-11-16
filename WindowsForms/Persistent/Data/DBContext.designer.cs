@@ -298,13 +298,6 @@ namespace Martinez_BankApp.Persistent.Data
 			return ((ISingleResult<SP_CreateAccountResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_AddDeposit")]
-		public ISingleResult<SP_AddDepositResult> SP_AddDeposit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccountNumber", DbType="Int")] System.Nullable<int> accountNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="VarChar(255)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CurrentBalance", DbType="Decimal(18,0)")] System.Nullable<decimal> currentBalance, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ModeOfDeposit", DbType="VarChar(255)")] string modeOfDeposit, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DepositAmount", DbType="Decimal(18,0)")] System.Nullable<decimal> depositAmount)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accountNumber, fullName, currentBalance, modeOfDeposit, depositAmount);
-			return ((ISingleResult<SP_AddDepositResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GetAllDepositMode")]
 		public ISingleResult<SP_GetAllDepositModeResult> SP_GetAllDepositMode()
 		{
@@ -324,6 +317,41 @@ namespace Martinez_BankApp.Persistent.Data
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), key);
 			return ((ISingleResult<SP_FindDepositRecordByKeyResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GetAllWithdrawMode")]
+		public ISingleResult<SP_GetAllWithdrawModeResult> SP_GetAllWithdrawMode()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_GetAllWithdrawModeResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GetAllWithdrawRecord")]
+		public ISingleResult<SP_GetAllWithdrawRecordResult> SP_GetAllWithdrawRecord()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_GetAllWithdrawRecordResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_AddDeposit")]
+		public ISingleResult<SP_AddDepositResult> SP_AddDeposit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccountNumber", DbType="Int")] System.Nullable<int> accountNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="VarChar(255)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CurrentBalance", DbType="Decimal(18,2)")] System.Nullable<decimal> currentBalance, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ModeOfDeposit", DbType="VarChar(255)")] string modeOfDeposit, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DepositAmount", DbType="Decimal(18,2)")] System.Nullable<decimal> depositAmount)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accountNumber, fullName, currentBalance, modeOfDeposit, depositAmount);
+			return ((ISingleResult<SP_AddDepositResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_Withdraw")]
+		public ISingleResult<SP_WithdrawResult> SP_Withdraw([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccountNumber", DbType="Int")] System.Nullable<int> accountNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="VarChar(255)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CurrentBalance", DbType="Decimal(18,2)")] System.Nullable<decimal> currentBalance, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ModeOfDeposit", DbType="VarChar(255)")] string modeOfDeposit, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WithdrawAmount", DbType="Decimal(18,2)")] System.Nullable<decimal> withdrawAmount)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accountNumber, fullName, currentBalance, modeOfDeposit, withdrawAmount);
+			return ((ISingleResult<SP_WithdrawResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_FindWithdrawById")]
+		public ISingleResult<SP_FindWithdrawByIdResult> SP_FindWithdrawById([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Key", DbType="VarChar(255)")] string key)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), key);
+			return ((ISingleResult<SP_FindWithdrawByIdResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1381,7 +1409,7 @@ namespace Martinez_BankApp.Persistent.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CurrentBalance", DbType="Decimal(18,0) NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CurrentBalance", DbType="Decimal(18,2) NOT NULL")]
 		public decimal CurrentBalance
 		{
 			get
@@ -1401,7 +1429,7 @@ namespace Martinez_BankApp.Persistent.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepositAmount", DbType="Decimal(18,0) NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepositAmount", DbType="Decimal(18,2) NOT NULL")]
 		public decimal DepositAmount
 		{
 			get
@@ -1509,7 +1537,7 @@ namespace Martinez_BankApp.Persistent.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NewBalance", DbType="Decimal(18,0) NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NewBalance", DbType="Decimal(18,2) NOT NULL")]
 		public decimal NewBalance
 		{
 			get
@@ -3099,7 +3127,7 @@ namespace Martinez_BankApp.Persistent.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CurrentBalance", DbType="Decimal(18,0) NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CurrentBalance", DbType="Decimal(18,2) NOT NULL")]
 		public decimal CurrentBalance
 		{
 			get
@@ -3119,7 +3147,7 @@ namespace Martinez_BankApp.Persistent.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WithdrawAmount", DbType="Decimal(18,0) NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WithdrawAmount", DbType="Decimal(18,2) NOT NULL")]
 		public decimal WithdrawAmount
 		{
 			get
@@ -3227,7 +3255,7 @@ namespace Martinez_BankApp.Persistent.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NewBalance", DbType="Decimal(18,0) NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NewBalance", DbType="Decimal(18,2) NOT NULL")]
 		public decimal NewBalance
 		{
 			get
@@ -3988,32 +4016,6 @@ namespace Martinez_BankApp.Persistent.Data
 		}
 	}
 	
-	public partial class SP_AddDepositResult
-	{
-		
-		private string _Message;
-		
-		public SP_AddDepositResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(18) NOT NULL", CanBeNull=false)]
-		public string Message
-		{
-			get
-			{
-				return this._Message;
-			}
-			set
-			{
-				if ((this._Message != value))
-				{
-					this._Message = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SP_GetAllDepositModeResult
 	{
 		
@@ -4357,6 +4359,406 @@ namespace Martinez_BankApp.Persistent.Data
 				if ((this._DepositTime != value))
 				{
 					this._DepositTime = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GetAllWithdrawModeResult
+	{
+		
+		private int _Id;
+		
+		private string _Type;
+		
+		public SP_GetAllWithdrawModeResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this._Type = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GetAllWithdrawRecordResult
+	{
+		
+		private int _Account_Id;
+		
+		private string _Full_Name;
+		
+		private string _Gender;
+		
+		private System.DateTime _DateOfBirth;
+		
+		private System.Nullable<decimal> _Amount;
+		
+		private decimal _NewBalance;
+		
+		private System.Nullable<System.DateTime> _WithdrawDate;
+		
+		private System.TimeSpan _WithdrawTime;
+		
+		public SP_GetAllWithdrawRecordResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Account Id]", Storage="_Account_Id", DbType="Int NOT NULL")]
+		public int Account_Id
+		{
+			get
+			{
+				return this._Account_Id;
+			}
+			set
+			{
+				if ((this._Account_Id != value))
+				{
+					this._Account_Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Full Name]", Storage="_Full_Name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Full_Name
+		{
+			get
+			{
+				return this._Full_Name;
+			}
+			set
+			{
+				if ((this._Full_Name != value))
+				{
+					this._Full_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="VarChar(255)")]
+		public string Gender
+		{
+			get
+			{
+				return this._Gender;
+			}
+			set
+			{
+				if ((this._Gender != value))
+				{
+					this._Gender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfBirth", DbType="Date NOT NULL")]
+		public System.DateTime DateOfBirth
+		{
+			get
+			{
+				return this._DateOfBirth;
+			}
+			set
+			{
+				if ((this._DateOfBirth != value))
+				{
+					this._DateOfBirth = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this._Amount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NewBalance", DbType="Decimal(18,2) NOT NULL")]
+		public decimal NewBalance
+		{
+			get
+			{
+				return this._NewBalance;
+			}
+			set
+			{
+				if ((this._NewBalance != value))
+				{
+					this._NewBalance = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WithdrawDate", DbType="Date")]
+		public System.Nullable<System.DateTime> WithdrawDate
+		{
+			get
+			{
+				return this._WithdrawDate;
+			}
+			set
+			{
+				if ((this._WithdrawDate != value))
+				{
+					this._WithdrawDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WithdrawTime", DbType="Time NOT NULL")]
+		public System.TimeSpan WithdrawTime
+		{
+			get
+			{
+				return this._WithdrawTime;
+			}
+			set
+			{
+				if ((this._WithdrawTime != value))
+				{
+					this._WithdrawTime = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_AddDepositResult
+	{
+		
+		private string _Message;
+		
+		public SP_AddDepositResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(18) NOT NULL", CanBeNull=false)]
+		public string Message
+		{
+			get
+			{
+				return this._Message;
+			}
+			set
+			{
+				if ((this._Message != value))
+				{
+					this._Message = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_WithdrawResult
+	{
+		
+		private string _Message;
+		
+		public SP_WithdrawResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(19) NOT NULL", CanBeNull=false)]
+		public string Message
+		{
+			get
+			{
+				return this._Message;
+			}
+			set
+			{
+				if ((this._Message != value))
+				{
+					this._Message = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_FindWithdrawByIdResult
+	{
+		
+		private int _Account_Id;
+		
+		private string _Full_Name;
+		
+		private string _Gender;
+		
+		private System.DateTime _DateOfBirth;
+		
+		private System.Nullable<decimal> _Amount;
+		
+		private decimal _NewBalance;
+		
+		private System.Nullable<System.DateTime> _WithdrawDate;
+		
+		private System.TimeSpan _WithdrawTime;
+		
+		public SP_FindWithdrawByIdResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Account Id]", Storage="_Account_Id", DbType="Int NOT NULL")]
+		public int Account_Id
+		{
+			get
+			{
+				return this._Account_Id;
+			}
+			set
+			{
+				if ((this._Account_Id != value))
+				{
+					this._Account_Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Full Name]", Storage="_Full_Name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Full_Name
+		{
+			get
+			{
+				return this._Full_Name;
+			}
+			set
+			{
+				if ((this._Full_Name != value))
+				{
+					this._Full_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="VarChar(255)")]
+		public string Gender
+		{
+			get
+			{
+				return this._Gender;
+			}
+			set
+			{
+				if ((this._Gender != value))
+				{
+					this._Gender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfBirth", DbType="Date NOT NULL")]
+		public System.DateTime DateOfBirth
+		{
+			get
+			{
+				return this._DateOfBirth;
+			}
+			set
+			{
+				if ((this._DateOfBirth != value))
+				{
+					this._DateOfBirth = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this._Amount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NewBalance", DbType="Decimal(18,2) NOT NULL")]
+		public decimal NewBalance
+		{
+			get
+			{
+				return this._NewBalance;
+			}
+			set
+			{
+				if ((this._NewBalance != value))
+				{
+					this._NewBalance = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WithdrawDate", DbType="Date")]
+		public System.Nullable<System.DateTime> WithdrawDate
+		{
+			get
+			{
+				return this._WithdrawDate;
+			}
+			set
+			{
+				if ((this._WithdrawDate != value))
+				{
+					this._WithdrawDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WithdrawTime", DbType="Time NOT NULL")]
+		public System.TimeSpan WithdrawTime
+		{
+			get
+			{
+				return this._WithdrawTime;
+			}
+			set
+			{
+				if ((this._WithdrawTime != value))
+				{
+					this._WithdrawTime = value;
 				}
 			}
 		}

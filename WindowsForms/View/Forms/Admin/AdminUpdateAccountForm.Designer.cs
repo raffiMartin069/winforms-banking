@@ -493,6 +493,7 @@
 			// EmailTextBox
 			// 
 			this.EmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.EmailTextBox.Enabled = false;
 			this.EmailTextBox.Location = new System.Drawing.Point(171, 119);
 			this.EmailTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.EmailTextBox.Name = "EmailTextBox";

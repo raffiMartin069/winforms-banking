@@ -1,16 +1,11 @@
-﻿using Martinez_BankApp.Contract.Admin;
-using Martinez_BankApp.Model.Dto.Admin;
+﻿using Martinez_BankApp.Model.Dto.Admin;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Martinez_BankApp.InputModel.Model.Admin
+namespace Martinez_BankApp.Model.InputModel.Admin
 {
-	public class Deposit
+	public class Withdraw
 	{
-		public Deposit(string accountNumber, string fullName, string oldBalance, string mode, string amount)
+		public Withdraw(string accountNumber, string fullName, string oldBalance, string mode, string amount)
 		{
 			AccountNumber = accountNumber;
 			FullName = fullName;
@@ -20,10 +15,10 @@ namespace Martinez_BankApp.InputModel.Model.Admin
 		}
 
 		public string AccountNumber { get; set; }
-        public string FullName { get; set; }
-        public string OldBalance { get; set; }
-        public string Mode { get; set; }
-        public string Amount { get; set; }
+		public string FullName { get; set; }
+		public string OldBalance { get; set; }
+		public string Mode { get; set; }
+		public string Amount { get; set; }
 
 		private bool CheckDecimalValidity()
 		{
@@ -31,7 +26,7 @@ namespace Martinez_BankApp.InputModel.Model.Admin
 				throw new Exception("Please enter a valid balance");
 
 			if (!decimal.TryParse(Amount, out decimal amount))
-				throw new Exception("Please enter a valid deposit amount.");
+				throw new Exception("Please enter a Wvalid deposit amount.");
 
 			return true;
 		}
@@ -50,12 +45,12 @@ namespace Martinez_BankApp.InputModel.Model.Admin
 			return true;
 		}
 
-		public DepositDto Validate()
+		public WithdrawDto Validate()
 		{
 			bool isValidStr = CheckStrValidity();
 			bool isValidDecimal = CheckDecimalValidity();
 			string exception = "Something went wrong, please try again later";
-			return !isValidDecimal && !isValidStr ? throw new Exception(exception) : new DepositDto
+			return !isValidDecimal && !isValidStr ? throw new Exception(exception) : new WithdrawDto
 			(
 				int.Parse(AccountNumber),
 				FullName,

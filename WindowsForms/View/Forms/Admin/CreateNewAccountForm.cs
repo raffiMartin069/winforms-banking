@@ -38,9 +38,8 @@ namespace Martinez_BankApp.View.Forms.Admin
 			try
 			{
 				var genderTypes = _repository.GetAllGender();
-				GenderComboBox.DisplayMember = "Type";
-				GenderComboBox.ValueMember = "Id";
-				GenderComboBox.DataSource = genderTypes;
+				var combox = new ComboBoxUtility("Type", "Id", genderTypes, GenderComboBox);
+				combox.CreateComboBox();
 			}
 			catch (Exception ex)
 			{
@@ -60,9 +59,8 @@ namespace Martinez_BankApp.View.Forms.Admin
 			try
 			{
 				var maritalStat = _repository.GetAllMaritalStatus();
-				MaritalStatusComboBox.DisplayMember = "Status";
-				MaritalStatusComboBox.ValueMember = "Id";
-				MaritalStatusComboBox.DataSource = maritalStat;
+				var combox = new ComboBoxUtility("Status", "Id", maritalStat, MaritalStatusComboBox);
+				combox.CreateComboBox();
 			}
 			catch (Exception ex)
 			{
@@ -82,9 +80,8 @@ namespace Martinez_BankApp.View.Forms.Admin
 			try
 			{
 				var role = _repository.GetAllRole();
-				RoleComboBox.DisplayMember = "Type";
-				RoleComboBox.ValueMember = "Id";
-				RoleComboBox.DataSource = role;
+				var combox = new ComboBoxUtility("Type", "Id", role, RoleComboBox);
+				combox.CreateComboBox();
 			}
 			catch (Exception ex)
 			{
@@ -286,7 +283,6 @@ namespace Martinez_BankApp.View.Forms.Admin
 		{
 			NewAccountsDataTable.DataSource = _repository.FindAccountByKey(SearchBoxTextField.Text);
 		}
-
 
 		private void AllowNumericOnlyOnPress(object sender, KeyPressEventArgs e)
 		{

@@ -22,31 +22,31 @@ namespace Martinez_BankApp.View.ParentMdi
 		private void withdrawToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			var factory = new AdminFormFactory(this);
-			factory.AdminWithdrawForm();
+			factory.CreateWithdrawForm();
 		}
 
 		private void depositToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			var factory = new AdminFormFactory(this);
-			factory.AdminDepositForm();
+			factory.CreateDepositForm();
 		}
 
 		private void updateAccountToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			var factory = new AdminFormFactory(this);
-			factory.AdminUpdateAccountForm();
+			factory.CreateUpdateAccountForm();
 		}
 
 		private void searchToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			var factory = new AdminFormFactory(this);
-			factory.AdminSearchAccount();
+			factory.CreateSearchAccountForm();
 		}
 
 		private void listOfCustomerToolStripMenuItem_Click(object sender, EventArgs e)
 		{
 			var factory = new AdminFormFactory(this);
-			factory.AdminListOfCustomer();
+			factory.CreateListOfCustomerForm();
 		}
 	}
 }

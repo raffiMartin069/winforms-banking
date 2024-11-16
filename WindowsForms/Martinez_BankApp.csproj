@@ -47,13 +47,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\Admin\IDeposit.cs" />
+    <Compile Include="Contract\Admin\ITransaction.cs" />
+    <Compile Include="Contract\Admin\IWithdraw.cs" />
     <Compile Include="Factory\AdminFormFactory.cs" />
     <Compile Include="Factory\ClientFormFactory.cs" />
     <Compile Include="Model\Dto\Admin\CreateAccountDto.cs" />
     <Compile Include="Model\Dto\Admin\DepositDto.cs" />
     <Compile Include="Model\Dto\Admin\UpdateAccountDto.cs" />
+    <Compile Include="Model\Dto\Admin\WithdrawDto.cs" />
     <Compile Include="Model\InputModel\Admin\Account.cs" />
     <Compile Include="Model\InputModel\Admin\Deposit.cs" />
+    <Compile Include="Model\InputModel\Admin\Withdraw.cs" />
     <Compile Include="Persistent\Data\DBContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -62,8 +67,11 @@
     <Compile Include="Repository\Admin\UpdateAccountRepository.cs" />
     <Compile Include="Repository\Admin\CreateNewAccountRepository.cs" />
     <Compile Include="Repository\Admin\DepositRepository.cs" />
+    <Compile Include="Repository\Admin\WithdrawRepository.cs" />
     <Compile Include="Repository\Authentication\ClientLoginRepository.cs" />
+    <Compile Include="Utility\ComboBoxUtility.cs" />
     <Compile Include="Utility\ProfilePictureUtility.cs" />
+    <Compile Include="Utility\TableUtility.cs" />
     <Compile Include="View\Common\LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

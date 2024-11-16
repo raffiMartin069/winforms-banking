@@ -28,19 +28,21 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.label2 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
 			this.OldBalanceTextBox = new System.Windows.Forms.TextBox();
 			this.label7 = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
 			this.AmountTextBox = new System.Windows.Forms.TextBox();
 			this.AccountNumberTextBox = new System.Windows.Forms.TextBox();
 			this.label9 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.ModeComboBox = new System.Windows.Forms.ComboBox();
 			this.NameTextBox = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
+			this.AccountBalanceLabel = new System.Windows.Forms.Label();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.SaveButton = new System.Windows.Forms.Button();
 			this.ClearAllFieldButton = new System.Windows.Forms.Button();
@@ -75,19 +77,21 @@
 			this.tableLayoutPanel2.ColumnCount = 2;
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.Controls.Add(this.label8, 0, 8);
-			this.tableLayoutPanel2.Controls.Add(this.OldBalanceTextBox, 1, 7);
-			this.tableLayoutPanel2.Controls.Add(this.label7, 0, 7);
-			this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-			this.tableLayoutPanel2.Controls.Add(this.AmountTextBox, 1, 10);
-			this.tableLayoutPanel2.Controls.Add(this.AccountNumberTextBox, 1, 0);
-			this.tableLayoutPanel2.Controls.Add(this.label9, 0, 5);
-			this.tableLayoutPanel2.Controls.Add(this.label5, 0, 10);
-			this.tableLayoutPanel2.Controls.Add(this.ModeComboBox, 1, 8);
-			this.tableLayoutPanel2.Controls.Add(this.NameTextBox, 1, 5);
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(8, 8);
+			this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.label8, 0, 9);
+			this.tableLayoutPanel2.Controls.Add(this.OldBalanceTextBox, 1, 8);
+			this.tableLayoutPanel2.Controls.Add(this.label7, 0, 8);
+			this.tableLayoutPanel2.Controls.Add(this.AmountTextBox, 1, 11);
+			this.tableLayoutPanel2.Controls.Add(this.AccountNumberTextBox, 1, 1);
+			this.tableLayoutPanel2.Controls.Add(this.label9, 0, 6);
+			this.tableLayoutPanel2.Controls.Add(this.label5, 0, 11);
+			this.tableLayoutPanel2.Controls.Add(this.ModeComboBox, 1, 9);
+			this.tableLayoutPanel2.Controls.Add(this.NameTextBox, 1, 6);
+			this.tableLayoutPanel2.Controls.Add(this.label1, 0, 1);
+			this.tableLayoutPanel2.Controls.Add(this.AccountBalanceLabel, 1, 0);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(9, 8);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 11;
+			this.tableLayoutPanel2.RowCount = 12;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -99,26 +103,38 @@
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(602, 220);
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(649, 275);
 			this.tableLayoutPanel2.TabIndex = 3;
+			// 
+			// label2
+			// 
+			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
+			this.label2.Location = new System.Drawing.Point(3, 0);
+			this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 25);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(182, 30);
+			this.label2.TabIndex = 0;
+			this.label2.Text = "Account Balance:";
 			// 
 			// label8
 			// 
 			this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label8.AutoSize = true;
 			this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label8.Location = new System.Drawing.Point(3, 136);
+			this.label8.Location = new System.Drawing.Point(3, 191);
 			this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label8.Name = "label8";
-			this.label8.Size = new System.Drawing.Size(135, 21);
+			this.label8.Size = new System.Drawing.Size(182, 21);
 			this.label8.TabIndex = 14;
 			this.label8.Text = "Mode";
 			// 
 			// OldBalanceTextBox
 			// 
 			this.OldBalanceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.OldBalanceTextBox.Enabled = false;
-			this.OldBalanceTextBox.Location = new System.Drawing.Point(144, 87);
+			this.OldBalanceTextBox.Location = new System.Drawing.Point(191, 142);
 			this.OldBalanceTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.OldBalanceTextBox.Name = "OldBalanceTextBox";
 			this.OldBalanceTextBox.Size = new System.Drawing.Size(455, 29);
@@ -129,38 +145,27 @@
 			this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label7.Location = new System.Drawing.Point(3, 89);
+			this.label7.Location = new System.Drawing.Point(3, 144);
 			this.label7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label7.Name = "label7";
-			this.label7.Size = new System.Drawing.Size(135, 21);
+			this.label7.Size = new System.Drawing.Size(182, 21);
 			this.label7.TabIndex = 12;
 			this.label7.Text = "Old Balance";
-			// 
-			// label1
-			// 
-			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(3, 10);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(135, 21);
-			this.label1.TabIndex = 0;
-			this.label1.Text = "Account Number";
 			// 
 			// AmountTextBox
 			// 
 			this.AmountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.AmountTextBox.Location = new System.Drawing.Point(144, 181);
+			this.AmountTextBox.Location = new System.Drawing.Point(191, 236);
 			this.AmountTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.AmountTextBox.Name = "AmountTextBox";
 			this.AmountTextBox.Size = new System.Drawing.Size(455, 29);
 			this.AmountTextBox.TabIndex = 17;
+			this.AmountTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AmountTextBox_KeyPress);
 			// 
 			// AccountNumberTextBox
 			// 
 			this.AccountNumberTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.AccountNumberTextBox.Enabled = false;
-			this.AccountNumberTextBox.Location = new System.Drawing.Point(144, 3);
+			this.AccountNumberTextBox.Location = new System.Drawing.Point(191, 58);
 			this.AccountNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.AccountNumberTextBox.Name = "AccountNumberTextBox";
 			this.AccountNumberTextBox.Size = new System.Drawing.Size(455, 29);
@@ -171,10 +176,10 @@
 			this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label9.AutoSize = true;
 			this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label9.Location = new System.Drawing.Point(3, 47);
+			this.label9.Location = new System.Drawing.Point(3, 102);
 			this.label9.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label9.Name = "label9";
-			this.label9.Size = new System.Drawing.Size(135, 21);
+			this.label9.Size = new System.Drawing.Size(182, 21);
 			this.label9.TabIndex = 16;
 			this.label9.Text = "Name";
 			// 
@@ -183,10 +188,10 @@
 			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(3, 183);
+			this.label5.Location = new System.Drawing.Point(3, 238);
 			this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(135, 21);
+			this.label5.Size = new System.Drawing.Size(182, 21);
 			this.label5.TabIndex = 8;
 			this.label5.Text = "Amount";
 			// 
@@ -194,7 +199,7 @@
 			// 
 			this.ModeComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.ModeComboBox.FormattingEnabled = true;
-			this.ModeComboBox.Location = new System.Drawing.Point(144, 129);
+			this.ModeComboBox.Location = new System.Drawing.Point(191, 184);
 			this.ModeComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
 			this.ModeComboBox.Name = "ModeComboBox";
 			this.ModeComboBox.Size = new System.Drawing.Size(455, 29);
@@ -203,12 +208,33 @@
 			// NameTextBox
 			// 
 			this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.NameTextBox.Enabled = false;
-			this.NameTextBox.Location = new System.Drawing.Point(144, 45);
+			this.NameTextBox.Location = new System.Drawing.Point(191, 100);
 			this.NameTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.NameTextBox.Name = "NameTextBox";
 			this.NameTextBox.Size = new System.Drawing.Size(455, 29);
 			this.NameTextBox.TabIndex = 13;
+			// 
+			// label1
+			// 
+			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(3, 65);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(182, 21);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Account Number";
+			// 
+			// AccountBalanceLabel
+			// 
+			this.AccountBalanceLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.AccountBalanceLabel.AutoSize = true;
+			this.AccountBalanceLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
+			this.AccountBalanceLabel.Location = new System.Drawing.Point(191, 0);
+			this.AccountBalanceLabel.Margin = new System.Windows.Forms.Padding(3, 0, 3, 25);
+			this.AccountBalanceLabel.Name = "AccountBalanceLabel";
+			this.AccountBalanceLabel.Size = new System.Drawing.Size(455, 30);
+			this.AccountBalanceLabel.TabIndex = 0;
 			// 
 			// tableLayoutPanel3
 			// 
@@ -220,11 +246,11 @@
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel3.Controls.Add(this.SaveButton, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.ClearAllFieldButton, 1, 0);
-			this.tableLayoutPanel3.Location = new System.Drawing.Point(8, 234);
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(8, 289);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 1;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(602, 56);
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(650, 56);
 			this.tableLayoutPanel3.TabIndex = 2;
 			// 
 			// SaveButton
@@ -236,7 +262,7 @@
 			this.SaveButton.Location = new System.Drawing.Point(3, 3);
 			this.SaveButton.MinimumSize = new System.Drawing.Size(0, 50);
 			this.SaveButton.Name = "SaveButton";
-			this.SaveButton.Size = new System.Drawing.Size(295, 50);
+			this.SaveButton.Size = new System.Drawing.Size(319, 50);
 			this.SaveButton.TabIndex = 0;
 			this.SaveButton.Text = "Deposit";
 			this.SaveButton.UseVisualStyleBackColor = false;
@@ -248,10 +274,10 @@
 			this.ClearAllFieldButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
 			this.ClearAllFieldButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 			this.ClearAllFieldButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-			this.ClearAllFieldButton.Location = new System.Drawing.Point(304, 3);
+			this.ClearAllFieldButton.Location = new System.Drawing.Point(328, 3);
 			this.ClearAllFieldButton.MinimumSize = new System.Drawing.Size(0, 50);
 			this.ClearAllFieldButton.Name = "ClearAllFieldButton";
-			this.ClearAllFieldButton.Size = new System.Drawing.Size(295, 50);
+			this.ClearAllFieldButton.Size = new System.Drawing.Size(319, 50);
 			this.ClearAllFieldButton.TabIndex = 0;
 			this.ClearAllFieldButton.Text = "Clear";
 			this.ClearAllFieldButton.UseVisualStyleBackColor = false;
@@ -265,12 +291,12 @@
 			this.flowLayoutPanel2.Controls.Add(this.tableLayoutPanel2);
 			this.flowLayoutPanel2.Controls.Add(this.tableLayoutPanel3);
 			this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-			this.flowLayoutPanel2.Location = new System.Drawing.Point(71, 200);
+			this.flowLayoutPanel2.Location = new System.Drawing.Point(23, 200);
 			this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
 			this.flowLayoutPanel2.MinimumSize = new System.Drawing.Size(510, 468);
 			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
 			this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(5);
-			this.flowLayoutPanel2.Size = new System.Drawing.Size(618, 468);
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(666, 468);
 			this.flowLayoutPanel2.TabIndex = 0;
 			// 
 			// tableLayoutPanel5
@@ -422,25 +448,25 @@
 			this.DepositDataGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.DepositDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.DepositDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.DepositDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.DepositDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.DepositDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(3);
-			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.DepositDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3);
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.DepositDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
 			this.DepositDataGridView.Location = new System.Drawing.Point(3, 54);
 			this.DepositDataGridView.MinimumSize = new System.Drawing.Size(670, 400);
 			this.DepositDataGridView.Name = "DepositDataGridView";
@@ -512,5 +538,7 @@
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.TextBox SearchRecordTextBox;
 		private System.Windows.Forms.DataGridView DepositDataGridView;
+		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.Label AccountBalanceLabel;
 	}
 }
