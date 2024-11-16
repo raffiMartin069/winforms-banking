@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BankApp" Class="DBContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BankApp;Integrated Security=True;Encrypt=False;Trust Server Certificate=True" SettingsObjectName="Martinez_BankApp.Properties.Settings" SettingsPropertyName="BankAppConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Account" Member="Accounts">
+    <Type Name="Account">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UserId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Account_Balance" Member="Balance" ThisKey="Id" OtherKey="Id" Type="Balance" Cardinality="One" />
+      <Association Name="Account_DepositLog" Member="DepositLogs" ThisKey="Id" OtherKey="AccountId" Type="DepositLog" />
+      <Association Name="Account_WithdrawLog" Member="WithdrawLogs" ThisKey="Id" OtherKey="AccountId" Type="WithdrawLog" />
+      <Association Name="User_Account" Member="User" ThisKey="UserId" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WithdrawMode" Member="WithdrawModes">
+    <Type Name="WithdrawMode">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="WithdrawMode_WithdrawLog" Member="WithdrawLogs" ThisKey="Id" OtherKey="WithdrawModeId" Type="WithdrawLog" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Address" Member="Addresses">
+    <Type Name="Address">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HomeAddress" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="Address_User" Member="Users" ThisKey="Id" OtherKey="AddressId" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Administrator" Member="Administrators">
+    <Type Name="Administrator">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="User_Administrator" Member="User" ThisKey="Id" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Balance" Member="Balances">
+    <Type Name="Balance">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="DateEntered" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TimeEntered" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Association Name="Account_Balance" Member="Account" ThisKey="Id" OtherKey="Id" Type="Account" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Client" Member="Clients">
+    <Type Name="Client">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="User_Client" Member="User" ThisKey="Id" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Credential" Member="Credentials">
+    <Type Name="Credential">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="User_Credential" Member="User" ThisKey="Id" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DepositLogs" Member="DepositLogs">
+    <Type Name="DepositLog">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CurrentBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DepositAmount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DepositDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DepositModeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DepositTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Association Name="Account_DepositLog" Member="Account" ThisKey="AccountId" OtherKey="Id" Type="Account" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="DepositMode_DepositLog" Member="DepositMode" ThisKey="DepositModeId" OtherKey="Id" Type="DepositMode" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DepositMode" Member="DepositModes">
+    <Type Name="DepositMode">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Association Name="DepositMode_DepositLog" Member="DepositLogs" ThisKey="Id" OtherKey="DepositModeId" Type="DepositLog" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Gender" Member="Genders">
+    <Type Name="Gender">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Marital_Status" Member="Marital_Status">
+    <Type Name="Marital_Status">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Marital_Status_User" Member="Users" ThisKey="Id" OtherKey="MaritalStatusId" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Parent" Member="Parents">
+    <Type Name="Parent">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FatherName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="MotherName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Association Name="User_Parent" Member="User" ThisKey="Id" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Phone" Member="Phones">
+    <Type Name="Phone">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Number" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Association Name="User_Phone" Member="User" ThisKey="Id" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProfilePicture" Member="ProfilePictures">
+    <Type Name="ProfilePicture">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Association Name="User_ProfilePicture" Member="User" ThisKey="Id" OtherKey="Id" Type="User" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Role" Member="Roles">
+    <Type Name="Role">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Role_User" Member="Users" ThisKey="Id" OtherKey="RoleId" Type="User" />
+    </Type>
+  </Table>
+  <Table Name="dbo.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="RoleId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AddressId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="MaritalStatusId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Association Name="User_Account" Member="Accounts" ThisKey="Id" OtherKey="UserId" Type="Account" />
+      <Association Name="User_Administrator" Member="Administrator" ThisKey="Id" OtherKey="Id" Type="Administrator" Cardinality="One" />
+      <Association Name="User_Client" Member="Client" ThisKey="Id" OtherKey="Id" Type="Client" Cardinality="One" />
+      <Association Name="User_Credential" Member="Credential" ThisKey="Id" OtherKey="Id" Type="Credential" Cardinality="One" />
+      <Association Name="User_Parent" Member="Parent" ThisKey="Id" OtherKey="Id" Type="Parent" Cardinality="One" />
+      <Association Name="User_Phone" Member="Phone" ThisKey="Id" OtherKey="Id" Type="Phone" Cardinality="One" />
+      <Association Name="User_ProfilePicture" Member="ProfilePicture" ThisKey="Id" OtherKey="Id" Type="ProfilePicture" Cardinality="One" />
+      <Association Name="Address_User" Member="Address" ThisKey="AddressId" OtherKey="Id" Type="Address" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Marital_Status_User" Member="Marital_Status" ThisKey="MaritalStatusId" OtherKey="Id" Type="Marital_Status" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Role_User" Member="Role" ThisKey="RoleId" OtherKey="Id" Type="Role" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WithdrawLogs" Member="WithdrawLogs">
+    <Type Name="WithdrawLog">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CurrentBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WithdrawAmount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WithdrawDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="AccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="WithdrawModeId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WithdrawTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Association Name="Account_WithdrawLog" Member="Account" ThisKey="AccountId" OtherKey="Id" Type="Account" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="WithdrawMode_WithdrawLog" Member="WithdrawMode" ThisKey="WithdrawModeId" OtherKey="Id" Type="WithdrawMode" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.SP_GetAllGender" Method="SP_GetAllGender">
+    <ElementType Name="SP_GetAllGenderResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GetAllRoles" Method="SP_GetAllRoles">
+    <ElementType Name="SP_GetAllRolesResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GetAllMartiralStatus" Method="SP_GetAllMartiralStatus">
+    <ElementType Name="SP_GetAllMartiralStatusResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_UpdateUserInfo" Method="SP_UpdateUserInfo">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="DateOfBirth" Parameter="dateOfBirth" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="RepeatPassword" Parameter="repeatPassword" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="Char(15)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="MaritalStatus" Parameter="maritalStatus" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="MotherName" Parameter="motherName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="FatherName" Parameter="fatherName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Role" Parameter="role" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Balance" Parameter="balance" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="ProfileImage" Parameter="profileImage" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <ElementType Name="SP_UpdateUserInfoResult">
+      <Column Name="Message" Type="System.String" DbType="VarChar(27) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_SearchUserByKey" Method="SP_SearchUserByKey">
+    <Parameter Name="Key" Parameter="key" Type="System.String" DbType="VarChar(255)" />
+    <ElementType Name="SP_SearchUserByKeyResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="HomeAddress" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Number" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="[Name of Father]" Member="Name_of_Father" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="[Name of Mother]" Member="Name_of_Mother" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GetAllAccount" Method="SP_GetAllAccount">
+    <ElementType Name="SP_GetAllAccountResult">
+      <Column Name="[User Identification]" Member="User_Identification" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Client's Full Name]" Member="Client_s_Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="[Date of Birth]" Member="Date_of_Birth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="[Phone Number]" Member="Phone_Number" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="[Home Address]" Member="Home_Address" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="[Marital Status]" Member="Marital_Status" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="[Mother's Name]" Member="Mother_s_Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="[Father's Name]" Member="Father_s_Name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="[Account Number]" Member="Account_Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Account Balance]" Member="Account_Balance" Type="System.String" DbType="VarChar(45) NOT NULL" CanBeNull="false" />
+      <Column Name="[Profile Photo]" Member="Profile_Photo" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Role" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_CreateAccount" Method="SP_CreateAccount">
+    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="DateOfBirth" Parameter="dateOfBirth" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="RepeatPassword" Parameter="repeatPassword" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="Char(15)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="MaritalStatus" Parameter="maritalStatus" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="MotherName" Parameter="motherName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="FatherName" Parameter="fatherName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Role" Parameter="role" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Balance" Parameter="balance" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="ProfileImage" Parameter="profileImage" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <ElementType Name="SP_CreateAccountResult">
+      <Column Name="Message" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GetAllDepositMode" Method="SP_GetAllDepositMode">
+    <ElementType Name="SP_GetAllDepositModeResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GetAllDepositRecord" Method="SP_GetAllDepositRecord">
+    <ElementType Name="SP_GetAllDepositRecordResult">
+      <Column Name="[Account Id]" Member="Account_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Full Name]" Member="Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="DepositDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DepositTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_FindDepositRecordByKey" Method="SP_FindDepositRecordByKey">
+    <Parameter Name="Key" Parameter="key" Type="System.String" DbType="VarChar(255)" />
+    <ElementType Name="SP_FindDepositRecordByKeyResult">
+      <Column Name="[Account Id]" Member="Account_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Full Name]" Member="Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="DepositDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DepositTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GetAllWithdrawMode" Method="SP_GetAllWithdrawMode">
+    <ElementType Name="SP_GetAllWithdrawModeResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GetAllWithdrawRecord" Method="SP_GetAllWithdrawRecord">
+    <ElementType Name="SP_GetAllWithdrawRecordResult">
+      <Column Name="[Account Id]" Member="Account_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Full Name]" Member="Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WithdrawDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="WithdrawTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_AddDeposit" Method="SP_AddDeposit">
+    <Parameter Name="AccountNumber" Parameter="accountNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="CurrentBalance" Parameter="currentBalance" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="ModeOfDeposit" Parameter="modeOfDeposit" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="DepositAmount" Parameter="depositAmount" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <ElementType Name="SP_AddDepositResult">
+      <Column Name="Message" Type="System.String" DbType="VarChar(18) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_Withdraw" Method="SP_Withdraw">
+    <Parameter Name="AccountNumber" Parameter="accountNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="CurrentBalance" Parameter="currentBalance" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="ModeOfDeposit" Parameter="modeOfDeposit" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="WithdrawAmount" Parameter="withdrawAmount" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <ElementType Name="SP_WithdrawResult">
+      <Column Name="Message" Type="System.String" DbType="VarChar(19) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_FindWithdrawById" Method="SP_FindWithdrawById">
+    <Parameter Name="Key" Parameter="key" Type="System.String" DbType="VarChar(255)" />
+    <ElementType Name="SP_FindWithdrawByIdResult">
+      <Column Name="[Account Id]" Member="Account_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Full Name]" Member="Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WithdrawDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="WithdrawTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>
