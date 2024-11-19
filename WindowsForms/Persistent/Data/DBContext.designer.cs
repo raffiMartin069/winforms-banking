@@ -333,13 +333,6 @@ namespace Martinez_BankApp.Persistent.Data
 			return ((ISingleResult<SP_GetAllWithdrawRecordResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_AddDeposit")]
-		public ISingleResult<SP_AddDepositResult> SP_AddDeposit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccountNumber", DbType="Int")] System.Nullable<int> accountNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="VarChar(255)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CurrentBalance", DbType="Decimal(18,2)")] System.Nullable<decimal> currentBalance, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ModeOfDeposit", DbType="VarChar(255)")] string modeOfDeposit, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DepositAmount", DbType="Decimal(18,2)")] System.Nullable<decimal> depositAmount)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accountNumber, fullName, currentBalance, modeOfDeposit, depositAmount);
-			return ((ISingleResult<SP_AddDepositResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_Withdraw")]
 		public ISingleResult<SP_WithdrawResult> SP_Withdraw([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccountNumber", DbType="Int")] System.Nullable<int> accountNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="VarChar(255)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CurrentBalance", DbType="Decimal(18,2)")] System.Nullable<decimal> currentBalance, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ModeOfDeposit", DbType="VarChar(255)")] string modeOfDeposit, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WithdrawAmount", DbType="Decimal(18,2)")] System.Nullable<decimal> withdrawAmount)
 		{
@@ -352,6 +345,27 @@ namespace Martinez_BankApp.Persistent.Data
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), key);
 			return ((ISingleResult<SP_FindWithdrawByIdResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_AddDeposit")]
+		public ISingleResult<SP_AddDepositResult> SP_AddDeposit([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccountNumber", DbType="Int")] System.Nullable<int> accountNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="VarChar(255)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CurrentBalance", DbType="Decimal(18,2)")] System.Nullable<decimal> currentBalance, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ModeOfDeposit", DbType="VarChar(255)")] string modeOfDeposit, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DepositAmount", DbType="Decimal(18,2)")] System.Nullable<decimal> depositAmount)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accountNumber, fullName, currentBalance, modeOfDeposit, depositAmount);
+			return ((ISingleResult<SP_AddDepositResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_SendCash")]
+		public ISingleResult<SP_SendCashResult> SP_SendCash([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccountNumber", DbType="Int")] System.Nullable<int> accountNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Amount", DbType="Decimal(18,2)")] System.Nullable<decimal> amount)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accountNumber, amount);
+			return ((ISingleResult<SP_SendCashResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GetName")]
+		public ISingleResult<SP_GetNameResult> SP_GetName([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccountID", DbType="Int")] System.Nullable<int> accountID)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), accountID);
+			return ((ISingleResult<SP_GetNameResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4560,32 +4574,6 @@ namespace Martinez_BankApp.Persistent.Data
 		}
 	}
 	
-	public partial class SP_AddDepositResult
-	{
-		
-		private string _Message;
-		
-		public SP_AddDepositResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(18) NOT NULL", CanBeNull=false)]
-		public string Message
-		{
-			get
-			{
-				return this._Message;
-			}
-			set
-			{
-				if ((this._Message != value))
-				{
-					this._Message = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SP_WithdrawResult
 	{
 		
@@ -4759,6 +4747,84 @@ namespace Martinez_BankApp.Persistent.Data
 				if ((this._WithdrawTime != value))
 				{
 					this._WithdrawTime = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_AddDepositResult
+	{
+		
+		private string _Message;
+		
+		public SP_AddDepositResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(18) NOT NULL", CanBeNull=false)]
+		public string Message
+		{
+			get
+			{
+				return this._Message;
+			}
+			set
+			{
+				if ((this._Message != value))
+				{
+					this._Message = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_SendCashResult
+	{
+		
+		private string _MESSAGE;
+		
+		public SP_SendCashResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MESSAGE", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string MESSAGE
+		{
+			get
+			{
+				return this._MESSAGE;
+			}
+			set
+			{
+				if ((this._MESSAGE != value))
+				{
+					this._MESSAGE = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GetNameResult
+	{
+		
+		private string _MESSAGE;
+		
+		public SP_GetNameResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MESSAGE", DbType="NVarChar(255)")]
+		public string MESSAGE
+		{
+			get
+			{
+				return this._MESSAGE;
+			}
+			set
+			{
+				if ((this._MESSAGE != value))
+				{
+					this._MESSAGE = value;
 				}
 			}
 		}

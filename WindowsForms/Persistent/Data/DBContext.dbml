@@ -292,16 +292,6 @@
       <Column Name="WithdrawTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SP_AddDeposit" Method="SP_AddDeposit">
-    <Parameter Name="AccountNumber" Parameter="accountNumber" Type="System.Int32" DbType="Int" />
-    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="CurrentBalance" Parameter="currentBalance" Type="System.Decimal" DbType="Decimal(18,2)" />
-    <Parameter Name="ModeOfDeposit" Parameter="modeOfDeposit" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="DepositAmount" Parameter="depositAmount" Type="System.Decimal" DbType="Decimal(18,2)" />
-    <ElementType Name="SP_AddDepositResult">
-      <Column Name="Message" Type="System.String" DbType="VarChar(18) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.SP_Withdraw" Method="SP_Withdraw">
     <Parameter Name="AccountNumber" Parameter="accountNumber" Type="System.Int32" DbType="Int" />
     <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="VarChar(255)" />
@@ -323,6 +313,29 @@
       <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
       <Column Name="WithdrawDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="WithdrawTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_AddDeposit" Method="SP_AddDeposit">
+    <Parameter Name="AccountNumber" Parameter="accountNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="CurrentBalance" Parameter="currentBalance" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="ModeOfDeposit" Parameter="modeOfDeposit" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="DepositAmount" Parameter="depositAmount" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <ElementType Name="SP_AddDepositResult">
+      <Column Name="Message" Type="System.String" DbType="VarChar(18) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_SendCash" Method="SP_SendCash">
+    <Parameter Name="AccountNumber" Parameter="accountNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Amount" Parameter="amount" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <ElementType Name="SP_SendCashResult">
+      <Column Name="MESSAGE" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GetName" Method="SP_GetName">
+    <Parameter Name="AccountID" Parameter="accountID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="SP_GetNameResult">
+      <Column Name="MESSAGE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </ElementType>
   </Function>
 </Database>

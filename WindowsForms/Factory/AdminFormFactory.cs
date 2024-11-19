@@ -63,5 +63,13 @@ namespace Martinez_BankApp.Factory
 			var listOfCustomer = new AdminCustomerListForm();
 			ShowForm(listOfCustomer);
 		}
+
+		public void CreateTransferBalanceForm()
+		{
+			var context = new DBContextDataContext();
+			var repository = new TransferBalanceRepository(context);
+			var transferBalance = new AdminTransferBalanceForm(repository);
+			ShowForm(transferBalance);
+		}
 	}
 }
