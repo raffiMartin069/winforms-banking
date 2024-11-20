@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,24 +25,56 @@ namespace Martinez_BankApp.View.Forms.Admin
 
 		private void SendACashButton_Click(object sender, EventArgs e)
 		{
-			string accountNumber = AccountNumberTextBox.Text;
+			string senderId = SenderAccountNumberTextBox.Text;
+			string recipientId = RecipientAccountNumberTextBox.Text;
 			string amount = AmountTextBox.Text;
-			var model = new TransferBalance(accountNumber, amount, _repository);
+			var model = new TransferBalance(senderId, recipientId, amount, _repository);
 			try
 			{
-				var clientName = model.ValidateNameExist();
-				
+				// Get the name of the client. 
+				// This is to let admin identify if he/she is sending the cash to the right account. 
+				var clientName = model.GetName();
+
+				// Overload the method ValidateAmount to check the amount early instead after confirmation is done.
+				model.ValidateAmount(amount);
+
 				bool isConfirmed = ConfirmationPrompt(amount, clientName);
-				if(!isConfirmed)
+				if (!isConfirmed)
 					return;
-				
-				var result = model.Validate();
-				MessageBox.Show(result + " to " + clientName);
+
+				// Send the cash to the recipient.
+				var result = model.SendBalance();
+
+				// Extract the result of the transaction.
+				string msg = ExtractSendACashResult(result);
+
+				MessageBox.Show(msg);
 			}
 			catch (Exception ex)
 			{
 				MessageBox.Show(ex.Message);
 			}
+		}
+
+		/**
+		 * <summary>
+		 * The database will throw away a custom message if the transaction is failed and only when the custom error is defined in the database.
+		 * The default error message is "1" if the transaction is failed and "0" if success.
+		 * Other than that it means that the error might be custom.
+		 * </summary>
+		 * **/
+		private string ExtractSendACashResult(string result)
+		{
+			string success = "0";
+			string failed = "1";
+			string custom = result;
+			if (result.Equals(failed))
+				return "Express send failed to transfer a cash. Please try again later.";
+
+			if (result.Equals(success))
+				return "Express send sent succesfully.";
+
+			return custom;
 		}
 
 		private bool ConfirmationPrompt(string amount, string clientName)
@@ -59,7 +92,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 
 		private void SetToDefault()
 		{
-			AccountNumberTextBox.Text = "";
+			RecipientAccountNumberTextBox.Text = "";
 			AmountTextBox.Text = "";
 		}
 	}

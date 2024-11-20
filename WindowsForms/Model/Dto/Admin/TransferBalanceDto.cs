@@ -8,12 +8,14 @@ namespace Martinez_BankApp.Model.Dto.Admin
 {
 	public class TransferBalanceDto
 	{
-		public TransferBalanceDto(int accountNumber, decimal amount)
+		public TransferBalanceDto(int senderAccountNumber, int recipientAccountNumber, decimal amount)
 		{
-			AccountNumber = accountNumber;
 			Amount = amount;
+			SenderAccountNumber = senderAccountNumber;
+			RecipientAccountNumber = recipientAccountNumber;
 		}
-		public int AccountNumber { get; private set; }
+		public int SenderAccountNumber { get; private set; }
+		public int RecipientAccountNumber { get; private set; }
 		public decimal Amount { get; private set; }
 	}
 }

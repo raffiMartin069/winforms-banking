@@ -38,9 +38,11 @@
 			this.label2 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.AmountTextBox = new System.Windows.Forms.TextBox();
-			this.AccountNumberTextBox = new System.Windows.Forms.TextBox();
+			this.RecipientAccountNumberTextBox = new System.Windows.Forms.TextBox();
 			this.label5 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
+			this.SenderAccountNumberTextBox = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.SendACashButton = new System.Windows.Forms.Button();
 			this.ClearAllFieldButton = new System.Windows.Forms.Button();
@@ -138,12 +140,12 @@
 			this.flowLayoutPanel2.Controls.Add(this.tableLayoutPanel2);
 			this.flowLayoutPanel2.Controls.Add(this.tableLayoutPanel3);
 			this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-			this.flowLayoutPanel2.Location = new System.Drawing.Point(100, 232);
+			this.flowLayoutPanel2.Location = new System.Drawing.Point(26, 232);
 			this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 100, 3, 3);
 			this.flowLayoutPanel2.MinimumSize = new System.Drawing.Size(510, 468);
 			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
 			this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(5);
-			this.flowLayoutPanel2.Size = new System.Drawing.Size(618, 468);
+			this.flowLayoutPanel2.Size = new System.Drawing.Size(692, 468);
 			this.flowLayoutPanel2.TabIndex = 0;
 			// 
 			// label3
@@ -153,7 +155,7 @@
 			this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
 			this.label3.Location = new System.Drawing.Point(8, 5);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(602, 30);
+			this.label3.Size = new System.Drawing.Size(676, 30);
 			this.label3.TabIndex = 18;
 			this.label3.Text = "Express Send";
 			// 
@@ -165,7 +167,7 @@
 			this.label2.Location = new System.Drawing.Point(8, 35);
 			this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 25);
 			this.label2.Name = "label2";
-			this.label2.Size = new System.Drawing.Size(602, 19);
+			this.label2.Size = new System.Drawing.Size(676, 19);
 			this.label2.TabIndex = 18;
 			this.label2.Text = "Friendly Reminder: Please check account number before sending.";
 			this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -178,13 +180,15 @@
 			this.tableLayoutPanel2.ColumnCount = 2;
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel2.Controls.Add(this.AmountTextBox, 1, 11);
-			this.tableLayoutPanel2.Controls.Add(this.AccountNumberTextBox, 1, 1);
-			this.tableLayoutPanel2.Controls.Add(this.label5, 0, 11);
-			this.tableLayoutPanel2.Controls.Add(this.label1, 0, 1);
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(8, 82);
+			this.tableLayoutPanel2.Controls.Add(this.AmountTextBox, 1, 12);
+			this.tableLayoutPanel2.Controls.Add(this.RecipientAccountNumberTextBox, 1, 2);
+			this.tableLayoutPanel2.Controls.Add(this.label5, 0, 12);
+			this.tableLayoutPanel2.Controls.Add(this.label1, 0, 2);
+			this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.SenderAccountNumberTextBox, 1, 0);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(9, 82);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 12;
+			this.tableLayoutPanel2.RowCount = 13;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -197,36 +201,37 @@
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(602, 84);
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(675, 126);
 			this.tableLayoutPanel2.TabIndex = 3;
 			// 
 			// AmountTextBox
 			// 
 			this.AmountTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.AmountTextBox.Location = new System.Drawing.Point(144, 45);
+			this.AmountTextBox.Location = new System.Drawing.Point(217, 87);
 			this.AmountTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.AmountTextBox.Name = "AmountTextBox";
 			this.AmountTextBox.Size = new System.Drawing.Size(455, 29);
 			this.AmountTextBox.TabIndex = 17;
 			// 
-			// AccountNumberTextBox
+			// RecipientAccountNumberTextBox
 			// 
-			this.AccountNumberTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.AccountNumberTextBox.Location = new System.Drawing.Point(144, 3);
-			this.AccountNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
-			this.AccountNumberTextBox.Name = "AccountNumberTextBox";
-			this.AccountNumberTextBox.Size = new System.Drawing.Size(455, 29);
-			this.AccountNumberTextBox.TabIndex = 1;
+			this.RecipientAccountNumberTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.RecipientAccountNumberTextBox.Location = new System.Drawing.Point(217, 45);
+			this.RecipientAccountNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+			this.RecipientAccountNumberTextBox.Name = "RecipientAccountNumberTextBox";
+			this.RecipientAccountNumberTextBox.Size = new System.Drawing.Size(455, 29);
+			this.RecipientAccountNumberTextBox.TabIndex = 1;
 			// 
 			// label5
 			// 
 			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label5.Location = new System.Drawing.Point(3, 47);
+			this.label5.Location = new System.Drawing.Point(3, 89);
 			this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label5.Name = "label5";
-			this.label5.Size = new System.Drawing.Size(135, 21);
+			this.label5.Size = new System.Drawing.Size(208, 21);
 			this.label5.TabIndex = 8;
 			this.label5.Text = "Amount";
 			// 
@@ -235,11 +240,31 @@
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(3, 10);
+			this.label1.Location = new System.Drawing.Point(3, 52);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(135, 21);
+			this.label1.Size = new System.Drawing.Size(208, 21);
 			this.label1.TabIndex = 0;
-			this.label1.Text = "Account Number";
+			this.label1.Text = "Recipient Account Number";
+			// 
+			// label4
+			// 
+			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.label4.AutoSize = true;
+			this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.Location = new System.Drawing.Point(3, 10);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(208, 21);
+			this.label4.TabIndex = 0;
+			this.label4.Text = "Sender Account Number";
+			// 
+			// SenderAccountNumberTextBox
+			// 
+			this.SenderAccountNumberTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.SenderAccountNumberTextBox.Location = new System.Drawing.Point(217, 3);
+			this.SenderAccountNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
+			this.SenderAccountNumberTextBox.Name = "SenderAccountNumberTextBox";
+			this.SenderAccountNumberTextBox.Size = new System.Drawing.Size(455, 29);
+			this.SenderAccountNumberTextBox.TabIndex = 1;
 			// 
 			// tableLayoutPanel3
 			// 
@@ -251,11 +276,11 @@
 			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel3.Controls.Add(this.SendACashButton, 0, 0);
 			this.tableLayoutPanel3.Controls.Add(this.ClearAllFieldButton, 1, 0);
-			this.tableLayoutPanel3.Location = new System.Drawing.Point(8, 172);
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(8, 214);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 1;
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel3.Size = new System.Drawing.Size(602, 56);
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(676, 56);
 			this.tableLayoutPanel3.TabIndex = 2;
 			// 
 			// SendACashButton
@@ -267,7 +292,7 @@
 			this.SendACashButton.Location = new System.Drawing.Point(3, 3);
 			this.SendACashButton.MinimumSize = new System.Drawing.Size(0, 50);
 			this.SendACashButton.Name = "SendACashButton";
-			this.SendACashButton.Size = new System.Drawing.Size(295, 50);
+			this.SendACashButton.Size = new System.Drawing.Size(332, 50);
 			this.SendACashButton.TabIndex = 0;
 			this.SendACashButton.Text = "Send A Cash";
 			this.SendACashButton.UseVisualStyleBackColor = false;
@@ -279,10 +304,10 @@
 			this.ClearAllFieldButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
 			this.ClearAllFieldButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 			this.ClearAllFieldButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-			this.ClearAllFieldButton.Location = new System.Drawing.Point(304, 3);
+			this.ClearAllFieldButton.Location = new System.Drawing.Point(341, 3);
 			this.ClearAllFieldButton.MinimumSize = new System.Drawing.Size(0, 50);
 			this.ClearAllFieldButton.Name = "ClearAllFieldButton";
-			this.ClearAllFieldButton.Size = new System.Drawing.Size(295, 50);
+			this.ClearAllFieldButton.Size = new System.Drawing.Size(332, 50);
 			this.ClearAllFieldButton.TabIndex = 0;
 			this.ClearAllFieldButton.Text = "Clear";
 			this.ClearAllFieldButton.UseVisualStyleBackColor = false;
@@ -355,17 +380,19 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-		private System.Windows.Forms.TextBox AccountNumberTextBox;
-		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
 		private System.Windows.Forms.Button SendACashButton;
 		private System.Windows.Forms.Button ClearAllFieldButton;
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-		private System.Windows.Forms.TextBox AmountTextBox;
-		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private System.Windows.Forms.Label label2;
+		private System.Windows.Forms.TextBox AmountTextBox;
+		private System.Windows.Forms.TextBox RecipientAccountNumberTextBox;
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label4;
+		private System.Windows.Forms.TextBox SenderAccountNumberTextBox;
 	}
 }

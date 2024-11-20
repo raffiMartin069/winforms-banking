@@ -361,6 +361,13 @@ namespace Martinez_BankApp.Persistent.Data
 			return ((ISingleResult<SP_SendCashResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_AdminSendCash")]
+		public ISingleResult<SP_AdminSendCashResult> SP_AdminSendCash([global::System.Data.Linq.Mapping.ParameterAttribute(Name="SenderAccountNumber", DbType="Int")] System.Nullable<int> senderAccountNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RecipientAccountNumber", DbType="Int")] System.Nullable<int> recipientAccountNumber, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Amount", DbType="Decimal(18,2)")] System.Nullable<decimal> amount)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), senderAccountNumber, recipientAccountNumber, amount);
+			return ((ISingleResult<SP_AdminSendCashResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GetName")]
 		public ISingleResult<SP_GetNameResult> SP_GetName([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AccountID", DbType="Int")] System.Nullable<int> accountID)
 		{
@@ -4784,6 +4791,32 @@ namespace Martinez_BankApp.Persistent.Data
 		private string _MESSAGE;
 		
 		public SP_SendCashResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MESSAGE", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string MESSAGE
+		{
+			get
+			{
+				return this._MESSAGE;
+			}
+			set
+			{
+				if ((this._MESSAGE != value))
+				{
+					this._MESSAGE = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_AdminSendCashResult
+	{
+		
+		private string _MESSAGE;
+		
+		public SP_AdminSendCashResult()
 		{
 		}
 		

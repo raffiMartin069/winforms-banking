@@ -332,6 +332,14 @@
       <Column Name="MESSAGE" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.SP_AdminSendCash" Method="SP_AdminSendCash">
+    <Parameter Name="SenderAccountNumber" Parameter="senderAccountNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RecipientAccountNumber" Parameter="recipientAccountNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Amount" Parameter="amount" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <ElementType Name="SP_AdminSendCashResult">
+      <Column Name="MESSAGE" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.SP_GetName" Method="SP_GetName">
     <Parameter Name="AccountID" Parameter="accountID" Type="System.Int32" DbType="Int" />
     <ElementType Name="SP_GetNameResult">

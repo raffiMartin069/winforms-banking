@@ -1,4 +1,5 @@
-﻿using Martinez_BankApp.Persistent.Data;
+﻿using Martinez_BankApp.Model.Dto.Admin;
+using Martinez_BankApp.Persistent.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace Martinez_BankApp.Repository.Admin
 			_context = context;
 		}
 
-		public string AddBalance(int accountNumber, decimal amount)
+		public string SendBalance(TransferBalanceDto dto)
 		{
-			return _context.SP_SendCash(accountNumber, amount).FirstOrDefault().MESSAGE;
+			return _context.SP_AdminSendCash(dto.SenderAccountNumber, dto.RecipientAccountNumber, dto.Amount).FirstOrDefault().MESSAGE;
 		}
 
 		public string GetName(int accountNumber) => _context.SP_GetName(accountNumber).FirstOrDefault().MESSAGE;

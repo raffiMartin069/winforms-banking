@@ -13,28 +13,43 @@ namespace Martinez_BankApp.Model.InputModel.Admin
 	public class TransferBalance
 	{
 		private readonly TransferBalanceRepository _repository;
-		public TransferBalance(string accountNumber, string amount, TransferBalanceRepository repository)
+		public TransferBalance(string senderAccountNumber, string recipientAccountNumber, string amount, TransferBalanceRepository repository)
 		{
-			AccountNumber = accountNumber;
 			Amount = amount;
 			_repository = repository;
+			SenderAccountNumber = senderAccountNumber;
+			RecipientAccountNumber = recipientAccountNumber;
 		}
 
-		public string AccountNumber { get; private set; }
-        public string Amount { get; private set; }
+		public string SenderAccountNumber { get; private set; }
+		public string RecipientAccountNumber { get; private set; }
+		public string Amount { get; private set; }
 
-		public string Validate()
+		public string SendBalance()
 		{
+			// This will check if accidentally sent to the same account.
+			ValidateDestination();
+
 			ValidateInputs();
-			int id = ValidateAccountNumber();
+
+			int sender = ValidateSenderAccountNumber();
+			int recipient = ValidateRecipientAccountNumber();
 			decimal amount = ValidateAmount();
 
-			return _repository.AddBalance(id, amount);
+			var dto = new TransferBalanceDto(sender, recipient, amount);
+
+			return _repository.SendBalance(dto);
 		}
 
-		public string ValidateNameExist()
+		private void ValidateDestination()
 		{
-			int accountNumber = ValidateAccountNumber();
+			if (SenderAccountNumber.Equals(RecipientAccountNumber))
+				throw new Exception("You can not send cash to the same account.");
+		}
+
+		public string GetName()
+		{
+			int accountNumber = ValidateRecipientAccountNumber();
 			string name = _repository.GetName(accountNumber);
 
 			if(name.Equals(null) || name.Equals(""))
@@ -45,15 +60,26 @@ namespace Martinez_BankApp.Model.InputModel.Admin
 
 		private void ValidateInputs()
 		{
-			if (AccountNumber.Equals("") || Amount.Equals(""))
-			{
+			if (SenderAccountNumber.Equals(""))
 				throw new Exception("Account number or amount can not be empty.");
-			}
+
+			if (RecipientAccountNumber.Equals(""))
+				throw new Exception("Account number or amount can not be empty.");
+
+			if(Amount.Equals(""))
+				throw new Exception("Account number or amount can not be empty.");
 		}
 
-		private int ValidateAccountNumber()
+		private int ValidateRecipientAccountNumber()
 		{
-			if (!int.TryParse(AccountNumber, out int accountNumber))
+			if (!int.TryParse(RecipientAccountNumber, out int accountNumber))
+				throw new Exception("Please enter a valid Account number.");
+			return accountNumber;
+		}
+
+		private int ValidateSenderAccountNumber()
+		{
+			if (!int.TryParse(SenderAccountNumber, out int accountNumber))
 				throw new Exception("Please enter a valid Account number.");
 			return accountNumber;
 		}
@@ -62,7 +88,17 @@ namespace Martinez_BankApp.Model.InputModel.Admin
 		{
 			if (!decimal.TryParse(Amount, out decimal amount))
 				throw new Exception("Please enter a valid Amount.");
+
 			return amount;
+		}
+
+		public void ValidateAmount(string amount)
+		{
+			if (!decimal.TryParse(amount, out decimal cash))
+				throw new Exception("Please enter a valid Amount.");
+
+			if (cash <= 0)
+				throw new Exception("Amount can not be less than or equal to zero.");
 		}
 	}
 }
