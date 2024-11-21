@@ -54,14 +54,26 @@ namespace Martinez_BankApp.Factory
 
 		public void CreateSearchAccountForm()
 		{
-			var updateExistingAccount = new AdminSearchAccountForm();
+			var context = new DBContextDataContext();
+			var repository = new SearchAccountRepository(context);
+			var updateExistingAccount = new AdminSearchAccountForm(repository);
 			ShowForm(updateExistingAccount);
 		}
 
 		public void CreateListOfCustomerForm()
 		{
-			var listOfCustomer = new AdminCustomerListForm();
+			var context = new DBContextDataContext();
+			var repository = new CustomerListRepository(context);
+			var listOfCustomer = new AdminCustomerListForm(repository);
 			ShowForm(listOfCustomer);
+		}
+
+		public void CreateTransferBalanceForm()
+		{
+			var context = new DBContextDataContext();
+			var repository = new TransferBalanceRepository(context);
+			var transferBalance = new AdminTransferBalanceForm(repository);
+			ShowForm(transferBalance);
 		}
 	}
 }

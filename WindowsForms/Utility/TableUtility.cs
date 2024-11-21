@@ -16,21 +16,6 @@ namespace Martinez_BankApp.Utility
 
 		public DataGridView View { get; set; }
 
-		/**
-		 * <summary>
-		 * Pass null if you want to skip a header and content of a column.
-		 * </summary>
-		 * **/
-		//public void SetColumnHeader(string[] defaultHeader, string[] header)
-		//{
-		//	for (int i = 0; i < defaultHeader.Length; i++)
-		//	{
-		//		if (defaultHeader[i] == null && header[i] == null)
-		//			continue;
-
-		//		View.Columns[i].HeaderText = header[i];
-		//	}
-		//}
 		public void SetColumnHeader(Dictionary<string, string> headers)
 		{
 			foreach(var header in headers)

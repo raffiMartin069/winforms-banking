@@ -124,11 +124,14 @@
   <data name="Pia Website_SME Loan Masthead" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\img\Pia Website_SME Loan Masthead.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="diwata" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\img\diwata.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="default" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\img\default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="stay-updated-quad" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\img\stay-updated-quad.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="invest" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\img\invest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="planning" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\img\planning.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,10 +139,10 @@
   <data name="homepages-woman-using-calculator-312x232px.png" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\img\homepages-woman-using-calculator-312x232px.png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="invest" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\img\invest.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="diwata" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\img\diwata.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="default" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\img\default.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="transfer_cash" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\img\transfer_cash.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

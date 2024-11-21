@@ -48,5 +48,11 @@ namespace Martinez_BankApp.View.ParentMdi
 			var factory = new AdminFormFactory(this);
 			factory.CreateListOfCustomerForm();
 		}
+
+		private void transferToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var factory = new AdminFormFactory(this);
+			factory.CreateTransferBalanceForm();
+		}
 	}
 }

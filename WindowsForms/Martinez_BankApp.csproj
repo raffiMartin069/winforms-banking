@@ -54,16 +54,22 @@
     <Compile Include="Factory\ClientFormFactory.cs" />
     <Compile Include="Model\Dto\Admin\CreateAccountDto.cs" />
     <Compile Include="Model\Dto\Admin\DepositDto.cs" />
+    <Compile Include="Model\Dto\Admin\TransferBalanceDto.cs" />
     <Compile Include="Model\Dto\Admin\UpdateAccountDto.cs" />
+    <Compile Include="Model\Dto\Admin\UserListDto.cs" />
     <Compile Include="Model\Dto\Admin\WithdrawDto.cs" />
     <Compile Include="Model\InputModel\Admin\Account.cs" />
     <Compile Include="Model\InputModel\Admin\Deposit.cs" />
+    <Compile Include="Model\InputModel\Admin\TransferBalance.cs" />
     <Compile Include="Model\InputModel\Admin\Withdraw.cs" />
     <Compile Include="Persistent\Data\DBContext.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DBContext.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Repository\Admin\CustomerListRepository.cs" />
+    <Compile Include="Repository\Admin\SearchAccountRepository.cs" />
+    <Compile Include="Repository\Admin\TransferBalanceRepository.cs" />
     <Compile Include="Repository\Admin\UpdateAccountRepository.cs" />
     <Compile Include="Repository\Admin\CreateNewAccountRepository.cs" />
     <Compile Include="Repository\Admin\DepositRepository.cs" />
@@ -97,6 +103,12 @@
     </Compile>
     <Compile Include="View\Forms\Admin\AdminSearchAccountForm.Designer.cs">
       <DependentUpon>AdminSearchAccountForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Forms\Admin\AdminTransferBalanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\Admin\AdminTransferBalanceForm.Designer.cs">
+      <DependentUpon>AdminTransferBalanceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Forms\Admin\AdminUpdateAccountForm.cs">
       <SubType>Form</SubType>
@@ -162,6 +174,9 @@
     <EmbeddedResource Include="View\Forms\Admin\AdminSearchAccountForm.resx">
       <DependentUpon>AdminSearchAccountForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\Admin\AdminTransferBalanceForm.resx">
+      <DependentUpon>AdminTransferBalanceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\Admin\AdminUpdateAccountForm.resx">
       <DependentUpon>AdminUpdateAccountForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +221,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="resources\img\transfer_cash.jpg" />
     <None Include="resources\img\stay-updated-quad.png" />
     <None Include="resources\img\diwata.png" />
     <None Include="resources\img\Pia Website_SME Loan Masthead.png" />

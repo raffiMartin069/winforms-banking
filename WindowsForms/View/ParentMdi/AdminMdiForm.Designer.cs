@@ -119,27 +119,28 @@
 			// depositToolStripMenuItem
 			// 
 			this.depositToolStripMenuItem.Name = "depositToolStripMenuItem";
-			this.depositToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+			this.depositToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.depositToolStripMenuItem.Text = "Deposit";
 			this.depositToolStripMenuItem.Click += new System.EventHandler(this.depositToolStripMenuItem_Click);
 			// 
 			// withdrawToolStripMenuItem
 			// 
 			this.withdrawToolStripMenuItem.Name = "withdrawToolStripMenuItem";
-			this.withdrawToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+			this.withdrawToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.withdrawToolStripMenuItem.Text = "Withdraw";
 			this.withdrawToolStripMenuItem.Click += new System.EventHandler(this.withdrawToolStripMenuItem_Click);
 			// 
 			// transferToolStripMenuItem
 			// 
 			this.transferToolStripMenuItem.Name = "transferToolStripMenuItem";
-			this.transferToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+			this.transferToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.transferToolStripMenuItem.Text = "Transfer";
+			this.transferToolStripMenuItem.Click += new System.EventHandler(this.transferToolStripMenuItem_Click);
 			// 
 			// fixedDepositFormToolStripMenuItem
 			// 
 			this.fixedDepositFormToolStripMenuItem.Name = "fixedDepositFormToolStripMenuItem";
-			this.fixedDepositFormToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+			this.fixedDepositFormToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
 			this.fixedDepositFormToolStripMenuItem.Text = "Fixed Deposit Form";
 			// 
 			// viewMenu
