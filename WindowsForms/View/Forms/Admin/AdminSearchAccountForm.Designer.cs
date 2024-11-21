@@ -28,23 +28,21 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.label11 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
 			this.label15 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-			this.label13 = new System.Windows.Forms.Label();
-			this.textBox10 = new System.Windows.Forms.TextBox();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.sample = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.label1 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel5.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
-			this.flowLayoutPanel2.SuspendLayout();
-			this.tableLayoutPanel6.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -127,87 +125,81 @@
 			// 
 			// tableLayoutPanel2
 			// 
-			this.tableLayoutPanel2.AutoSize = true;
+			this.tableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.tableLayoutPanel2.ColumnCount = 1;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel2.Controls.Add(this.flowLayoutPanel2, 0, 0);
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 0, 2);
+			this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 1);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 70);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 1;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(20);
+			this.tableLayoutPanel2.RowCount = 3;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(1384, 766);
 			this.tableLayoutPanel2.TabIndex = 30;
-			// 
-			// flowLayoutPanel2
-			// 
-			this.flowLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.flowLayoutPanel2.AutoSize = true;
-			this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.flowLayoutPanel2.Controls.Add(this.tableLayoutPanel6);
-			this.flowLayoutPanel2.Controls.Add(this.dataGridView1);
-			this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-			this.flowLayoutPanel2.Location = new System.Drawing.Point(214, 84);
-			this.flowLayoutPanel2.MinimumSize = new System.Drawing.Size(350, 100);
-			this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-			this.flowLayoutPanel2.Size = new System.Drawing.Size(956, 597);
-			this.flowLayoutPanel2.TabIndex = 3;
-			// 
-			// tableLayoutPanel6
-			// 
-			this.tableLayoutPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.tableLayoutPanel6.AutoSize = true;
-			this.tableLayoutPanel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.tableLayoutPanel6.ColumnCount = 2;
-			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-			this.tableLayoutPanel6.Controls.Add(this.label13, 0, 0);
-			this.tableLayoutPanel6.Controls.Add(this.textBox10, 1, 0);
-			this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
-			this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-			this.tableLayoutPanel6.RowCount = 1;
-			this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel6.Size = new System.Drawing.Size(950, 35);
-			this.tableLayoutPanel6.TabIndex = 2;
-			// 
-			// label13
-			// 
-			this.label13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.label13.AutoSize = true;
-			this.label13.Location = new System.Drawing.Point(3, 7);
-			this.label13.Name = "label13";
-			this.label13.Size = new System.Drawing.Size(57, 21);
-			this.label13.TabIndex = 0;
-			this.label13.Text = "Search";
-			// 
-			// textBox10
-			// 
-			this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			this.textBox10.Location = new System.Drawing.Point(66, 3);
-			this.textBox10.Name = "textBox10";
-			this.textBox10.Size = new System.Drawing.Size(278, 29);
-			this.textBox10.TabIndex = 1;
 			// 
 			// dataGridView1
 			// 
 			this.dataGridView1.AllowUserToAddRows = false;
 			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.sample});
-			this.dataGridView1.Location = new System.Drawing.Point(3, 44);
-			this.dataGridView1.MinimumSize = new System.Drawing.Size(950, 550);
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dataGridView1.Location = new System.Drawing.Point(23, 79);
 			this.dataGridView1.Name = "dataGridView1";
 			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(950, 550);
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+			this.dataGridView1.Size = new System.Drawing.Size(1338, 664);
 			this.dataGridView1.TabIndex = 3;
 			// 
-			// sample
+			// textBox1
 			// 
-			this.sample.HeaderText = "Column1";
-			this.sample.Name = "sample";
-			this.sample.ReadOnly = true;
+			this.textBox1.Location = new System.Drawing.Point(23, 44);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(410, 29);
+			this.textBox1.TabIndex = 4;
+			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(23, 20);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(99, 21);
+			this.label1.TabIndex = 5;
+			this.label1.Text = "Search User";
 			// 
 			// AdminSearchAccountForm
 			// 
@@ -222,19 +214,15 @@
 			this.MinimumSize = new System.Drawing.Size(1400, 900);
 			this.Name = "AdminSearchAccountForm";
 			this.Text = "AdminSearchAccount";
+			this.Load += new System.EventHandler(this.AdminSearchAccountForm_Load);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.tableLayoutPanel5.ResumeLayout(false);
 			this.tableLayoutPanel5.PerformLayout();
 			this.tableLayoutPanel2.ResumeLayout(false);
 			this.tableLayoutPanel2.PerformLayout();
-			this.flowLayoutPanel2.ResumeLayout(false);
-			this.flowLayoutPanel2.PerformLayout();
-			this.tableLayoutPanel6.ResumeLayout(false);
-			this.tableLayoutPanel6.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
@@ -246,11 +234,8 @@
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-		private System.Windows.Forms.Label label13;
-		private System.Windows.Forms.TextBox textBox10;
 		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn sample;
+		private System.Windows.Forms.TextBox textBox1;
+		private System.Windows.Forms.Label label1;
 	}
 }

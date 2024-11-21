@@ -28,17 +28,21 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.label12 = new System.Windows.Forms.Label();
 			this.label11 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.label15 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
+			this.CustomerListDataGridView = new System.Windows.Forms.DataGridView();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel5.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.CustomerListDataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// label12
@@ -122,7 +126,7 @@
 			// 
 			this.tableLayoutPanel2.ColumnCount = 1;
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel2.Controls.Add(this.dataGridView1, 0, 0);
+			this.tableLayoutPanel2.Controls.Add(this.CustomerListDataGridView, 0, 0);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 70);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -131,17 +135,49 @@
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(1384, 766);
 			this.tableLayoutPanel2.TabIndex = 21;
 			// 
-			// dataGridView1
+			// CustomerListDataGridView
 			// 
-			this.dataGridView1.AllowUserToAddRows = false;
-			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.ReadOnly = true;
-			this.dataGridView1.Size = new System.Drawing.Size(1378, 760);
-			this.dataGridView1.TabIndex = 0;
+			this.CustomerListDataGridView.AllowUserToAddRows = false;
+			this.CustomerListDataGridView.AllowUserToDeleteRows = false;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+			this.CustomerListDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this.CustomerListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+			this.CustomerListDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.CustomerListDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			this.CustomerListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.CustomerListDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+			this.CustomerListDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.CustomerListDataGridView.Location = new System.Drawing.Point(3, 3);
+			this.CustomerListDataGridView.Name = "CustomerListDataGridView";
+			this.CustomerListDataGridView.ReadOnly = true;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.CustomerListDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			this.CustomerListDataGridView.Size = new System.Drawing.Size(1378, 760);
+			this.CustomerListDataGridView.TabIndex = 0;
 			// 
 			// AdminCustomerListForm
 			// 
@@ -156,12 +192,13 @@
 			this.MinimumSize = new System.Drawing.Size(1400, 900);
 			this.Name = "AdminCustomerListForm";
 			this.Text = "AdminCustomerList";
+			this.Load += new System.EventHandler(this.AdminCustomerListForm_Load);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.tableLayoutPanel5.ResumeLayout(false);
 			this.tableLayoutPanel5.PerformLayout();
 			this.tableLayoutPanel2.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.CustomerListDataGridView)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -174,6 +211,6 @@
 		private System.Windows.Forms.Label label15;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.DataGridView CustomerListDataGridView;
 	}
 }

@@ -346,4 +346,41 @@
       <Column Name="MESSAGE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </ElementType>
   </Function>
+  <Function Name="dbo.SP_GetUserList" Method="SP_GetUserList">
+    <ElementType Name="SP_GetUserListResult">
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Number" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="Marital_Status" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HomeAddress" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="FatherName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="MotherName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Role" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="AccountNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_SearchUserListByKey" Method="SP_SearchUserListByKey">
+    <Parameter Name="Key" Parameter="key" Type="System.String" DbType="VarChar(255)" />
+    <ElementType Name="SP_SearchUserListByKeyResult">
+      <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Number" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="Marital_Status" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HomeAddress" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="FatherName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="MotherName" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Role" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="AccountNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
 </Database>

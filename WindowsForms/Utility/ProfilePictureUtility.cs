@@ -78,15 +78,17 @@ namespace Martinez_BankApp.Utility
 		 *	Converts a byte array to an image
 		 * </summary>
 		 * **/
-		public Image ConvertyByteArrayToImage(byte[] imageByte)
+		public static Bitmap ConvertyByteArrayToImage(byte[] imageByte)
 		{
 			if(imageByte == null || imageByte.Length == 0)
-				return null;
+				return new ProfilePictureUtility().GetDefaultImage();
+				
 
 			using(MemoryStream stream = new MemoryStream(imageByte))
 			{
 				var image = Image.FromStream(stream);
-				return image;
+				var bitmap = new ProfilePictureUtility().BitMapConversion(image);
+				return bitmap;
 			}
 		}
 

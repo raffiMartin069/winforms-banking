@@ -28,7 +28,6 @@ namespace Martinez_BankApp.Repository.Admin
 
 		public IEnumerable<Account> GetAllAccount()
 		{
-			var imageUtil = new ProfilePictureUtility();
 			var result = from row in _context.SP_GetAllAccount()
 						 select new Account
 						 {
@@ -45,8 +44,8 @@ namespace Martinez_BankApp.Repository.Admin
 							 FatherName = row.Father_s_Name,
 							 AccountId = row.Account_Number,
 							 Balance = row.Account_Balance,
-							 ProfilePhoto = new Bitmap(imageUtil.ConvertyByteArrayToImage(row.Profile_Photo.ToArray()),
-							 new Size(60, imageUtil.ConvertyByteArrayToImage(row.Profile_Photo.ToArray()).Height * 50 / imageUtil.ConvertyByteArrayToImage(row.Profile_Photo.ToArray()).Width)) 
+							 ProfilePhoto = new Bitmap(ProfilePictureUtility.ConvertyByteArrayToImage(row.Profile_Photo.ToArray()),
+							 new Size(60, ProfilePictureUtility.ConvertyByteArrayToImage(row.Profile_Photo.ToArray()).Height * 50 / ProfilePictureUtility.ConvertyByteArrayToImage(row.Profile_Photo.ToArray()).Width)) 
 						 };
 			return result;
 		}
