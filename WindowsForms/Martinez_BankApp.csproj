@@ -77,6 +77,7 @@
     <Compile Include="Repository\Authentication\ClientLoginRepository.cs" />
     <Compile Include="Utility\ComboBoxUtility.cs" />
     <Compile Include="Utility\ProfilePictureUtility.cs" />
+    <Compile Include="WinFormIdentity\Session.cs" />
     <Compile Include="Utility\TableUtility.cs" />
     <Compile Include="View\Common\LoginForm.cs">
       <SubType>Form</SubType>

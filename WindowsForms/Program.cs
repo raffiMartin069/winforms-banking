@@ -1,4 +1,6 @@
 ﻿using Martinez_BankApp.Factory;
+using Martinez_BankApp.Persistent.Data;
+using Martinez_BankApp.Repository.Authentication;
 using Martinez_BankApp.View.ParentMdi;
 using System;
 using System.Windows.Forms;
@@ -15,7 +17,10 @@ namespace Martinez_BankApp
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			//Application.Run(new LoginForm());
+
+			var context = new DBContextDataContext();
+			var repository = new ClientLoginRepository(context);
+			//Application.Run(new LoginForm(repository));
 			Application.Run(new AdminMdiForm());
 			//Application.Run(new ClientMdiForm());
 		}

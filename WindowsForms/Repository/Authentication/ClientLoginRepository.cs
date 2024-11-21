@@ -1,4 +1,5 @@
 ﻿
+using Martinez_BankApp.Persistent.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,15 @@ namespace Martinez_BankApp.Repository.Authentication
 {
 	public class ClientLoginRepository
 	{
-		public string GetUserCredential(string username, string password)
+		private readonly DBContextDataContext _context;
+		public ClientLoginRepository(DBContextDataContext context)
 		{
-			return "success";
+			_context = context;
+		}
+
+		public IEnumerable<SP_GetUserCredentialResult> Validate(string email, string password)
+		{
+			return _context.SP_GetUserCredential(email, password);
 		}
 	}
 }

@@ -62,17 +62,17 @@
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(1384, 661);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(1584, 861);
 			this.tableLayoutPanel1.TabIndex = 2;
 			// 
 			// pictureBox1
 			// 
 			this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pictureBox1.Image = global::Martinez_BankApp.Properties.Resources.planning;
-			this.pictureBox1.Location = new System.Drawing.Point(692, 0);
+			this.pictureBox1.Location = new System.Drawing.Point(792, 0);
 			this.pictureBox1.Margin = new System.Windows.Forms.Padding(0);
 			this.pictureBox1.Name = "pictureBox1";
-			this.pictureBox1.Size = new System.Drawing.Size(692, 661);
+			this.pictureBox1.Size = new System.Drawing.Size(792, 861);
 			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
@@ -95,7 +95,7 @@
 			this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel2);
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this.flowLayoutPanel1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-			this.flowLayoutPanel1.Location = new System.Drawing.Point(44, 79);
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(94, 179);
 			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
 			this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(50);
 			this.flowLayoutPanel1.Size = new System.Drawing.Size(604, 502);
@@ -270,11 +270,11 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-			this.ClientSize = new System.Drawing.Size(1384, 661);
+			this.ClientSize = new System.Drawing.Size(1584, 861);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 			this.Margin = new System.Windows.Forms.Padding(4);
-			this.MinimumSize = new System.Drawing.Size(1400, 700);
+			this.MinimumSize = new System.Drawing.Size(1400, 900);
 			this.Name = "LoginForm";
 			this.Text = "Form1";
 			this.tableLayoutPanel1.ResumeLayout(false);

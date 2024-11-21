@@ -44,7 +44,7 @@ namespace Martinez_BankApp.Repository.Admin
 							 AccountId = row.Account_Number,
 							 Balance = row.Account_Balance,
 							 ProfilePhoto = imageUtil.ConvertByteArrayToBitmap(row.Profile_Photo.ToArray()),
-							 OriginalProfilePhoto = ProfilePictureUtility.ConvertyByteArrayToImage(row.Profile_Photo.ToArray())
+							 OriginalProfilePhoto = ProfilePictureUtility.UncompressedByteArrayToImage(row.Profile_Photo.ToArray())
 						 };
 			return result;
 		}

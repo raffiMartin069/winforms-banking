@@ -1,4 +1,6 @@
-﻿using Martinez_BankApp.View.Forms.Client;
+﻿using Martinez_BankApp.Persistent.Data;
+using Martinez_BankApp.Repository.Admin;
+using Martinez_BankApp.View.Forms.Client;
 using Martinez_BankApp.View.ParentMdi;
 using System;
 using System.Collections.Generic;
@@ -19,14 +21,18 @@ namespace Martinez_BankApp.Factory
 
 		public void ClientDepositForm()
 		{
-			var clientDepositForm = new ClientDepositForm();
+			var context = new DBContextDataContext();
+			var repository = new DepositRepository(context);
+			var clientDepositForm = new ClientDepositForm(repository);
 			clientDepositForm.MdiParent = _clientMdiForm;
 			clientDepositForm.Show();
 		}
 
 		public void ClientWithdrawForm()
 		{
-			var clientWithdrawForm = new ClientWithdrawForm();
+			var context = new DBContextDataContext();
+			var repository = new WithdrawRepository(context);
+			var clientWithdrawForm = new ClientWithdrawForm(repository);
 			clientWithdrawForm.MdiParent = _clientMdiForm;
 			clientWithdrawForm.Show();
 		}

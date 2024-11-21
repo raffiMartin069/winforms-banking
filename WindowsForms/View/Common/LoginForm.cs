@@ -1,4 +1,5 @@
 ﻿using Martinez_BankApp.Repository.Authentication;
+using WinFormIdentity.Sessionizer;
 using System;
 using System.Windows.Forms;
 
@@ -6,20 +7,25 @@ namespace Martinez_BankApp
 {
 	public partial class LoginForm : Form
 	{
-		public LoginForm()
+		private readonly ClientLoginRepository _repository;
+		public LoginForm(ClientLoginRepository repository)
 		{
 			InitializeComponent();
+			_repository = repository;
 		}
 
-        private void LoginButton_Click(object sender, EventArgs e)
+		private void LoginButton_Click(object sender, EventArgs e)
 		{
-			ClientLoginRepository _repository = new ClientLoginRepository();
 			bool isValid = false;
 			try
 			{
 				string username = UserNameTextField.Text;
 				string password = PasswordTextField.Text;
-				_repository.GetUserCredential(username, password);
+				var identity = _repository.Validate(username, password);
+
+				// placeholder for id
+				Session.Id = 1001;
+				Session.Username = identity.ToString();
 			}
 			catch (Exception ex)
 			{

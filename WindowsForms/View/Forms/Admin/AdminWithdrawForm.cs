@@ -55,7 +55,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 		private void AdminWithdrawForm_Load(object sender, EventArgs e)
 		{
 			GetAllRecord();
-			DepositMode();
+			WithdrawMode();
 		}
 
 		private void ClearAllFieldButton_Click(object sender, EventArgs e)
@@ -93,14 +93,14 @@ namespace Martinez_BankApp.View.Forms.Admin
 
 		private void SetFieldDefault()
 		{
-			AccountNumberTextBox.Text = "";
-			NameTextBox.Text = "";
-			OldBalanceTextBox.Text = "";
+			AccountNumberTextBox.Clear();
+			NameTextBox.Clear();
+			OldBalanceTextBox.Clear();
 			ModeComboBox.Text = DEFAULT_MODE;
-			AmountTextBox.Text = "";
+			AmountTextBox.Clear();
 		}
 
-		private void DepositMode()
+		private void WithdrawMode()
 		{
 			var modes = _repository.GetAllMode();
 			var combox = new ComboBoxUtility("Type", "Id", modes, ModeComboBox);
