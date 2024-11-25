@@ -32,11 +32,10 @@
 			this.toolTip = new System.Windows.Forms.ToolTip(this.components);
 			this.menuStrip1 = new System.Windows.Forms.MenuStrip();
 			this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-			this.withdrawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
 			this.transactionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.withdrawToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.depositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.fixedDepositToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.menuStrip1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -44,7 +43,7 @@
 			// 
 			this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem2,
-            this.toolStripMenuItem3});
+            this.logOutToolStripMenuItem});
 			this.menuStrip1.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip1.Name = "menuStrip1";
 			this.menuStrip1.Padding = new System.Windows.Forms.Padding(14, 4, 0, 4);
@@ -59,42 +58,35 @@
             this.withdrawToolStripMenuItem,
             this.depositToolStripMenuItem});
 			this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-			this.toolStripMenuItem2.Size = new System.Drawing.Size(79, 19);
+			this.toolStripMenuItem2.Size = new System.Drawing.Size(80, 19);
 			this.toolStripMenuItem2.Text = "&Transaction";
-			// 
-			// withdrawToolStripMenuItem
-			// 
-			this.withdrawToolStripMenuItem.Name = "withdrawToolStripMenuItem";
-			this.withdrawToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.withdrawToolStripMenuItem.Text = "Withdraw";
-			this.withdrawToolStripMenuItem.Click += new System.EventHandler(this.withdrawToolStripMenuItem_Click);
-			// 
-			// toolStripMenuItem3
-			// 
-			this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fixedDepositToolStripMenuItem});
-			this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-			this.toolStripMenuItem3.Size = new System.Drawing.Size(44, 19);
-			this.toolStripMenuItem3.Text = "&View";
 			// 
 			// transactionToolStripMenuItem
 			// 
 			this.transactionToolStripMenuItem.Name = "transactionToolStripMenuItem";
-			this.transactionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.transactionToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
 			this.transactionToolStripMenuItem.Text = "Transaction";
+			// 
+			// withdrawToolStripMenuItem
+			// 
+			this.withdrawToolStripMenuItem.Name = "withdrawToolStripMenuItem";
+			this.withdrawToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+			this.withdrawToolStripMenuItem.Text = "Withdraw";
+			this.withdrawToolStripMenuItem.Click += new System.EventHandler(this.withdrawToolStripMenuItem_Click);
 			// 
 			// depositToolStripMenuItem
 			// 
 			this.depositToolStripMenuItem.Name = "depositToolStripMenuItem";
-			this.depositToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+			this.depositToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
 			this.depositToolStripMenuItem.Text = "Deposit";
 			this.depositToolStripMenuItem.Click += new System.EventHandler(this.depositToolStripMenuItem_Click);
 			// 
-			// fixedDepositToolStripMenuItem
+			// logOutToolStripMenuItem
 			// 
-			this.fixedDepositToolStripMenuItem.Name = "fixedDepositToolStripMenuItem";
-			this.fixedDepositToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-			this.fixedDepositToolStripMenuItem.Text = "Fixed Deposit";
+			this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+			this.logOutToolStripMenuItem.Size = new System.Drawing.Size(62, 19);
+			this.logOutToolStripMenuItem.Text = "Log Out";
+			this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
 			// 
 			// ClientMdiForm
 			// 
@@ -121,10 +113,9 @@
 		private System.Windows.Forms.MenuStrip menuStrip1;
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
 		private System.Windows.Forms.ToolStripMenuItem withdrawToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
 		private System.Windows.Forms.ToolStripMenuItem transactionToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem depositToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem fixedDepositToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
 	}
 }
 

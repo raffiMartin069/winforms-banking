@@ -270,13 +270,6 @@ namespace Martinez_BankApp.Persistent.Data
 			return ((ISingleResult<SP_GetAllMartiralStatusResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_UpdateUserInfo")]
-		public ISingleResult<SP_UpdateUserInfoResult> SP_UpdateUserInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="VarChar(255)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateOfBirth", DbType="Date")] System.Nullable<System.DateTime> dateOfBirth, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(255)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(255)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RepeatPassword", DbType="VarChar(255)")] string repeatPassword, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Phone", DbType="Char(15)")] string phone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="VarChar(255)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaritalStatus", DbType="VarChar(255)")] string maritalStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="VarChar(255)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotherName", DbType="VarChar(255)")] string motherName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FatherName", DbType="VarChar(255)")] string fatherName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Role", DbType="VarChar(100)")] string role, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Balance", DbType="Decimal(18,2)")] System.Nullable<decimal> balance, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProfileImage", DbType="VarBinary(MAX)")] System.Data.Linq.Binary profileImage)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, fullName, dateOfBirth, email, password, repeatPassword, phone, address, maritalStatus, gender, motherName, fatherName, role, balance, profileImage);
-			return ((ISingleResult<SP_UpdateUserInfoResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_SearchUserByKey")]
 		public ISingleResult<SP_SearchUserByKeyResult> SP_SearchUserByKey([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Key", DbType="VarChar(255)")] string key)
 		{
@@ -387,6 +380,13 @@ namespace Martinez_BankApp.Persistent.Data
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), key);
 			return ((ISingleResult<SP_SearchUserListByKeyResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_UpdateUserInfo")]
+		public ISingleResult<SP_UpdateUserInfoResult> SP_UpdateUserInfo([global::System.Data.Linq.Mapping.ParameterAttribute(Name="UserId", DbType="Int")] System.Nullable<int> userId, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FullName", DbType="VarChar(255)")] string fullName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateOfBirth", DbType="Date")] System.Nullable<System.DateTime> dateOfBirth, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(255)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(255)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RepeatPassword", DbType="VarChar(255)")] string repeatPassword, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Phone", DbType="Char(15)")] string phone, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="VarChar(255)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MaritalStatus", DbType="VarChar(255)")] string maritalStatus, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Gender", DbType="VarChar(255)")] string gender, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="MotherName", DbType="VarChar(255)")] string motherName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FatherName", DbType="VarChar(255)")] string fatherName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Role", DbType="VarChar(100)")] string role, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Balance", DbType="Decimal(18,2)")] System.Nullable<decimal> balance, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ProfileImage", DbType="VarBinary(MAX)")] System.Data.Linq.Binary profileImage)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), userId, fullName, dateOfBirth, email, password, repeatPassword, phone, address, maritalStatus, gender, motherName, fatherName, role, balance, profileImage);
+			return ((ISingleResult<SP_UpdateUserInfoResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GetUserCredential")]
@@ -3558,32 +3558,6 @@ namespace Martinez_BankApp.Persistent.Data
 		}
 	}
 	
-	public partial class SP_UpdateUserInfoResult
-	{
-		
-		private string _Message;
-		
-		public SP_UpdateUserInfoResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(27) NOT NULL", CanBeNull=false)]
-		public string Message
-		{
-			get
-			{
-				return this._Message;
-			}
-			set
-			{
-				if ((this._Message != value))
-				{
-					this._Message = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SP_SearchUserByKeyResult
 	{
 		
@@ -5404,15 +5378,59 @@ namespace Martinez_BankApp.Persistent.Data
 		}
 	}
 	
+	public partial class SP_UpdateUserInfoResult
+	{
+		
+		private string _Message;
+		
+		public SP_UpdateUserInfoResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(27) NOT NULL", CanBeNull=false)]
+		public string Message
+		{
+			get
+			{
+				return this._Message;
+			}
+			set
+			{
+				if ((this._Message != value))
+				{
+					this._Message = value;
+				}
+			}
+		}
+	}
+	
 	public partial class SP_GetUserCredentialResult
 	{
 		
+		private string _Email;
+		
 		private int _Id;
 		
-		private string _Email;
+		private string _Type;
 		
 		public SP_GetUserCredentialResult()
 		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
@@ -5431,18 +5449,18 @@ namespace Martinez_BankApp.Persistent.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string Email
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Type
 		{
 			get
 			{
-				return this._Email;
+				return this._Type;
 			}
 			set
 			{
-				if ((this._Email != value))
+				if ((this._Type != value))
 				{
-					this._Email = value;
+					this._Type = value;
 				}
 			}
 		}

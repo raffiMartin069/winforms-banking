@@ -28,12 +28,12 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
 			this.label15 = new System.Windows.Forms.Label();
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.label11 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
+			this.label11 = new System.Windows.Forms.Label();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -117,6 +117,34 @@
 			this.label15.Text = "© Rafael Dionaldo Martinez";
 			this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// label12
+			// 
+			this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label12.AutoSize = true;
+			this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			this.label12.ForeColor = System.Drawing.Color.White;
+			this.label12.Location = new System.Drawing.Point(609, 45);
+			this.label12.Margin = new System.Windows.Forms.Padding(0);
+			this.label12.Name = "label12";
+			this.label12.Size = new System.Drawing.Size(181, 21);
+			this.label12.TabIndex = 2;
+			this.label12.Text = "Admin Update Account";
+			this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// label11
+			// 
+			this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.label11.AutoSize = true;
+			this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+			this.label11.Location = new System.Drawing.Point(488, 0);
+			this.label11.Margin = new System.Windows.Forms.Padding(0);
+			this.label11.Name = "label11";
+			this.label11.Size = new System.Drawing.Size(423, 45);
+			this.label11.TabIndex = 2;
+			this.label11.Text = "Philippine Community Bank";
+			this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
 			// tableLayoutPanel1
 			// 
 			this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(58)))), ((int)(((byte)(64)))));
@@ -135,34 +163,6 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(1400, 70);
 			this.tableLayoutPanel1.TabIndex = 19;
 			// 
-			// label11
-			// 
-			this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.label11.AutoSize = true;
-			this.label11.Font = new System.Drawing.Font("Segoe UI Semibold", 32F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
-			this.label11.Location = new System.Drawing.Point(488, 0);
-			this.label11.Margin = new System.Windows.Forms.Padding(0);
-			this.label11.Name = "label11";
-			this.label11.Size = new System.Drawing.Size(423, 45);
-			this.label11.TabIndex = 2;
-			this.label11.Text = "Philippine Community Bank";
-			this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// label12
-			// 
-			this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.label12.AutoSize = true;
-			this.label12.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			this.label12.ForeColor = System.Drawing.Color.White;
-			this.label12.Location = new System.Drawing.Point(609, 45);
-			this.label12.Margin = new System.Windows.Forms.Padding(0);
-			this.label12.Name = "label12";
-			this.label12.Size = new System.Drawing.Size(181, 21);
-			this.label12.TabIndex = 2;
-			this.label12.Text = "Admin Update Account";
-			this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
 			// tableLayoutPanel4
 			// 
 			this.tableLayoutPanel4.ColumnCount = 2;
@@ -176,7 +176,7 @@
 			this.tableLayoutPanel4.RowCount = 1;
 			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.tableLayoutPanel4.Size = new System.Drawing.Size(1384, 766);
-			this.tableLayoutPanel4.TabIndex = 22;
+			this.tableLayoutPanel4.TabIndex = 23;
 			// 
 			// flowLayoutPanel2
 			// 
@@ -348,7 +348,6 @@
 			this.PhoneTextBox.Name = "PhoneTextBox";
 			this.PhoneTextBox.Size = new System.Drawing.Size(455, 29);
 			this.PhoneTextBox.TabIndex = 5;
-			this.PhoneTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AllowNumericOnlyOnPress);
 			// 
 			// label3
 			// 
@@ -553,7 +552,6 @@
 			this.ShowPasswordCheckBox.TabIndex = 26;
 			this.ShowPasswordCheckBox.Text = "Show Password";
 			this.ShowPasswordCheckBox.UseVisualStyleBackColor = true;
-			this.ShowPasswordCheckBox.CheckedChanged += new System.EventHandler(this.ShowPasswordCheckBox_CheckedChanged);
 			// 
 			// tableLayoutPanel3
 			// 
@@ -672,15 +670,15 @@
 			this.AccountDataGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.AccountDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.AccountDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.AccountDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.AccountDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this.AccountDataGridView.ColumnHeadersHeight = 40;
 			this.AccountDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.AccountDataGridView.Location = new System.Drawing.Point(3, 230);
@@ -730,9 +728,9 @@
 		#endregion
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
 		private System.Windows.Forms.Label label15;
-		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-		private System.Windows.Forms.Label label11;
 		private System.Windows.Forms.Label label12;
+		private System.Windows.Forms.Label label11;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -768,10 +766,10 @@
 		private System.Windows.Forms.Button SaveButton;
 		private System.Windows.Forms.Button ClearAllFieldButton;
 		private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+		private System.Windows.Forms.PictureBox ProfileImagePictureBox;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
 		private System.Windows.Forms.Label label13;
 		private System.Windows.Forms.TextBox SearchFieldTextBox;
 		private System.Windows.Forms.DataGridView AccountDataGridView;
-		private System.Windows.Forms.PictureBox ProfileImagePictureBox;
 	}
 }
