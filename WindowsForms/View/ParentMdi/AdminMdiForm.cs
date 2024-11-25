@@ -1,7 +1,10 @@
 ﻿using Martinez_BankApp.Factory;
+using Martinez_BankApp.Persistent.Data;
+using Martinez_BankApp.Repository.Authentication;
 using Martinez_BankApp.View.Forms.Admin;
 using System;
 using System.Windows.Forms;
+using WinFormIdentity.Sessionizer;
 
 namespace Martinez_BankApp.View.ParentMdi
 {
@@ -53,6 +56,17 @@ namespace Martinez_BankApp.View.ParentMdi
 		{
 			var factory = new AdminFormFactory(this);
 			factory.CreateTransferBalanceForm();
+
+		}
+
+		private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			Session.Clear();
+			var context = new DBContextDataContext();
+			var repository = new ClientLoginRepository(context);
+			var loginForm = new LoginForm(repository);
+			loginForm.Show();
+			this.Close();
 		}
 	}
 }

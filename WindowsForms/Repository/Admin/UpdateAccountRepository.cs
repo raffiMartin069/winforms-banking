@@ -44,7 +44,7 @@ namespace Martinez_BankApp.Repository.Admin
 							 AccountId = row.Account_Number,
 							 Balance = row.Account_Balance,
 							 ProfilePhoto = imageUtil.ConvertByteArrayToBitmap(row.Profile_Photo.ToArray()),
-							 OriginalProfilePhoto = ProfilePictureUtility.ConvertyByteArrayToImage(row.Profile_Photo.ToArray())
+							 OriginalProfilePhoto = ProfilePictureUtility.UncompressedByteArrayToImage(row.Profile_Photo.ToArray())
 						 };
 			return result;
 		}
@@ -53,7 +53,7 @@ namespace Martinez_BankApp.Repository.Admin
 		{
 			var result = _context.SP_UpdateUserInfo
 				(account.Id, account.FullName, account.DateOfBirth, 
-				account.Email, account.Password, account.RepeatPassword, 
+				account.Email, account.Password, account.RepeatPassword,
 				account.Phone, account.Address, account.MaritalStatus,
 				account.Gender, account.MotherName, account.FatherName,
 				account.Role, account.Balance, account.ProfilePicture)

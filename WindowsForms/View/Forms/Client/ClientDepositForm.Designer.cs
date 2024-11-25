@@ -335,8 +335,9 @@
 			this.SaveButton.Name = "SaveButton";
 			this.SaveButton.Size = new System.Drawing.Size(295, 50);
 			this.SaveButton.TabIndex = 0;
-			this.SaveButton.Text = "Withdraw";
+			this.SaveButton.Text = "Deposit";
 			this.SaveButton.UseVisualStyleBackColor = false;
+			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
 			// 
 			// ClearAllFieldButton
 			// 
@@ -351,6 +352,7 @@
 			this.ClearAllFieldButton.TabIndex = 0;
 			this.ClearAllFieldButton.Text = "Clear";
 			this.ClearAllFieldButton.UseVisualStyleBackColor = false;
+			this.ClearAllFieldButton.Click += new System.EventHandler(this.ClearAllFieldButton_Click);
 			// 
 			// pictureBox1
 			// 
@@ -379,6 +381,7 @@
 			this.Name = "ClientDepositForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "ClientDepositForm";
+			this.Load += new System.EventHandler(this.ClientDepositForm_Load);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
 			this.tableLayoutPanel5.ResumeLayout(false);

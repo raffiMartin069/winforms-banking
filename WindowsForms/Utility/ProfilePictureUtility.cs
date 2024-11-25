@@ -80,15 +80,28 @@ namespace Martinez_BankApp.Utility
 		 * **/
 		public static Bitmap ConvertyByteArrayToImage(byte[] imageByte)
 		{
-			if(imageByte == null || imageByte.Length == 0)
+			if (imageByte == null || imageByte.Length == 0)
 				return new ProfilePictureUtility().GetDefaultImage();
-				
 
-			using(MemoryStream stream = new MemoryStream(imageByte))
+
+			using (MemoryStream stream = new MemoryStream(imageByte))
 			{
 				var image = Image.FromStream(stream);
 				var bitmap = new ProfilePictureUtility().BitMapConversion(image);
 				return bitmap;
+			}
+		}
+
+		public static Image UncompressedByteArrayToImage(byte[] imageByte)
+		{
+			if (imageByte == null || imageByte.Length == 0)
+				return new ProfilePictureUtility().GetDefaultImage();
+
+
+			using (MemoryStream stream = new MemoryStream(imageByte))
+			{
+				var image = Image.FromStream(stream);
+				return image;
 			}
 		}
 

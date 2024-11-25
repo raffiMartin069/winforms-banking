@@ -171,26 +171,6 @@
       <Column Name="Status" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SP_UpdateUserInfo" Method="SP_UpdateUserInfo">
-    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
-    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="DateOfBirth" Parameter="dateOfBirth" Type="System.DateTime" DbType="Date" />
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="RepeatPassword" Parameter="repeatPassword" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="Char(15)" />
-    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="MaritalStatus" Parameter="maritalStatus" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="MotherName" Parameter="motherName" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="FatherName" Parameter="fatherName" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="Role" Parameter="role" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="Balance" Parameter="balance" Type="System.Decimal" DbType="Decimal(18,2)" />
-    <Parameter Name="ProfileImage" Parameter="profileImage" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
-    <ElementType Name="SP_UpdateUserInfoResult">
-      <Column Name="Message" Type="System.String" DbType="VarChar(27) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.SP_SearchUserByKey" Method="SP_SearchUserByKey">
     <Parameter Name="Key" Parameter="key" Type="System.String" DbType="VarChar(255)" />
     <ElementType Name="SP_SearchUserByKeyResult">
@@ -381,6 +361,35 @@
       <Column Name="Role" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="AccountNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_UpdateUserInfo" Method="SP_UpdateUserInfo">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="DateOfBirth" Parameter="dateOfBirth" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="RepeatPassword" Parameter="repeatPassword" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Phone" Parameter="phone" Type="System.String" DbType="Char(15)" />
+    <Parameter Name="Address" Parameter="address" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="MaritalStatus" Parameter="maritalStatus" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Gender" Parameter="gender" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="MotherName" Parameter="motherName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="FatherName" Parameter="fatherName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Role" Parameter="role" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="Balance" Parameter="balance" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="ProfileImage" Parameter="profileImage" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
+    <ElementType Name="SP_UpdateUserInfoResult">
+      <Column Name="Message" Type="System.String" DbType="VarChar(27) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GetUserCredential" Method="SP_GetUserCredential">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(255)" />
+    <ElementType Name="SP_GetUserCredentialResult">
+      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

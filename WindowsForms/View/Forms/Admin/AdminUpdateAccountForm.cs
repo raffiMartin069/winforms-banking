@@ -219,11 +219,19 @@ namespace Martinez_BankApp.View.Forms.Admin
 				var setImage = imageUtility.ProfileImage = ProfileImagePictureBox;
 				_profilePictureBytes = imageUtility.ConvertImageToByteArray();
 
-				if(!PasswordTextBox.Equals(RepeatPasswordTextBox))
+
+				string password = PasswordTextBox.Text;
+				string repeatPassword = RepeatPasswordTextBox.Text;
+
+				if (!string.IsNullOrEmpty(password))
 				{
-					MessageBox.Show("Password does not match");
-					return;
+					if (!password.Equals(repeatPassword))
+					{
+						MessageBox.Show("Password does not match");
+						return;
+					}
 				}
+
 
 				var accountDto = new UpdateAccountDto
 					(

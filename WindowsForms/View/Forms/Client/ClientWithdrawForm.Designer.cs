@@ -260,6 +260,7 @@
 			this.SaveButton.TabIndex = 0;
 			this.SaveButton.Text = "Withdraw";
 			this.SaveButton.UseVisualStyleBackColor = false;
+			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
 			// 
 			// ClearAllFieldButton
 			// 
@@ -274,6 +275,7 @@
 			this.ClearAllFieldButton.TabIndex = 0;
 			this.ClearAllFieldButton.Text = "Clear";
 			this.ClearAllFieldButton.UseVisualStyleBackColor = false;
+			this.ClearAllFieldButton.Click += new System.EventHandler(this.ClearAllFieldButton_Click);
 			// 
 			// pictureBox1
 			// 
@@ -379,6 +381,7 @@
 			this.Name = "ClientWithdrawForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "ClientWithdrawForm";
+			this.Load += new System.EventHandler(this.ClientWithdrawForm_Load);
 			this.tableLayoutPanel4.ResumeLayout(false);
 			this.tableLayoutPanel4.PerformLayout();
 			this.flowLayoutPanel2.ResumeLayout(false);

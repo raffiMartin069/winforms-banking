@@ -52,12 +52,14 @@
     <Compile Include="Contract\Admin\IWithdraw.cs" />
     <Compile Include="Factory\AdminFormFactory.cs" />
     <Compile Include="Factory\ClientFormFactory.cs" />
+    <Compile Include="Factory\MdiFactory.cs" />
     <Compile Include="Model\Dto\Admin\CreateAccountDto.cs" />
     <Compile Include="Model\Dto\Admin\DepositDto.cs" />
     <Compile Include="Model\Dto\Admin\TransferBalanceDto.cs" />
     <Compile Include="Model\Dto\Admin\UpdateAccountDto.cs" />
     <Compile Include="Model\Dto\Admin\UserListDto.cs" />
     <Compile Include="Model\Dto\Admin\WithdrawDto.cs" />
+    <Compile Include="Model\Dto\LoginAccountDto.cs" />
     <Compile Include="Model\InputModel\Admin\Account.cs" />
     <Compile Include="Model\InputModel\Admin\Deposit.cs" />
     <Compile Include="Model\InputModel\Admin\TransferBalance.cs" />
@@ -75,8 +77,16 @@
     <Compile Include="Repository\Admin\DepositRepository.cs" />
     <Compile Include="Repository\Admin\WithdrawRepository.cs" />
     <Compile Include="Repository\Authentication\ClientLoginRepository.cs" />
+    <Compile Include="Utility\AuthenticationUtility.cs" />
     <Compile Include="Utility\ComboBoxUtility.cs" />
     <Compile Include="Utility\ProfilePictureUtility.cs" />
+    <Compile Include="View\Forms\Admin\UpdatePasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\Admin\UpdatePasswordForm.Designer.cs">
+      <DependentUpon>UpdatePasswordForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WinFormIdentity\Session.cs" />
     <Compile Include="Utility\TableUtility.cs" />
     <Compile Include="View\Common\LoginForm.cs">
       <SubType>Form</SubType>
@@ -185,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\Admin\CreateNewAccountForm.resx">
       <DependentUpon>CreateNewAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\Admin\UpdatePasswordForm.resx">
+      <DependentUpon>UpdatePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\Client\ClientDepositForm.resx">
       <DependentUpon>ClientDepositForm.cs</DependentUpon>
