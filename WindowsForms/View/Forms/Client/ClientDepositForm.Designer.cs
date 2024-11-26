@@ -221,7 +221,7 @@
 			this.OldBalanceTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.OldBalanceTextBox.Name = "OldBalanceTextBox";
 			this.OldBalanceTextBox.Size = new System.Drawing.Size(455, 29);
-			this.OldBalanceTextBox.TabIndex = 13;
+			this.OldBalanceTextBox.TabIndex = 3;
 			// 
 			// label7
 			// 
@@ -253,7 +253,7 @@
 			this.AmountTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.AmountTextBox.Name = "AmountTextBox";
 			this.AmountTextBox.Size = new System.Drawing.Size(455, 29);
-			this.AmountTextBox.TabIndex = 17;
+			this.AmountTextBox.TabIndex = 5;
 			// 
 			// AccountNumberTextBox
 			// 
@@ -296,7 +296,7 @@
 			this.ModeComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
 			this.ModeComboBox.Name = "ModeComboBox";
 			this.ModeComboBox.Size = new System.Drawing.Size(455, 29);
-			this.ModeComboBox.TabIndex = 20;
+			this.ModeComboBox.TabIndex = 4;
 			// 
 			// NameTextBox
 			// 
@@ -305,7 +305,7 @@
 			this.NameTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.NameTextBox.Name = "NameTextBox";
 			this.NameTextBox.Size = new System.Drawing.Size(455, 29);
-			this.NameTextBox.TabIndex = 13;
+			this.NameTextBox.TabIndex = 2;
 			// 
 			// tableLayoutPanel3
 			// 
@@ -334,7 +334,7 @@
 			this.SaveButton.MinimumSize = new System.Drawing.Size(0, 50);
 			this.SaveButton.Name = "SaveButton";
 			this.SaveButton.Size = new System.Drawing.Size(295, 50);
-			this.SaveButton.TabIndex = 0;
+			this.SaveButton.TabIndex = 6;
 			this.SaveButton.Text = "Deposit";
 			this.SaveButton.UseVisualStyleBackColor = false;
 			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
@@ -349,7 +349,7 @@
 			this.ClearAllFieldButton.MinimumSize = new System.Drawing.Size(0, 50);
 			this.ClearAllFieldButton.Name = "ClearAllFieldButton";
 			this.ClearAllFieldButton.Size = new System.Drawing.Size(295, 50);
-			this.ClearAllFieldButton.TabIndex = 0;
+			this.ClearAllFieldButton.TabIndex = 7;
 			this.ClearAllFieldButton.Text = "Clear";
 			this.ClearAllFieldButton.UseVisualStyleBackColor = false;
 			this.ClearAllFieldButton.Click += new System.EventHandler(this.ClearAllFieldButton_Click);

@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
 			this.label15 = new System.Windows.Forms.Label();
 			this.label12 = new System.Windows.Forms.Label();
@@ -259,7 +259,7 @@
 			this.FathersNameTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.FathersNameTextBox.Name = "FathersNameTextBox";
 			this.FathersNameTextBox.Size = new System.Drawing.Size(455, 29);
-			this.FathersNameTextBox.TabIndex = 15;
+			this.FathersNameTextBox.TabIndex = 12;
 			// 
 			// label8
 			// 
@@ -280,7 +280,7 @@
 			this.MothersNameTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.MothersNameTextBox.Name = "MothersNameTextBox";
 			this.MothersNameTextBox.Size = new System.Drawing.Size(455, 29);
-			this.MothersNameTextBox.TabIndex = 13;
+			this.MothersNameTextBox.TabIndex = 11;
 			// 
 			// label7
 			// 
@@ -325,7 +325,7 @@
 			this.AddressTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.AddressTextBox.Name = "AddressTextBox";
 			this.AddressTextBox.Size = new System.Drawing.Size(455, 29);
-			this.AddressTextBox.TabIndex = 7;
+			this.AddressTextBox.TabIndex = 8;
 			// 
 			// label4
 			// 
@@ -347,7 +347,7 @@
 			this.PhoneTextBox.MaxLength = 11;
 			this.PhoneTextBox.Name = "PhoneTextBox";
 			this.PhoneTextBox.Size = new System.Drawing.Size(455, 29);
-			this.PhoneTextBox.TabIndex = 5;
+			this.PhoneTextBox.TabIndex = 7;
 			// 
 			// label3
 			// 
@@ -391,7 +391,7 @@
 			this.BalanceTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.BalanceTextBox.Name = "BalanceTextBox";
 			this.BalanceTextBox.Size = new System.Drawing.Size(455, 29);
-			this.BalanceTextBox.TabIndex = 17;
+			this.BalanceTextBox.TabIndex = 14;
 			// 
 			// label9
 			// 
@@ -433,12 +433,13 @@
 			this.DateOfBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
 			this.DateOfBirthDateTimePicker.Name = "DateOfBirthDateTimePicker";
 			this.DateOfBirthDateTimePicker.Size = new System.Drawing.Size(455, 29);
-			this.DateOfBirthDateTimePicker.TabIndex = 19;
+			this.DateOfBirthDateTimePicker.TabIndex = 2;
 			// 
 			// MaritalStatusComboBox
 			// 
 			this.MaritalStatusComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.MaritalStatusComboBox.FormattingEnabled = true;
+			this.MaritalStatusComboBox.ItemHeight = 21;
 			this.MaritalStatusComboBox.Location = new System.Drawing.Point(171, 360);
 			this.MaritalStatusComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
 			this.MaritalStatusComboBox.Name = "MaritalStatusComboBox";
@@ -449,6 +450,7 @@
 			// 
 			this.GenderComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.GenderComboBox.FormattingEnabled = true;
+			this.GenderComboBox.ItemHeight = 21;
 			this.GenderComboBox.Location = new System.Drawing.Point(171, 412);
 			this.GenderComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.GenderComboBox.Name = "GenderComboBox";
@@ -471,6 +473,7 @@
 			// 
 			this.RoleComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.RoleComboBox.FormattingEnabled = true;
+			this.RoleComboBox.ItemHeight = 21;
 			this.RoleComboBox.Location = new System.Drawing.Point(171, 538);
 			this.RoleComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.RoleComboBox.Name = "RoleComboBox";
@@ -497,7 +500,7 @@
 			this.EmailTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.EmailTextBox.Name = "EmailTextBox";
 			this.EmailTextBox.Size = new System.Drawing.Size(455, 29);
-			this.EmailTextBox.TabIndex = 15;
+			this.EmailTextBox.TabIndex = 3;
 			// 
 			// PasswordTextBox
 			// 
@@ -506,7 +509,7 @@
 			this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.PasswordTextBox.Name = "PasswordTextBox";
 			this.PasswordTextBox.Size = new System.Drawing.Size(455, 29);
-			this.PasswordTextBox.TabIndex = 15;
+			this.PasswordTextBox.TabIndex = 4;
 			this.PasswordTextBox.UseSystemPasswordChar = true;
 			// 
 			// label17
@@ -540,7 +543,7 @@
 			this.RepeatPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.RepeatPasswordTextBox.Name = "RepeatPasswordTextBox";
 			this.RepeatPasswordTextBox.Size = new System.Drawing.Size(455, 29);
-			this.RepeatPasswordTextBox.TabIndex = 15;
+			this.RepeatPasswordTextBox.TabIndex = 5;
 			this.RepeatPasswordTextBox.UseSystemPasswordChar = true;
 			// 
 			// ShowPasswordCheckBox
@@ -549,7 +552,7 @@
 			this.ShowPasswordCheckBox.Location = new System.Drawing.Point(171, 245);
 			this.ShowPasswordCheckBox.Name = "ShowPasswordCheckBox";
 			this.ShowPasswordCheckBox.Size = new System.Drawing.Size(138, 25);
-			this.ShowPasswordCheckBox.TabIndex = 26;
+			this.ShowPasswordCheckBox.TabIndex = 6;
 			this.ShowPasswordCheckBox.Text = "Show Password";
 			this.ShowPasswordCheckBox.UseVisualStyleBackColor = true;
 			// 
@@ -580,7 +583,7 @@
 			this.SaveButton.MinimumSize = new System.Drawing.Size(0, 50);
 			this.SaveButton.Name = "SaveButton";
 			this.SaveButton.Size = new System.Drawing.Size(309, 50);
-			this.SaveButton.TabIndex = 0;
+			this.SaveButton.TabIndex = 15;
 			this.SaveButton.Text = "Save";
 			this.SaveButton.UseVisualStyleBackColor = false;
 			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
@@ -595,7 +598,7 @@
 			this.ClearAllFieldButton.MinimumSize = new System.Drawing.Size(0, 50);
 			this.ClearAllFieldButton.Name = "ClearAllFieldButton";
 			this.ClearAllFieldButton.Size = new System.Drawing.Size(309, 50);
-			this.ClearAllFieldButton.TabIndex = 0;
+			this.ClearAllFieldButton.TabIndex = 16;
 			this.ClearAllFieldButton.Text = "Clear";
 			this.ClearAllFieldButton.UseVisualStyleBackColor = false;
 			this.ClearAllFieldButton.Click += new System.EventHandler(this.ClearAllFieldButton_Click);
@@ -661,7 +664,7 @@
 			this.SearchFieldTextBox.Location = new System.Drawing.Point(66, 3);
 			this.SearchFieldTextBox.Name = "SearchFieldTextBox";
 			this.SearchFieldTextBox.Size = new System.Drawing.Size(601, 29);
-			this.SearchFieldTextBox.TabIndex = 1;
+			this.SearchFieldTextBox.TabIndex = 17;
 			// 
 			// AccountDataGridView
 			// 
@@ -670,15 +673,15 @@
 			this.AccountDataGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.AccountDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.AccountDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.AccountDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.AccountDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
 			this.AccountDataGridView.ColumnHeadersHeight = 40;
 			this.AccountDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.AccountDataGridView.Location = new System.Drawing.Point(3, 230);

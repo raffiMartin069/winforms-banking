@@ -212,7 +212,7 @@
 			this.AmountTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.AmountTextBox.Name = "AmountTextBox";
 			this.AmountTextBox.Size = new System.Drawing.Size(455, 29);
-			this.AmountTextBox.TabIndex = 17;
+			this.AmountTextBox.TabIndex = 3;
 			// 
 			// RecipientAccountNumberTextBox
 			// 
@@ -221,7 +221,7 @@
 			this.RecipientAccountNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.RecipientAccountNumberTextBox.Name = "RecipientAccountNumberTextBox";
 			this.RecipientAccountNumberTextBox.Size = new System.Drawing.Size(455, 29);
-			this.RecipientAccountNumberTextBox.TabIndex = 1;
+			this.RecipientAccountNumberTextBox.TabIndex = 2;
 			// 
 			// label5
 			// 
@@ -293,7 +293,7 @@
 			this.SendACashButton.MinimumSize = new System.Drawing.Size(0, 50);
 			this.SendACashButton.Name = "SendACashButton";
 			this.SendACashButton.Size = new System.Drawing.Size(332, 50);
-			this.SendACashButton.TabIndex = 0;
+			this.SendACashButton.TabIndex = 4;
 			this.SendACashButton.Text = "Send A Cash";
 			this.SendACashButton.UseVisualStyleBackColor = false;
 			this.SendACashButton.Click += new System.EventHandler(this.SendACashButton_Click);
@@ -308,7 +308,7 @@
 			this.ClearAllFieldButton.MinimumSize = new System.Drawing.Size(0, 50);
 			this.ClearAllFieldButton.Name = "ClearAllFieldButton";
 			this.ClearAllFieldButton.Size = new System.Drawing.Size(332, 50);
-			this.ClearAllFieldButton.TabIndex = 0;
+			this.ClearAllFieldButton.TabIndex = 5;
 			this.ClearAllFieldButton.Text = "Clear";
 			this.ClearAllFieldButton.UseVisualStyleBackColor = false;
 			this.ClearAllFieldButton.Click += new System.EventHandler(this.ClearAllFieldButton_Click);

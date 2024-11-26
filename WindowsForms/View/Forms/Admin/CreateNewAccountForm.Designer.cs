@@ -152,7 +152,7 @@
 			this.FathersNameTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.FathersNameTextBox.Name = "FathersNameTextBox";
 			this.FathersNameTextBox.Size = new System.Drawing.Size(455, 29);
-			this.FathersNameTextBox.TabIndex = 15;
+			this.FathersNameTextBox.TabIndex = 13;
 			// 
 			// label8
 			// 
@@ -173,7 +173,7 @@
 			this.MothersNameTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.MothersNameTextBox.Name = "MothersNameTextBox";
 			this.MothersNameTextBox.Size = new System.Drawing.Size(455, 29);
-			this.MothersNameTextBox.TabIndex = 13;
+			this.MothersNameTextBox.TabIndex = 12;
 			// 
 			// label7
 			// 
@@ -218,7 +218,7 @@
 			this.AddressTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.AddressTextBox.Name = "AddressTextBox";
 			this.AddressTextBox.Size = new System.Drawing.Size(455, 29);
-			this.AddressTextBox.TabIndex = 7;
+			this.AddressTextBox.TabIndex = 9;
 			// 
 			// label4
 			// 
@@ -240,7 +240,7 @@
 			this.PhoneTextBox.MaxLength = 11;
 			this.PhoneTextBox.Name = "PhoneTextBox";
 			this.PhoneTextBox.Size = new System.Drawing.Size(455, 29);
-			this.PhoneTextBox.TabIndex = 5;
+			this.PhoneTextBox.TabIndex = 8;
 			this.PhoneTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AllowNumericOnlyOnPress);
 			// 
 			// label3
@@ -285,7 +285,7 @@
 			this.BalanceTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.BalanceTextBox.Name = "BalanceTextBox";
 			this.BalanceTextBox.Size = new System.Drawing.Size(455, 29);
-			this.BalanceTextBox.TabIndex = 17;
+			this.BalanceTextBox.TabIndex = 15;
 			// 
 			// label9
 			// 
@@ -327,7 +327,7 @@
 			this.DateOfBirthDateTimePicker.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
 			this.DateOfBirthDateTimePicker.Name = "DateOfBirthDateTimePicker";
 			this.DateOfBirthDateTimePicker.Size = new System.Drawing.Size(455, 29);
-			this.DateOfBirthDateTimePicker.TabIndex = 19;
+			this.DateOfBirthDateTimePicker.TabIndex = 2;
 			// 
 			// MaritalStatusComboBox
 			// 
@@ -337,7 +337,7 @@
 			this.MaritalStatusComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
 			this.MaritalStatusComboBox.Name = "MaritalStatusComboBox";
 			this.MaritalStatusComboBox.Size = new System.Drawing.Size(455, 29);
-			this.MaritalStatusComboBox.TabIndex = 20;
+			this.MaritalStatusComboBox.TabIndex = 10;
 			// 
 			// GenderComboBox
 			// 
@@ -348,7 +348,7 @@
 			this.GenderComboBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.GenderComboBox.Name = "GenderComboBox";
 			this.GenderComboBox.Size = new System.Drawing.Size(455, 29);
-			this.GenderComboBox.TabIndex = 20;
+			this.GenderComboBox.TabIndex = 11;
 			this.GenderComboBox.ValueMember = "Type";
 			// 
 			// label14
@@ -392,7 +392,7 @@
 			this.EmailTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.EmailTextBox.Name = "EmailTextBox";
 			this.EmailTextBox.Size = new System.Drawing.Size(455, 29);
-			this.EmailTextBox.TabIndex = 15;
+			this.EmailTextBox.TabIndex = 3;
 			// 
 			// PasswordTextBox
 			// 
@@ -401,7 +401,7 @@
 			this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.PasswordTextBox.Name = "PasswordTextBox";
 			this.PasswordTextBox.Size = new System.Drawing.Size(455, 29);
-			this.PasswordTextBox.TabIndex = 15;
+			this.PasswordTextBox.TabIndex = 4;
 			this.PasswordTextBox.UseSystemPasswordChar = true;
 			// 
 			// label17
@@ -435,7 +435,7 @@
 			this.RepeatPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 3, 3, 10);
 			this.RepeatPasswordTextBox.Name = "RepeatPasswordTextBox";
 			this.RepeatPasswordTextBox.Size = new System.Drawing.Size(455, 29);
-			this.RepeatPasswordTextBox.TabIndex = 15;
+			this.RepeatPasswordTextBox.TabIndex = 5;
 			this.RepeatPasswordTextBox.UseSystemPasswordChar = true;
 			// 
 			// ShowPasswordCheckBox
@@ -444,7 +444,7 @@
 			this.ShowPasswordCheckBox.Location = new System.Drawing.Point(171, 245);
 			this.ShowPasswordCheckBox.Name = "ShowPasswordCheckBox";
 			this.ShowPasswordCheckBox.Size = new System.Drawing.Size(138, 25);
-			this.ShowPasswordCheckBox.TabIndex = 26;
+			this.ShowPasswordCheckBox.TabIndex = 7;
 			this.ShowPasswordCheckBox.Text = "Show Password";
 			this.ShowPasswordCheckBox.UseVisualStyleBackColor = true;
 			this.ShowPasswordCheckBox.CheckedChanged += new System.EventHandler(this.ShowPasswordCheckBox_CheckedChanged);
@@ -534,7 +534,7 @@
 			this.SaveButton.MinimumSize = new System.Drawing.Size(0, 50);
 			this.SaveButton.Name = "SaveButton";
 			this.SaveButton.Size = new System.Drawing.Size(309, 50);
-			this.SaveButton.TabIndex = 0;
+			this.SaveButton.TabIndex = 16;
 			this.SaveButton.Text = "Save";
 			this.SaveButton.UseVisualStyleBackColor = false;
 			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
@@ -549,7 +549,7 @@
 			this.ClearAllFieldButton.MinimumSize = new System.Drawing.Size(0, 50);
 			this.ClearAllFieldButton.Name = "ClearAllFieldButton";
 			this.ClearAllFieldButton.Size = new System.Drawing.Size(309, 50);
-			this.ClearAllFieldButton.TabIndex = 0;
+			this.ClearAllFieldButton.TabIndex = 17;
 			this.ClearAllFieldButton.Text = "Clear";
 			this.ClearAllFieldButton.UseVisualStyleBackColor = false;
 			this.ClearAllFieldButton.Click += new System.EventHandler(this.ClearAllFieldButton_Click);
@@ -647,7 +647,7 @@
 			this.SearchBoxTextField.Location = new System.Drawing.Point(66, 3);
 			this.SearchBoxTextField.Name = "SearchBoxTextField";
 			this.SearchBoxTextField.Size = new System.Drawing.Size(601, 29);
-			this.SearchBoxTextField.TabIndex = 1;
+			this.SearchBoxTextField.TabIndex = 18;
 			this.SearchBoxTextField.TextChanged += new System.EventHandler(this.SearchBoxTextField_TextChanged);
 			// 
 			// NewAccountsDataTable
