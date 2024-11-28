@@ -58,6 +58,7 @@
 			this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
 			this.label13 = new System.Windows.Forms.Label();
 			this.SearchTextBox = new System.Windows.Forms.TextBox();
+			this.WithdrawReportLink = new System.Windows.Forms.LinkLabel();
 			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
@@ -415,7 +416,7 @@
 			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			this.WithdrawDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-			this.WithdrawDataGridView.Size = new System.Drawing.Size(670, 673);
+			this.WithdrawDataGridView.Size = new System.Drawing.Size(670, 639);
 			this.WithdrawDataGridView.TabIndex = 0;
 			this.WithdrawDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.WithdrawDataGridView_CellContentClick);
 			// 
@@ -425,6 +426,7 @@
 			this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel6);
 			this.flowLayoutPanel1.Controls.Add(this.WithdrawDataGridView);
+			this.flowLayoutPanel1.Controls.Add(this.WithdrawReportLink);
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(695, 63);
 			this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(694, 519);
@@ -469,6 +471,17 @@
 			this.SearchTextBox.TabIndex = 8;
 			this.SearchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
 			// 
+			// WithdrawReportLink
+			// 
+			this.WithdrawReportLink.AutoSize = true;
+			this.WithdrawReportLink.Location = new System.Drawing.Point(3, 696);
+			this.WithdrawReportLink.Name = "WithdrawReportLink";
+			this.WithdrawReportLink.Size = new System.Drawing.Size(81, 21);
+			this.WithdrawReportLink.TabIndex = 2;
+			this.WithdrawReportLink.TabStop = true;
+			this.WithdrawReportLink.Text = "linkLabel1";
+			this.WithdrawReportLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.WithdrawReportLink_LinkClicked);
+			// 
 			// tableLayoutPanel4
 			// 
 			this.tableLayoutPanel4.ColumnCount = 2;
@@ -497,7 +510,7 @@
 			this.MinimumSize = new System.Drawing.Size(1400, 900);
 			this.Name = "AdminWithdrawForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "AdminWithdrawForm";
+			this.Text = "`";
 			this.Load += new System.EventHandler(this.AdminWithdrawForm_Load);
 			this.tableLayoutPanel1.ResumeLayout(false);
 			this.tableLayoutPanel1.PerformLayout();
@@ -549,5 +562,6 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label AccountBalanceLabel;
+		private System.Windows.Forms.LinkLabel WithdrawReportLink;
 	}
 }

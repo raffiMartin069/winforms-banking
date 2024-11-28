@@ -1,12 +1,17 @@
-﻿using Martinez_BankApp.Model.InputModel.Admin;
+﻿using Martinez_BankApp.Factory;
+using Martinez_BankApp.Model.InputModel.Admin;
 using Martinez_BankApp.Repository.Admin;
 using Martinez_BankApp.Utility;
+using Martinez_BankApp.View.Forms.Admin.ReportForms;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -56,6 +61,8 @@ namespace Martinez_BankApp.View.Forms.Admin
 		{
 			GetAllRecord();
 			WithdrawMode();
+			WithdrawReportLink.Text = "Generate Withdraw Report";
+			string reportPath = "";
 		}
 
 		private void ClearAllFieldButton_Click(object sender, EventArgs e)
@@ -107,9 +114,18 @@ namespace Martinez_BankApp.View.Forms.Admin
 			combox.CreateComboBox();
 		}
 
+		/**
+		 * <summary>
+		 * This allows the method to be used for report as well as display in the data grid view.
+		 * <see cref="WithdrawReportLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)"/>
+		 * <seealso cref="GetAllRecord()"/>
+		 * </summary>
+		 * **/
+		private IEnumerable GetAllRecordHelper() => _repository.GetAllRecord();
+
 		private void GetAllRecord()
 		{
-			var records = _repository.GetAllRecord();
+			var records = GetAllRecordHelper();
 			WithdrawDataGridView.DataSource = records;
 			TableHeader();
 		}
@@ -130,6 +146,12 @@ namespace Martinez_BankApp.View.Forms.Admin
 				{"WithdrawTime", "Withdraw Time" },
 			};
 			tableUtil.SetColumnHeader(headers);
+		}
+
+		private void WithdrawReportLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			string path = ConfigurationManager.AppSettings["WithdrawReport"];
+			ReportFactory.CreateReport(path, GetAllRecordHelper(), this);
 		}
 	}
 }

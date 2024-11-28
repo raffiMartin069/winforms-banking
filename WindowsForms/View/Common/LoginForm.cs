@@ -10,7 +10,6 @@ namespace Martinez_BankApp
 	public partial class LoginForm : Form
 	{
 		private readonly ClientLoginRepository _repository;
-		private const string ADMIN = "Admin";
 
 		public LoginForm(ClientLoginRepository repository)
 		{
@@ -33,8 +32,6 @@ namespace Martinez_BankApp
 					Session.SetClaim("Id", item.Id.ToString());
 					Session.SetClaim("Role", item.Role);
 				}
-
-
 				AuthenticationUtility.ValidateRole();
 				this.Hide();
 			}
@@ -71,15 +68,17 @@ namespace Martinez_BankApp
 		private void ShowPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
 		{
 			bool isTicked = false;
+			string hide = "Hide Password";
+			string show = "Show Password";
 			if(ShowPasswordCheckBox.Checked)
 			{
 				PasswordTextField.UseSystemPasswordChar = isTicked;
-				ShowPasswordCheckBox.Text = "Hide Password";
+				ShowPasswordCheckBox.Text = hide;
 			}
 			else
 			{
 				PasswordTextField.UseSystemPasswordChar = !isTicked;
-				ShowPasswordCheckBox.Text = "Show Password";
+				ShowPasswordCheckBox.Text = show;
 			}
 		}
 	}
