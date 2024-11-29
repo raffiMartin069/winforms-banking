@@ -22,11 +22,13 @@ namespace Martinez_BankApp.View.Forms.Admin
 	public partial class AdminWithdrawForm : Form
 	{
 		private readonly WithdrawRepository _repository;
+		private readonly ReportRepository _report;
 		private const string DEFAULT_MODE = "ATM";
-		public AdminWithdrawForm(WithdrawRepository repository)
+		public AdminWithdrawForm(WithdrawRepository repository, ReportRepository report)
 		{
 			InitializeComponent();
 			_repository = repository;
+			_report = report;
 		}
 		private void SaveButton_Click(object sender, EventArgs e)
 		{
@@ -62,7 +64,6 @@ namespace Martinez_BankApp.View.Forms.Admin
 			GetAllRecord();
 			WithdrawMode();
 			WithdrawReportLink.Text = "Generate Withdraw Report";
-			string reportPath = "";
 		}
 
 		private void ClearAllFieldButton_Click(object sender, EventArgs e)
@@ -94,7 +95,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 		{
 			AccountNumberTextBox.Text = WithdrawDataGridView.CurrentRow.Cells[0].Value.ToString();
 			NameTextBox.Text = WithdrawDataGridView.CurrentRow.Cells[1].Value.ToString();
-			OldBalanceTextBox.Text = WithdrawDataGridView.CurrentRow.Cells[4].Value.ToString();
+			OldBalanceTextBox.Text = WithdrawDataGridView.CurrentRow.Cells[5].Value.ToString();
 			ModeComboBox.Text = DEFAULT_MODE;
 		}
 
@@ -132,8 +133,8 @@ namespace Martinez_BankApp.View.Forms.Admin
 
 		private void TableHeader()
 		{
-			if (WithdrawDataGridView.Columns["Amount"].HeaderText.Equals("Amount"))
-				WithdrawDataGridView.Columns["Amount"].Visible = false;
+			//if (WithdrawDataGridView.Columns["Amount"].HeaderText.Equals("Amount"))
+			//	WithdrawDataGridView.Columns["Amount"].Visible = false;
 			var tableUtil = new TableUtility(WithdrawDataGridView);
 			var headers = new Dictionary<string, string>()
 			{
@@ -141,7 +142,8 @@ namespace Martinez_BankApp.View.Forms.Admin
 				{"Full_Name", "Full Name" },
 				{"Gender", "Gender" },
 				{"DateOfBirth", "Date Of Birth" },
-				{"NewBalance", "Withdraw Balance History" },
+				{"Amount", "Previous Balance" },
+				{"NewBalance", "Current Balance" },
 				{"WithdrawDate", "Withdraw Date" },
 				{"WithdrawTime", "Withdraw Time" },
 			};
@@ -151,7 +153,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 		private void WithdrawReportLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 		{
 			string path = ConfigurationManager.AppSettings["WithdrawReport"];
-			ReportFactory.CreateReport(path, GetAllRecordHelper(), this);
+			ReportFactory.CreateReport(path, _report.GetWithdrawLog()?.ToList<object>(), this);
 		}
 	}
 }

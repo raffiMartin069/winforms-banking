@@ -14,11 +14,11 @@ namespace Martinez_BankApp.View.Forms.Admin.ReportForms
 {
 	public partial class ReportForm : Form
 	{
-		private readonly IEnumerable _report;
+		private readonly List<object> _report;
 		private readonly string _path;
 		private ReportDocument _docs = new ReportDocument(); 
 
-		public ReportForm(IEnumerable report, string path)
+		public ReportForm(List<object> report, string path)
 		{
 			InitializeComponent();
 			_report = report;
@@ -27,10 +27,17 @@ namespace Martinez_BankApp.View.Forms.Admin.ReportForms
 
 		private void WithdrawReportForm_Load(object sender, EventArgs e)
 		{
-			_docs.Load(_path);
-			_docs.SetDataSource(_report);
-			ReportViewer.ReportSource = _docs;
-			ReportViewer.Refresh();
+			try
+			{
+				_docs.Load(_path);
+				_docs.SetDataSource(_report);
+				ReportViewer.ReportSource = _docs;
+				ReportViewer.Refresh();
+			}
+			catch(Exception ex)
+			{
+				MessageBox.Show(ex.Message.ToString());
+			}
 		}
 	}
 }

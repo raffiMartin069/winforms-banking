@@ -1,8 +1,10 @@
-﻿using Martinez_BankApp.InputModel.Model.Admin;
+﻿using Martinez_BankApp.Factory;
+using Martinez_BankApp.InputModel.Model.Admin;
 using Martinez_BankApp.Repository.Admin;
 using Martinez_BankApp.Utility;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -12,14 +14,17 @@ namespace Martinez_BankApp.View.Forms.Admin
 	{
 
 		private readonly DepositRepository _repository;
+		private readonly ReportRepository _report;
+		
 		//private int _accountId;
 		private const string DEFAULT_DEPOSIT_MODE = "ATM";
-		
 
-		public AdminDepositForm(DepositRepository repository)
+
+		public AdminDepositForm(DepositRepository repository, ReportRepository report)
 		{
 			InitializeComponent();
 			_repository = repository;
+			_report = report;
 		}
 
 		private void AmountTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -92,8 +97,8 @@ namespace Martinez_BankApp.View.Forms.Admin
 
 		private void TableHeader()
 		{
-			if(DepositDataGridView.Columns["Amount"].HeaderText.Equals("Amount"))
-				DepositDataGridView.Columns["Amount"].Visible = false;
+			//if(DepositDataGridView.Columns["Amount"].HeaderText.Equals("Amount"))
+			//	DepositDataGridView.Columns["Amount"].Visible = false;
 			
 			var tableUtil = new TableUtility(DepositDataGridView);
 
@@ -103,7 +108,8 @@ namespace Martinez_BankApp.View.Forms.Admin
 				{"Full_Name", "Full Name" },
 				{"Gender", "Gender" },
 				{"DateOfBirth", "Date Of Birth" },
-				{"NewBalance", "Deposit Balance History" },
+				{"NewBalance", "Current Balance" },
+				{"Amount", "Previous Balance" },
 				{"DepositDate", "Deposit Date" },
 				{"DepositTime", "Deposit Time" },
 			};
@@ -122,6 +128,12 @@ namespace Martinez_BankApp.View.Forms.Admin
 			string key = SearchRecordTextBox.Text;
 			var data = _repository.FindRecordByKey(key);
 			DepositDataGridView.DataSource = data;
+		}
+
+		private void GenerateSummaryReportLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			string path = ConfigurationManager.AppSettings["DepositReport"];
+			ReportFactory.CreateReport(path, _report.GetDepositLog()?.ToList<object>(), this);
 		}
 	}
 }

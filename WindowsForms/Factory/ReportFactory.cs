@@ -17,10 +17,11 @@ namespace Martinez_BankApp.Factory
 
 		private static string CreateAndFilterPath(string basePath, string pathToReport) => Path.Combine(basePath, pathToReport).Replace(EXCESS, "");
 
-		public static ReportForm CreateReport(string pathToReport, IEnumerable record, Form form)
+		public static ReportForm CreateReport(string pathToReport, List<object> record, Form form)
 		{
 			string basePath = AppDomain.CurrentDomain.BaseDirectory;
 			string fullPath = CreateAndFilterPath(basePath, pathToReport);
+
 			var report = new ReportForm(record, fullPath);
 			report.MdiParent = form.MdiParent;
 			report.Show();

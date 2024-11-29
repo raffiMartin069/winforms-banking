@@ -28,8 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label8 = new System.Windows.Forms.Label();
@@ -58,6 +58,7 @@
 			this.label13 = new System.Windows.Forms.Label();
 			this.SearchRecordTextBox = new System.Windows.Forms.TextBox();
 			this.DepositDataGridView = new System.Windows.Forms.DataGridView();
+			this.GenerateSummaryReportLinkLabel = new System.Windows.Forms.LinkLabel();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.flowLayoutPanel2.SuspendLayout();
@@ -397,6 +398,7 @@
 			this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
 			this.flowLayoutPanel1.Controls.Add(this.tableLayoutPanel6);
 			this.flowLayoutPanel1.Controls.Add(this.DepositDataGridView);
+			this.flowLayoutPanel1.Controls.Add(this.GenerateSummaryReportLinkLabel);
 			this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
 			this.flowLayoutPanel1.Location = new System.Drawing.Point(695, 63);
 			this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(694, 519);
@@ -448,32 +450,43 @@
 			this.DepositDataGridView.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.DepositDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.DepositDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-			dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.DepositDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(5);
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.DepositDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this.DepositDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-			dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3);
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.DepositDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+			dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(3);
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.DepositDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
 			this.DepositDataGridView.Location = new System.Drawing.Point(3, 54);
 			this.DepositDataGridView.MinimumSize = new System.Drawing.Size(670, 400);
 			this.DepositDataGridView.Name = "DepositDataGridView";
 			this.DepositDataGridView.ReadOnly = true;
-			this.DepositDataGridView.Size = new System.Drawing.Size(670, 673);
+			this.DepositDataGridView.Size = new System.Drawing.Size(670, 653);
 			this.DepositDataGridView.TabIndex = 0;
 			this.DepositDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DepositDataGridView_CellContentClick);
+			// 
+			// GenerateSummaryReportLinkLabel
+			// 
+			this.GenerateSummaryReportLinkLabel.AutoSize = true;
+			this.GenerateSummaryReportLinkLabel.Location = new System.Drawing.Point(3, 710);
+			this.GenerateSummaryReportLinkLabel.Name = "GenerateSummaryReportLinkLabel";
+			this.GenerateSummaryReportLinkLabel.Size = new System.Drawing.Size(196, 21);
+			this.GenerateSummaryReportLinkLabel.TabIndex = 2;
+			this.GenerateSummaryReportLinkLabel.TabStop = true;
+			this.GenerateSummaryReportLinkLabel.Text = "Generate Summary Report";
+			this.GenerateSummaryReportLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GenerateSummaryReportLinkLabel_LinkClicked);
 			// 
 			// AdminDepositForm
 			// 
@@ -540,5 +553,6 @@
 		private System.Windows.Forms.DataGridView DepositDataGridView;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label AccountBalanceLabel;
+		private System.Windows.Forms.LinkLabel GenerateSummaryReportLinkLabel;
 	}
 }
