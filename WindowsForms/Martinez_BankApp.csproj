@@ -88,6 +88,12 @@
     <Compile Include="Repository\Admin\DepositRepository.cs" />
     <Compile Include="Repository\Admin\WithdrawRepository.cs" />
     <Compile Include="Repository\Authentication\ClientLoginRepository.cs" />
+    <Compile Include="resources\report\DepositReport_1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DepositReport_1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="resources\report\DepositReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -196,6 +202,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="resources\report\DepositReport_1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DepositReport_1.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="resources\report\DepositReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>DepositReport.cs</LastGenOutput>

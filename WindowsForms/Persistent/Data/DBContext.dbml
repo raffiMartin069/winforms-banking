@@ -291,15 +291,6 @@
       <Column Name="MESSAGE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SP_GetUserCredential" Method="SP_GetUserCredential">
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(255)" />
-    <ElementType Name="SP_GetUserCredentialResult">
-      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Name="dbo.SP_GetUserList" Method="SP_GetUserList">
     <ElementType Name="SP_GetUserListResult">
       <Column Name="UserId" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -409,6 +400,37 @@
       <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
       <Column Name="DepositDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
       <Column Name="DepositTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_DepositReport" Method="SP_DepositReport">
+    <ElementType Name="SP_DepositReportResult">
+      <Column Name="[Account Id]" Member="Account_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Full Name]" Member="Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DepositDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="[Highest Deposit]" Member="Highest_Deposit" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="[Average Deposit]" Member="Average_Deposit" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_WithdrawReport" Method="SP_WithdrawReport">
+    <ElementType Name="SP_WithdrawReportResult">
+      <Column Name="[Account Id]" Member="Account_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Full Name]" Member="Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WithdrawDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="[Highest Deposit]" Member="Highest_Deposit" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="[Average Deposit]" Member="Average_Deposit" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GetUserCredential" Method="SP_GetUserCredential">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(255)" />
+    <ElementType Name="SP_GetUserCredentialResult">
+      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

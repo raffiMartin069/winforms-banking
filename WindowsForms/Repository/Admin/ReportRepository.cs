@@ -18,7 +18,7 @@ namespace Martinez_BankApp.Repository.Admin
 			_context = context;
 		}
 
-		public IEnumerable<WithdrawReportDto> GetWithdrawLog() => from result in _context.SP_GetAllWithdrawRecord()
+		public IEnumerable<WithdrawReportDto> GetWithdrawLog() => from result in _context.SP_WithdrawReport()
 													 select new WithdrawReportDto
 													 {
 														 Id = result.Account_Id,
@@ -28,14 +28,16 @@ namespace Martinez_BankApp.Repository.Admin
 														 Date = result.WithdrawDate.ToString()
 													 };
 
-		public IEnumerable<DepositReportDto> GetDepositLog() => from result in _context.SP_GetAllDepositRecord()
+		public IEnumerable<DepositReportDto> GetDepositLog() => from result in _context.SP_DepositReport()
 																  select new DepositReportDto
 																  {
 																	  Id = result.Account_Id,
 																	  Fullname = result.Full_Name,
 																	  CurrentBalance = result.Amount,
 																	  PreviousBalance = result.NewBalance,
-																	  Date = result.DepositDate.ToString()
+																	  Date = result.DepositDate.ToString(),
+																	  AverageDeposit = (decimal) result.Average_Deposit,
+																	  HighestDeposit = (decimal) result.Highest_Deposit
 																  };
 	}
 }

@@ -15,5 +15,8 @@ namespace Martinez_BankApp.Model.Dto.Admin
 		public decimal NewBalance { get; set; }
 		public string Date { get; set; }
 		public decimal PreviousBalance { get; set; }
+		public decimal AverageDeposit { get; set; }
+		public decimal HighestDeposit { get; set; }
+
 	}
 }

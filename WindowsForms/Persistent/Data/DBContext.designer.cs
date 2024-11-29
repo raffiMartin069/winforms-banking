@@ -347,13 +347,6 @@ namespace Martinez_BankApp.Persistent.Data
 			return ((ISingleResult<SP_GetNameResult>)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GetUserCredential")]
-		public ISingleResult<SP_GetUserCredentialResult> SP_GetUserCredential([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(255)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(255)")] string password)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password);
-			return ((ISingleResult<SP_GetUserCredentialResult>)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GetUserList")]
 		public ISingleResult<SP_GetUserListResult> SP_GetUserList()
 		{
@@ -408,6 +401,27 @@ namespace Martinez_BankApp.Persistent.Data
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((ISingleResult<SP_GetAllDepositRecordResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_DepositReport")]
+		public ISingleResult<SP_DepositReportResult> SP_DepositReport()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_DepositReportResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_WithdrawReport")]
+		public ISingleResult<SP_WithdrawReportResult> SP_WithdrawReport()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<SP_WithdrawReportResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.SP_GetUserCredential")]
+		public ISingleResult<SP_GetUserCredentialResult> SP_GetUserCredential([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Email", DbType="VarChar(255)")] string email, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="VarChar(255)")] string password)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), email, password);
+			return ((ISingleResult<SP_GetUserCredentialResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -4380,68 +4394,6 @@ namespace Martinez_BankApp.Persistent.Data
 		}
 	}
 	
-	public partial class SP_GetUserCredentialResult
-	{
-		
-		private string _Email;
-		
-		private int _Id;
-		
-		private string _Type;
-		
-		public SP_GetUserCredentialResult()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this._Email = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this._Id = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Type
-		{
-			get
-			{
-				return this._Type;
-			}
-			set
-			{
-				if ((this._Type != value))
-				{
-					this._Type = value;
-				}
-			}
-		}
-	}
-	
 	public partial class SP_GetUserListResult
 	{
 		
@@ -5527,6 +5479,336 @@ namespace Martinez_BankApp.Persistent.Data
 				if ((this._DepositTime != value))
 				{
 					this._DepositTime = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_DepositReportResult
+	{
+		
+		private int _Account_Id;
+		
+		private string _Full_Name;
+		
+		private decimal _Amount;
+		
+		private decimal _NewBalance;
+		
+		private System.Nullable<System.DateTime> _DepositDate;
+		
+		private System.Nullable<decimal> _Highest_Deposit;
+		
+		private System.Nullable<decimal> _Average_Deposit;
+		
+		public SP_DepositReportResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Account Id]", Storage="_Account_Id", DbType="Int NOT NULL")]
+		public int Account_Id
+		{
+			get
+			{
+				return this._Account_Id;
+			}
+			set
+			{
+				if ((this._Account_Id != value))
+				{
+					this._Account_Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Full Name]", Storage="_Full_Name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Full_Name
+		{
+			get
+			{
+				return this._Full_Name;
+			}
+			set
+			{
+				if ((this._Full_Name != value))
+				{
+					this._Full_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,2) NOT NULL")]
+		public decimal Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this._Amount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NewBalance", DbType="Decimal(18,2) NOT NULL")]
+		public decimal NewBalance
+		{
+			get
+			{
+				return this._NewBalance;
+			}
+			set
+			{
+				if ((this._NewBalance != value))
+				{
+					this._NewBalance = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DepositDate", DbType="Date")]
+		public System.Nullable<System.DateTime> DepositDate
+		{
+			get
+			{
+				return this._DepositDate;
+			}
+			set
+			{
+				if ((this._DepositDate != value))
+				{
+					this._DepositDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Highest Deposit]", Storage="_Highest_Deposit", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Highest_Deposit
+		{
+			get
+			{
+				return this._Highest_Deposit;
+			}
+			set
+			{
+				if ((this._Highest_Deposit != value))
+				{
+					this._Highest_Deposit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Average Deposit]", Storage="_Average_Deposit", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> Average_Deposit
+		{
+			get
+			{
+				return this._Average_Deposit;
+			}
+			set
+			{
+				if ((this._Average_Deposit != value))
+				{
+					this._Average_Deposit = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_WithdrawReportResult
+	{
+		
+		private int _Account_Id;
+		
+		private string _Full_Name;
+		
+		private decimal _Amount;
+		
+		private decimal _NewBalance;
+		
+		private System.Nullable<System.DateTime> _WithdrawDate;
+		
+		private System.Nullable<decimal> _Highest_Deposit;
+		
+		private System.Nullable<decimal> _Average_Deposit;
+		
+		public SP_WithdrawReportResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Account Id]", Storage="_Account_Id", DbType="Int NOT NULL")]
+		public int Account_Id
+		{
+			get
+			{
+				return this._Account_Id;
+			}
+			set
+			{
+				if ((this._Account_Id != value))
+				{
+					this._Account_Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Full Name]", Storage="_Full_Name", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Full_Name
+		{
+			get
+			{
+				return this._Full_Name;
+			}
+			set
+			{
+				if ((this._Full_Name != value))
+				{
+					this._Full_Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Amount", DbType="Decimal(18,2) NOT NULL")]
+		public decimal Amount
+		{
+			get
+			{
+				return this._Amount;
+			}
+			set
+			{
+				if ((this._Amount != value))
+				{
+					this._Amount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NewBalance", DbType="Decimal(18,2) NOT NULL")]
+		public decimal NewBalance
+		{
+			get
+			{
+				return this._NewBalance;
+			}
+			set
+			{
+				if ((this._NewBalance != value))
+				{
+					this._NewBalance = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WithdrawDate", DbType="Date")]
+		public System.Nullable<System.DateTime> WithdrawDate
+		{
+			get
+			{
+				return this._WithdrawDate;
+			}
+			set
+			{
+				if ((this._WithdrawDate != value))
+				{
+					this._WithdrawDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Highest Deposit]", Storage="_Highest_Deposit", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> Highest_Deposit
+		{
+			get
+			{
+				return this._Highest_Deposit;
+			}
+			set
+			{
+				if ((this._Highest_Deposit != value))
+				{
+					this._Highest_Deposit = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Average Deposit]", Storage="_Average_Deposit", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> Average_Deposit
+		{
+			get
+			{
+				return this._Average_Deposit;
+			}
+			set
+			{
+				if ((this._Average_Deposit != value))
+				{
+					this._Average_Deposit = value;
+				}
+			}
+		}
+	}
+	
+	public partial class SP_GetUserCredentialResult
+	{
+		
+		private string _Email;
+		
+		private int _Id;
+		
+		private string _Type;
+		
+		public SP_GetUserCredentialResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(255) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this._Email = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this._Type = value;
 				}
 			}
 		}

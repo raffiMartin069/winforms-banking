@@ -19,11 +19,13 @@ namespace Martinez_BankApp
 
 		private void LoginButton_Click(object sender, EventArgs e)
 		{
-			bool isValid = false;
 			try
 			{
 				string username = UserNameTextField.Text;
 				string password = PasswordTextField.Text;
+
+				AuthenticationUtility.ValidateFields(username, password);
+
 				var identity = _repository.Validate(username, password);
 
 				foreach(var item in identity)
@@ -37,23 +39,8 @@ namespace Martinez_BankApp
 			}
 			catch (Exception ex)
 			{
-
-				LoginFieldError(ex, isValid);
-			}
-		}
-
-		private void LoginFieldError(Exception ex, bool isValid)
-		{
-			if (ex.Message.Contains("Username is required"))
-			{
-				UsernameErrorLabel.Text = "Username is required";
-				UsernameErrorLabel.Visible = !isValid;
-			}
-
-			if (ex.Message.Contains("Password is required"))
-			{
-				PasswordErrorLabel.Text = "Password is required";
-				PasswordErrorLabel.Visible = !isValid;
+				PasswordErrorLabel.Visible = true;
+				PasswordErrorLabel.Text = ex.Message;
 			}
 		}
 
