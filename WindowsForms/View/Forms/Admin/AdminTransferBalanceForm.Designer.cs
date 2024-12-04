@@ -105,6 +105,7 @@
 			// 
 			// tableLayoutPanel4
 			// 
+			this.tableLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(59)))), ((int)(((byte)(71)))));
 			this.tableLayoutPanel4.ColumnCount = 2;
 			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -153,6 +154,7 @@
 			this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label3.AutoSize = true;
 			this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
+			this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 			this.label3.Location = new System.Drawing.Point(8, 5);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(676, 30);
@@ -164,6 +166,7 @@
 			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label2.AutoSize = true;
 			this.label2.Font = new System.Drawing.Font("Segoe UI", 10F);
+			this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
 			this.label2.Location = new System.Drawing.Point(8, 35);
 			this.label2.Margin = new System.Windows.Forms.Padding(3, 0, 3, 25);
 			this.label2.Name = "label2";
@@ -228,6 +231,7 @@
 			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 			this.label5.Location = new System.Drawing.Point(3, 89);
 			this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label5.Name = "label5";
@@ -240,6 +244,7 @@
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 			this.label1.Location = new System.Drawing.Point(3, 52);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(208, 21);
@@ -251,6 +256,7 @@
 			this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label4.AutoSize = true;
 			this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 			this.label4.Location = new System.Drawing.Point(3, 10);
 			this.label4.Name = "label4";
 			this.label4.Size = new System.Drawing.Size(208, 21);
@@ -286,7 +292,7 @@
 			// SendACashButton
 			// 
 			this.SendACashButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.SendACashButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(216)))));
+			this.SendACashButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(150)))), ((int)(((byte)(199)))));
 			this.SendACashButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 			this.SendACashButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 			this.SendACashButton.Location = new System.Drawing.Point(3, 3);
@@ -348,6 +354,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(59)))), ((int)(((byte)(71)))));
 			this.ClientSize = new System.Drawing.Size(1443, 861);
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.Controls.Add(this.tableLayoutPanel4);

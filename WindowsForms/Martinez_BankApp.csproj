@@ -50,6 +50,9 @@
     <Compile Include="Contract\Admin\IDeposit.cs" />
     <Compile Include="Contract\Admin\ITransaction.cs" />
     <Compile Include="Contract\Admin\IWithdraw.cs" />
+    <Compile Include="Enum\GenderEnums.cs" />
+    <Compile Include="Enum\MarriageStatusEnums.cs" />
+    <Compile Include="Enum\RoleEnums.cs" />
     <Compile Include="Factory\AdminFormFactory.cs" />
     <Compile Include="Factory\ClientFormFactory.cs" />
     <Compile Include="Factory\MdiFactory.cs" />
@@ -62,7 +65,9 @@
     <Compile Include="Model\Dto\LoginAccountDto.cs" />
     <Compile Include="Model\InputModel\Admin\Account.cs" />
     <Compile Include="Model\InputModel\Admin\Deposit.cs" />
+    <Compile Include="Model\InputModel\Admin\NewAccount.cs" />
     <Compile Include="Model\InputModel\Admin\TransferBalance.cs" />
+    <Compile Include="Model\InputModel\Admin\UpdateAccount.cs" />
     <Compile Include="Model\InputModel\Admin\Withdraw.cs" />
     <Compile Include="Persistent\Data\DBContext.designer.cs">
       <AutoGen>True</AutoGen>
@@ -80,12 +85,6 @@
     <Compile Include="Utility\AuthenticationUtility.cs" />
     <Compile Include="Utility\ComboBoxUtility.cs" />
     <Compile Include="Utility\ProfilePictureUtility.cs" />
-    <Compile Include="View\Forms\Admin\UpdatePasswordForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Forms\Admin\UpdatePasswordForm.Designer.cs">
-      <DependentUpon>UpdatePasswordForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="WinFormIdentity\Session.cs" />
     <Compile Include="Utility\TableUtility.cs" />
     <Compile Include="View\Common\LoginForm.cs">
@@ -195,9 +194,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\Admin\CreateNewAccountForm.resx">
       <DependentUpon>CreateNewAccountForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Forms\Admin\UpdatePasswordForm.resx">
-      <DependentUpon>UpdatePasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\Client\ClientDepositForm.resx">
       <DependentUpon>ClientDepositForm.cs</DependentUpon>

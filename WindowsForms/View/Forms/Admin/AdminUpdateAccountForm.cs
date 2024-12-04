@@ -1,4 +1,5 @@
 ﻿using Martinez_BankApp.Model.Dto.Admin;
+using Martinez_BankApp.Model.InputModel.Admin;
 using Martinez_BankApp.Repository.Admin;
 using Martinez_BankApp.Utility;
 using System;
@@ -132,12 +133,6 @@ namespace Martinez_BankApp.View.Forms.Admin
 			RoleComboBox.Text = DEFAULT_ROLE_COMBO_BOX;
 		}
 
-		private void SetImageDefaultValue()
-		{
-			if (ProfileImagePictureBox.Image is null)
-				ProfileImagePictureBox.Image = ProfileImagePictureBox.ErrorImage;
-		}
-
 		private void SetFieldsToDefault()
 		{
 			_userId = 0;
@@ -219,40 +214,27 @@ namespace Martinez_BankApp.View.Forms.Admin
 				var setImage = imageUtility.ProfileImage = ProfileImagePictureBox;
 				_profilePictureBytes = imageUtility.ConvertImageToByteArray();
 
-
-				string password = PasswordTextBox.Text;
-				string repeatPassword = RepeatPasswordTextBox.Text;
-
-				if (!string.IsNullOrEmpty(password))
-				{
-					if (!password.Equals(repeatPassword))
-					{
-						MessageBox.Show("Password does not match");
-						return;
-					}
-				}
-
-
-				var accountDto = new UpdateAccountDto
+				var model = new UpdateAccount
 					(
-						_userId,
-						FullNameTextBox.Text,
-						DateOfBirthDateTimePicker.Value,
-						EmailTextBox.Text,
-						PasswordTextBox.Text,
-						RepeatPasswordTextBox.Text,
-						PhoneTextBox.Text,
-						AddressTextBox.Text,
-						MaritalStatusComboBox.Text,
-						GenderComboBox.Text,
-						MothersNameTextBox.Text,
-						FathersNameTextBox.Text,
-						RoleComboBox.Text,
-						balance,
-						_profilePictureBytes
+					DateOfBirthDateTimePicker.Text,
+					PasswordTextBox.Text,
+					RepeatPasswordTextBox.Text,
+					FullNameTextBox.Text,
+					PhoneTextBox.Text,
+					AddressTextBox.Text,
+					MaritalStatusComboBox.Text,
+					GenderComboBox.Text,
+					MothersNameTextBox.Text,
+					FathersNameTextBox.Text,
+					RoleComboBox.Text,
+					BalanceTextBox.Text,
+					_profilePictureBytes,
+					_repository,
+					_userId,
+					EmailTextBox.Text
 					);
 
-				string resultMessage = _repository.UpdateAccount(accountDto).ToString();
+				string resultMessage = model.Update();
 				
 				PopulateTable();
 				SetFieldsToDefault();
@@ -273,24 +255,10 @@ namespace Martinez_BankApp.View.Forms.Admin
 
 		private void ShowPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
 		{
-			bool isVisible = false;
-			string show = "Show Password";
-			string hide = "Hide Password";
-			if (ShowPasswordCheckBox.Checked)
-			{
-				PasswordTextBox.UseSystemPasswordChar = isVisible;
-				RepeatPasswordTextBox.UseSystemPasswordChar = isVisible;
-				ShowPasswordCheckBox.Text = hide;
-			}
-			else
-			{
-				PasswordTextBox.UseSystemPasswordChar = !isVisible;
-				RepeatPasswordTextBox.UseSystemPasswordChar = !isVisible;
-				ShowPasswordCheckBox.Text = show;
-			}
-		}
 
-		private void ProfileImagePictureBox_Click(object sender, EventArgs e)
+        }
+
+        private void ProfileImagePictureBox_Click(object sender, EventArgs e)
 		{
 			try
 			{
@@ -309,10 +277,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 
 		private void AllowNumericOnlyOnPress(object sender, KeyPressEventArgs e)
 		{
-			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-			{
-				e.Handled = true;
-			}
-		}
-	}
+
+        }
+    }
 }

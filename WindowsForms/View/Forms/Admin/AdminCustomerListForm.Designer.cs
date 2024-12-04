@@ -144,6 +144,8 @@
 			this.CustomerListDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.CustomerListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
 			this.CustomerListDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+			this.CustomerListDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+			this.CustomerListDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleVertical;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
@@ -151,7 +153,7 @@
 			dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.CustomerListDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.CustomerListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -174,7 +176,7 @@
 			dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
 			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.CustomerListDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
 			this.CustomerListDataGridView.Size = new System.Drawing.Size(1378, 760);
 			this.CustomerListDataGridView.TabIndex = 0;
@@ -183,6 +185,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(59)))), ((int)(((byte)(71)))));
 			this.ClientSize = new System.Drawing.Size(1384, 861);
 			this.Controls.Add(this.tableLayoutPanel2);
 			this.Controls.Add(this.tableLayoutPanel5);
