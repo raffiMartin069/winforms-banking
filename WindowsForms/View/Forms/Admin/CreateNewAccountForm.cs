@@ -1,4 +1,5 @@
 ﻿using Martinez_BankApp.Model.Dto.Admin;
+using Martinez_BankApp.Model.InputModel.Admin;
 using Martinez_BankApp.Persistent.Data;
 using Martinez_BankApp.Repository.Admin;
 using Martinez_BankApp.Utility;
@@ -152,6 +153,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 		 *	<seealso cref="SaveButton_Click(object, EventArgs)"/>
 		 * </summary>
 		 * **/
+		[Obsolete("This validation is being replaced an already set in the model.")]
 		public void AddAccountHelperMethod(string date, string balance)
 		{
 			if (!DateTime.TryParse(date, out DateTime dob))
@@ -180,19 +182,13 @@ namespace Martinez_BankApp.View.Forms.Admin
 		{
 			try
 			{
-				AddAccountHelperMethod(DateOfBirthDateTimePicker.Value.ToString(), BalanceTextBox.Text);
-				
 				byte[] profile = _profilePictureBytes;
-		
-				// Pass as data transfer objects, this model does not have any logic!
-				var account = new CreateAccountDto
-					(FullNameTextBox.Text, DateOfBirthDateTimePicker.Value, EmailTextBox.Text,
-					PasswordTextBox.Text, RepeatPasswordTextBox.Text, PhoneTextBox.Text,
-					AddressTextBox.Text, MaritalStatusComboBox.Text, GenderComboBox.Text,
-					MothersNameTextBox.Text, FathersNameTextBox.Text, RoleComboBox.Text, decimal.Parse(BalanceTextBox.Text), profile);
-				string result = _repository.CreateAccount(account);
-				
-				if(result == "0")
+
+				var model = new NewAccount(EmailTextBox.Text, DateOfBirthDateTimePicker.Text, PasswordTextBox.Text, RepeatPasswordTextBox.Text, FullNameTextBox.Text, PhoneTextBox.Text, AddressTextBox.Text, MaritalStatusComboBox.Text, GenderComboBox.Text, MothersNameTextBox.Text, FathersNameTextBox.Text, RoleComboBox.Text, BalanceTextBox.Text, profile, _repository);
+
+				bool isSuccess = model.AddAccount();
+
+				if(isSuccess)
 				{
 					AddAccountOnSuccessSave();
 				}
