@@ -58,12 +58,16 @@
     <Compile Include="Contract\Admin\ITransaction.cs" />
     <Compile Include="Contract\Admin\ITransactionReport.cs" />
     <Compile Include="Contract\Admin\IWithdraw.cs" />
+    <Compile Include="Enum\GenderEnums.cs" />
+    <Compile Include="Enum\MarriageStatusEnums.cs" />
+    <Compile Include="Enum\RoleEnums.cs" />
     <Compile Include="Factory\AdminFormFactory.cs" />
     <Compile Include="Factory\ClientFormFactory.cs" />
     <Compile Include="Factory\MdiFactory.cs" />
     <Compile Include="Model\Dto\Admin\CreateAccountDto.cs" />
     <Compile Include="Model\Dto\Admin\DepositDto.cs" />
     <Compile Include="Model\Dto\Admin\DepositReportDto.cs" />
+    <Compile Include="Model\Dto\Admin\NewAccountFinderDto.cs" />
     <Compile Include="Model\Dto\Admin\TransferBalanceDto.cs" />
     <Compile Include="Model\Dto\Admin\UpdateAccountDto.cs" />
     <Compile Include="Model\Dto\Admin\UserListDto.cs" />
@@ -72,7 +76,9 @@
     <Compile Include="Model\Dto\LoginAccountDto.cs" />
     <Compile Include="Model\InputModel\Admin\Account.cs" />
     <Compile Include="Model\InputModel\Admin\Deposit.cs" />
+    <Compile Include="Model\InputModel\Admin\NewAccount.cs" />
     <Compile Include="Model\InputModel\Admin\TransferBalance.cs" />
+    <Compile Include="Model\InputModel\Admin\UpdateAccount.cs" />
     <Compile Include="Model\InputModel\Admin\Withdraw.cs" />
     <Compile Include="Persistent\Data\DBContext.designer.cs">
       <AutoGen>True</AutoGen>

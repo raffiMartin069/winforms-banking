@@ -207,6 +207,7 @@
 			this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label8.AutoSize = true;
 			this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 			this.label8.Location = new System.Drawing.Point(3, 136);
 			this.label8.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label8.Name = "label8";
@@ -228,6 +229,7 @@
 			this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label7.AutoSize = true;
 			this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 			this.label7.Location = new System.Drawing.Point(3, 89);
 			this.label7.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label7.Name = "label7";
@@ -240,6 +242,7 @@
 			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 			this.label1.Location = new System.Drawing.Point(3, 10);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(135, 21);
@@ -269,6 +272,7 @@
 			this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label9.AutoSize = true;
 			this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label9.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 			this.label9.Location = new System.Drawing.Point(3, 47);
 			this.label9.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label9.Name = "label9";
@@ -281,6 +285,7 @@
 			this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.label5.AutoSize = true;
 			this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 			this.label5.Location = new System.Drawing.Point(3, 183);
 			this.label5.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
 			this.label5.Name = "label5";
@@ -327,7 +332,7 @@
 			// SaveButton
 			// 
 			this.SaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-			this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(114)))), ((int)(((byte)(216)))));
+			this.SaveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(150)))), ((int)(((byte)(199)))));
 			this.SaveButton.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel, ((byte)(0)));
 			this.SaveButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
 			this.SaveButton.Location = new System.Drawing.Point(3, 3);
@@ -371,6 +376,7 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(59)))), ((int)(((byte)(71)))));
 			this.ClientSize = new System.Drawing.Size(1384, 861);
 			this.Controls.Add(this.tableLayoutPanel4);
 			this.Controls.Add(this.tableLayoutPanel1);

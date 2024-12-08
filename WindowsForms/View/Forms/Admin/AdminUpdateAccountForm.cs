@@ -1,7 +1,9 @@
 ﻿using Martinez_BankApp.Model.Dto.Admin;
+using Martinez_BankApp.Model.InputModel.Admin;
 using Martinez_BankApp.Repository.Admin;
 using Martinez_BankApp.Utility;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -31,7 +33,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 				var accounts = _repository.GetAllAccount()?.ToList();
 				AccountDataGridView.DataSource = accounts;
 				AccountDataGridView.Columns["OriginalProfilePhoto"].Visible = false;
-
+				AssignTableHeader(AccountDataGridView);
 				return AccountDataGridView;
 			}
 			catch(Exception ex)
@@ -39,6 +41,24 @@ namespace Martinez_BankApp.View.Forms.Admin
 				MessageBox.Show(ex.Message);
 				return null;
 			}
+		}
+
+		private void AssignTableHeader(DataGridView view)
+		{
+			view.Columns["UserId"].HeaderText = "User ID";
+			view.Columns["ProfilePhoto"].HeaderText = "Profile Photo";
+			view.Columns["FullName"].HeaderText = "Full Name";
+			view.Columns["Gender"].HeaderText = "Gender";
+			view.Columns["DateOfBirth"].HeaderText = "Date of Birth";
+			view.Columns["Email"].HeaderText = "Email";
+			view.Columns["PhoneNumber"].HeaderText = "Phone Number";
+			view.Columns["MaritalStatus"].HeaderText = "Marital Status";
+			view.Columns["HomeAddress"].HeaderText = "Home Address";
+			view.Columns["FatherName"].HeaderText = "Father's Name";
+			view.Columns["MotherName"].HeaderText = "Mother's Name";
+			view.Columns["Role"].HeaderText = "Role";
+			view.Columns["AccountId"].HeaderText = "Account ID";
+			view.Columns["Balance"].HeaderText = "Balance";
 		}
 
 		/**
@@ -132,12 +152,6 @@ namespace Martinez_BankApp.View.Forms.Admin
 			RoleComboBox.Text = DEFAULT_ROLE_COMBO_BOX;
 		}
 
-		private void SetImageDefaultValue()
-		{
-			if (ProfileImagePictureBox.Image is null)
-				ProfileImagePictureBox.Image = ProfileImagePictureBox.ErrorImage;
-		}
-
 		private void SetFieldsToDefault()
 		{
 			_userId = 0;
@@ -219,40 +233,27 @@ namespace Martinez_BankApp.View.Forms.Admin
 				var setImage = imageUtility.ProfileImage = ProfileImagePictureBox;
 				_profilePictureBytes = imageUtility.ConvertImageToByteArray();
 
-
-				string password = PasswordTextBox.Text;
-				string repeatPassword = RepeatPasswordTextBox.Text;
-
-				if (!string.IsNullOrEmpty(password))
-				{
-					if (!password.Equals(repeatPassword))
-					{
-						MessageBox.Show("Password does not match");
-						return;
-					}
-				}
-
-
-				var accountDto = new UpdateAccountDto
+				var model = new UpdateAccount
 					(
-						_userId,
-						FullNameTextBox.Text,
-						DateOfBirthDateTimePicker.Value,
-						EmailTextBox.Text,
-						PasswordTextBox.Text,
-						RepeatPasswordTextBox.Text,
-						PhoneTextBox.Text,
-						AddressTextBox.Text,
-						MaritalStatusComboBox.Text,
-						GenderComboBox.Text,
-						MothersNameTextBox.Text,
-						FathersNameTextBox.Text,
-						RoleComboBox.Text,
-						balance,
-						_profilePictureBytes
+					DateOfBirthDateTimePicker.Text,
+					PasswordTextBox.Text,
+					RepeatPasswordTextBox.Text,
+					FullNameTextBox.Text,
+					PhoneTextBox.Text,
+					AddressTextBox.Text,
+					MaritalStatusComboBox.Text,
+					GenderComboBox.Text,
+					MothersNameTextBox.Text,
+					FathersNameTextBox.Text,
+					RoleComboBox.Text,
+					BalanceTextBox.Text,
+					_profilePictureBytes,
+					_repository,
+					_userId,
+					EmailTextBox.Text
 					);
 
-				string resultMessage = _repository.UpdateAccount(accountDto).ToString();
+				string resultMessage = model.Update();
 				
 				PopulateTable();
 				SetFieldsToDefault();
@@ -271,7 +272,56 @@ namespace Martinez_BankApp.View.Forms.Admin
 			OnSelectPopulateFields();
 		}
 
-		private void ShowPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void ProfileImagePictureBox_Click(object sender, EventArgs e)
+		{
+			try
+			{
+				var utility = new ProfilePictureUtility();
+				utility.ProfileImage = ProfileImagePictureBox;
+				utility.OpenProfilePictureSelector();
+				_profilePictureBytes = utility.ConvertImageToByteArray();
+				
+			}
+			catch (Exception ex)
+			{
+				MessageBox.Show(ex.Message);
+				return;
+			}
+		}
+
+		private DataGridView InitializeGridView<T>(IEnumerable<T> data)
+		{
+			AccountDataGridView.DataSource = data;
+			return AccountDataGridView;
+		}
+
+		private void AssignSearchTableHeader(DataGridView view)
+		{
+			view.Columns["Id"].HeaderText = "User ID";
+			view.Columns["ProfileImage"].HeaderText = "Profile Photo";
+			view.Columns["Fullname"].HeaderText = "Full Name";
+			view.Columns["Gender"].HeaderText = "Gender";
+			view.Columns["DateOfBirth"].HeaderText = "Date of Birth";
+			view.Columns["Email"].HeaderText = "Email";
+			view.Columns["Phone"].HeaderText = "Phone Number";
+			view.Columns["Marriage"].HeaderText = "Marital Status";
+			view.Columns["Address"].HeaderText = "Home Address";
+			view.Columns["Fathername"].HeaderText = "Father's Name";
+			view.Columns["Mothername"].HeaderText = "Mother's Name";
+			view.Columns["Role"].HeaderText = "Role";
+			view.Columns["BankAccountId"].HeaderText = "Account ID";
+			view.Columns["AccountBalance"].HeaderText = "Balance";
+		}
+
+		private void SearchFieldTextBox_TextChanged(object sender, EventArgs e)
+		{
+			string key = SearchFieldTextBox.Text;
+			var result = _repository.FindAccountByKey(key)?.ToList();
+			InitializeGridView(result);
+			AssignSearchTableHeader(AccountDataGridView);
+		}
+
+		private void ShowPasswordCheckBox_CheckedChanged_1(object sender, EventArgs e)
 		{
 			bool isVisible = false;
 			string show = "Show Password";
@@ -290,24 +340,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 			}
 		}
 
-		private void ProfileImagePictureBox_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				var utility = new ProfilePictureUtility();
-				utility.ProfileImage = ProfileImagePictureBox;
-				utility.OpenProfilePictureSelector();
-				_profilePictureBytes = utility.ConvertImageToByteArray();
-				
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message);
-				return;
-			}
-		}
-
-		private void AllowNumericOnlyOnPress(object sender, KeyPressEventArgs e)
+		private void PhoneTextBox_KeyPress(object sender, KeyPressEventArgs e)
 		{
 			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
 			{

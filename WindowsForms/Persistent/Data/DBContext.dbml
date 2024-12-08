@@ -163,14 +163,15 @@
       <Column Name="Message" Type="System.String" DbType="VarChar(18) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Name="dbo.SP_Withdraw" Method="SP_Withdraw">
-    <Parameter Name="AccountNumber" Parameter="accountNumber" Type="System.Int32" DbType="Int" />
-    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="CurrentBalance" Parameter="currentBalance" Type="System.Decimal" DbType="Decimal(18,2)" />
-    <Parameter Name="ModeOfDeposit" Parameter="modeOfDeposit" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="WithdrawAmount" Parameter="withdrawAmount" Type="System.Decimal" DbType="Decimal(18,2)" />
-    <ElementType Name="SP_WithdrawResult">
-      <Column Name="Message" Type="System.String" DbType="VarChar(19) NOT NULL" CanBeNull="false" />
+  <Function Name="dbo.SP_WithdrawReport" Method="SP_WithdrawReport">
+    <ElementType Name="SP_WithdrawReportResult">
+      <Column Name="[Account Id]" Member="Account_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Full Name]" Member="Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WithdrawDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="[Highest Deposit]" Member="Highest_Deposit" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="[Average Deposit]" Member="Average_Deposit" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.SP_AdminSendCash" Method="SP_AdminSendCash">
@@ -209,6 +210,17 @@
     <Parameter Name="DepositAmount" Parameter="depositAmount" Type="System.Decimal" DbType="Decimal(18,2)" />
     <ElementType Name="SP_DepositAccountResult">
       <Column Name="Message" Type="System.String" DbType="VarChar(18) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_DepositReport" Method="SP_DepositReport">
+    <ElementType Name="SP_DepositReportResult">
+      <Column Name="[Account Id]" Member="Account_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Full Name]" Member="Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DepositDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="[Highest Deposit]" Member="Highest_Deposit" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="[Average Deposit]" Member="Average_Deposit" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
     </ElementType>
   </Function>
   <Function Name="dbo.SP_FindDepositRecordByKey" Method="SP_FindDepositRecordByKey">
@@ -261,6 +273,18 @@
       <Column Name="Type" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.SP_GetAllDepositRecord" Method="SP_GetAllDepositRecord">
+    <ElementType Name="SP_GetAllDepositRecordResult">
+      <Column Name="[Account Id]" Member="Account_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Full Name]" Member="Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="DepositDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DepositTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.SP_GetAllGender" Method="SP_GetAllGender">
     <ElementType Name="SP_GetAllGenderResult">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -285,10 +309,31 @@
       <Column Name="Type" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.SP_GetAllWithdrawRecord" Method="SP_GetAllWithdrawRecord">
+    <ElementType Name="SP_GetAllWithdrawRecordResult">
+      <Column Name="[Account Id]" Member="Account_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="[Full Name]" Member="Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="WithdrawDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="WithdrawTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.SP_GetName" Method="SP_GetName">
     <Parameter Name="AccountID" Parameter="accountID" Type="System.Int32" DbType="Int" />
     <ElementType Name="SP_GetNameResult">
       <Column Name="MESSAGE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_GetUserCredential" Method="SP_GetUserCredential">
+    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(255)" />
+    <ElementType Name="SP_GetUserCredentialResult">
+      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.SP_GetUserList" Method="SP_GetUserList">
@@ -307,21 +352,6 @@
       <Column Name="Role" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="AccountNumber" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.SP_SearchUserByKey" Method="SP_SearchUserByKey">
-    <Parameter Name="Key" Parameter="key" Type="System.String" DbType="VarChar(255)" />
-    <ElementType Name="SP_SearchUserByKeyResult">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="FullName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="HomeAddress" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Number" Type="System.String" DbType="Char(15)" CanBeNull="true" />
-      <Column Name="[Name of Father]" Member="Name_of_Father" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="[Name of Mother]" Member="Name_of_Mother" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="Status" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
   <Function Name="dbo.SP_SearchUserListByKey" Method="SP_SearchUserListByKey">
@@ -350,6 +380,35 @@
       <Column Name="MESSAGE" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
+  <Function Name="dbo.SP_Withdraw" Method="SP_Withdraw">
+    <Parameter Name="AccountNumber" Parameter="accountNumber" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FullName" Parameter="fullName" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="CurrentBalance" Parameter="currentBalance" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="ModeOfDeposit" Parameter="modeOfDeposit" Type="System.String" DbType="VarChar(255)" />
+    <Parameter Name="WithdrawAmount" Parameter="withdrawAmount" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <ElementType Name="SP_WithdrawResult">
+      <Column Name="Message" Type="System.String" DbType="VarChar(19) NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SP_SearchUserByKey" Method="SP_SearchUserByKey">
+    <Parameter Name="Key" Parameter="key" Type="System.String" DbType="VarChar(255)" />
+    <ElementType Name="SP_SearchUserByKeyResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FullName" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="HomeAddress" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Number" Type="System.String" DbType="Char(15)" CanBeNull="true" />
+      <Column Name="[Name of Father]" Member="Name_of_Father" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="[Name of Mother]" Member="Name_of_Mother" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="BankAccountId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
   <Function Name="dbo.SP_UpdatePassword" Method="SP_UpdatePassword">
     <Parameter Name="Id" Parameter="id" Type="System.Int32" DbType="Int" />
     <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(255)" />
@@ -376,61 +435,6 @@
     <Parameter Name="ProfileImage" Parameter="profileImage" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" />
     <ElementType Name="SP_UpdateUserInfoResult">
       <Column Name="Message" Type="System.String" DbType="VarChar(27) NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.SP_GetAllWithdrawRecord" Method="SP_GetAllWithdrawRecord">
-    <ElementType Name="SP_GetAllWithdrawRecordResult">
-      <Column Name="[Account Id]" Member="Account_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="[Full Name]" Member="Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="WithdrawDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="WithdrawTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.SP_GetAllDepositRecord" Method="SP_GetAllDepositRecord">
-    <ElementType Name="SP_GetAllDepositRecordResult">
-      <Column Name="[Account Id]" Member="Account_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="[Full Name]" Member="Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Gender" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="DepositDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="DepositTime" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.SP_DepositReport" Method="SP_DepositReport">
-    <ElementType Name="SP_DepositReportResult">
-      <Column Name="[Account Id]" Member="Account_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="[Full Name]" Member="Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="DepositDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="[Highest Deposit]" Member="Highest_Deposit" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="[Average Deposit]" Member="Average_Deposit" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.SP_WithdrawReport" Method="SP_WithdrawReport">
-    <ElementType Name="SP_WithdrawReportResult">
-      <Column Name="[Account Id]" Member="Account_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="[Full Name]" Member="Full_Name" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Amount" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="NewBalance" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
-      <Column Name="WithdrawDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="[Highest Deposit]" Member="Highest_Deposit" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="[Average Deposit]" Member="Average_Deposit" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
-    </ElementType>
-  </Function>
-  <Function Name="dbo.SP_GetUserCredential" Method="SP_GetUserCredential">
-    <Parameter Name="Email" Parameter="email" Type="System.String" DbType="VarChar(255)" />
-    <Parameter Name="Password" Parameter="password" Type="System.String" DbType="VarChar(255)" />
-    <ElementType Name="SP_GetUserCredentialResult">
-      <Column Name="Email" Type="System.String" DbType="VarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Type" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
 </Database>

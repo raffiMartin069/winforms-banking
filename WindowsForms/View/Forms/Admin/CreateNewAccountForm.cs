@@ -1,4 +1,5 @@
 ﻿using Martinez_BankApp.Model.Dto.Admin;
+using Martinez_BankApp.Model.InputModel.Admin;
 using Martinez_BankApp.Persistent.Data;
 using Martinez_BankApp.Repository.Admin;
 using Martinez_BankApp.Utility;
@@ -152,6 +153,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 		 *	<seealso cref="SaveButton_Click(object, EventArgs)"/>
 		 * </summary>
 		 * **/
+		[Obsolete("This validation is being replaced an already set in the model.")]
 		public void AddAccountHelperMethod(string date, string balance)
 		{
 			if (!DateTime.TryParse(date, out DateTime dob))
@@ -180,19 +182,13 @@ namespace Martinez_BankApp.View.Forms.Admin
 		{
 			try
 			{
-				AddAccountHelperMethod(DateOfBirthDateTimePicker.Value.ToString(), BalanceTextBox.Text);
-				
 				byte[] profile = _profilePictureBytes;
-		
-				// Pass as data transfer objects, this model does not have any logic!
-				var account = new CreateAccountDto
-					(FullNameTextBox.Text, DateOfBirthDateTimePicker.Value, EmailTextBox.Text,
-					PasswordTextBox.Text, RepeatPasswordTextBox.Text, PhoneTextBox.Text,
-					AddressTextBox.Text, MaritalStatusComboBox.Text, GenderComboBox.Text,
-					MothersNameTextBox.Text, FathersNameTextBox.Text, RoleComboBox.Text, decimal.Parse(BalanceTextBox.Text), profile);
-				string result = _repository.CreateAccount(account);
-				
-				if(result == "0")
+
+				var model = new NewAccount(EmailTextBox.Text, DateOfBirthDateTimePicker.Text, PasswordTextBox.Text, RepeatPasswordTextBox.Text, FullNameTextBox.Text, PhoneTextBox.Text, AddressTextBox.Text, MaritalStatusComboBox.Text, GenderComboBox.Text, MothersNameTextBox.Text, FathersNameTextBox.Text, RoleComboBox.Text, BalanceTextBox.Text, profile, _repository);
+
+				bool isSuccess = model.AddAccount();
+
+				if(isSuccess)
 				{
 					AddAccountOnSuccessSave();
 				}
@@ -281,7 +277,34 @@ namespace Martinez_BankApp.View.Forms.Admin
 
 		private void SearchBoxTextField_TextChanged(object sender, EventArgs e)
 		{
-			NewAccountsDataTable.DataSource = _repository.FindAccountByKey(SearchBoxTextField.Text);
+			string key = SearchBoxTextField.Text;
+			var result = _repository.FindAccountByKey(key)?.ToList();
+			InitializeGridView(result);
+			AssignTableHeader(NewAccountsDataTable);
+		}
+
+		private void AssignTableHeader(DataGridView view)
+		{
+			view.Columns["Id"].HeaderText = "User ID";
+			view.Columns["ProfileImage"].HeaderText = "Profile Photo";
+			view.Columns["Fullname"].HeaderText = "Full Name";
+			view.Columns["Gender"].HeaderText = "Gender";
+			view.Columns["DateOfBirth"].HeaderText = "Date of Birth";
+			view.Columns["Email"].HeaderText = "Email";
+			view.Columns["Phone"].HeaderText = "Phone Number";
+			view.Columns["Marriage"].HeaderText = "Marital Status";
+			view.Columns["Address"].HeaderText = "Home Address";
+			view.Columns["Fathername"].HeaderText = "Father's Name";
+			view.Columns["Mothername"].HeaderText = "Mother's Name";
+			view.Columns["Role"].HeaderText = "Role";
+			view.Columns["BankAccountId"].HeaderText = "Account ID";
+			view.Columns["AccountBalance"].HeaderText = "Balance";
+		}
+
+		private DataGridView InitializeGridView<T>(IEnumerable<T> data)
+		{
+			NewAccountsDataTable.DataSource = data;
+			return NewAccountsDataTable;
 		}
 
 		private void AllowNumericOnlyOnPress(object sender, KeyPressEventArgs e)

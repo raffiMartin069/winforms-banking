@@ -132,7 +132,7 @@
         <classShapeMoniker Id="bf817f1b-5726-4636-909c-e929d07504c5" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.5 : 10.625); (4.5 : 9.34699625651042); (4.94791916666667 : 9.34699625651042 : JumpStart); (5.11458583333333 : 9.34699625651042 : JumpEnd); (6.25 : 9.34699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(4.5 : 10.625); (4.5 : 9.34699625651042); (6.25 : 9.34699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DBContextDataContext/User/User_Account" />
       <nodes>
         <classShapeMoniker Id="8c6ec023-733d-42f5-a8e4-012bb497a7ac" />

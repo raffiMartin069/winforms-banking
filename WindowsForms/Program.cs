@@ -21,8 +21,8 @@ namespace Martinez_BankApp
 
 			var context = new DBContextDataContext();
 			var repository = new ClientLoginRepository(context);
-			//Application.Run(new LoginForm(repository));
-			Application.Run(new AdminMdiForm());
+			Application.Run(new LoginForm(repository));
+			//Application.Run(new AdminMdiForm());
 			// Application.Run(new ReportForm());
 			//Application.Run(new ClientMdiForm());
 		}
