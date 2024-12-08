@@ -24,7 +24,8 @@ namespace Martinez_BankApp.Factory
 		{
 			var context = new DBContextDataContext();
 			var repository = new DepositRepository(context);
-			var adminDepositForm = new AdminDepositForm(repository);
+			var report = new ReportRepository(context);
+			var adminDepositForm = new AdminDepositForm(repository, report);
 			ShowForm(adminDepositForm);
 		}
 
@@ -40,7 +41,8 @@ namespace Martinez_BankApp.Factory
 		{
 			var context = new DBContextDataContext();
 			var repository = new WithdrawRepository(context);
-			var admingWithdrawalWindow = new AdminWithdrawForm(repository);
+			var report = new ReportRepository(context);
+			var admingWithdrawalWindow = new AdminWithdrawForm(repository, report);
 			ShowForm(admingWithdrawalWindow);
 		}
 

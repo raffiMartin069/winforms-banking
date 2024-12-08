@@ -3,6 +3,7 @@ using Martinez_BankApp.Model.InputModel.Admin;
 using Martinez_BankApp.Repository.Admin;
 using Martinez_BankApp.Utility;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace Martinez_BankApp.View.Forms.Admin
 				var accounts = _repository.GetAllAccount()?.ToList();
 				AccountDataGridView.DataSource = accounts;
 				AccountDataGridView.Columns["OriginalProfilePhoto"].Visible = false;
-
+				AssignTableHeader(AccountDataGridView);
 				return AccountDataGridView;
 			}
 			catch(Exception ex)
@@ -40,6 +41,24 @@ namespace Martinez_BankApp.View.Forms.Admin
 				MessageBox.Show(ex.Message);
 				return null;
 			}
+		}
+
+		private void AssignTableHeader(DataGridView view)
+		{
+			view.Columns["UserId"].HeaderText = "User ID";
+			view.Columns["ProfilePhoto"].HeaderText = "Profile Photo";
+			view.Columns["FullName"].HeaderText = "Full Name";
+			view.Columns["Gender"].HeaderText = "Gender";
+			view.Columns["DateOfBirth"].HeaderText = "Date of Birth";
+			view.Columns["Email"].HeaderText = "Email";
+			view.Columns["PhoneNumber"].HeaderText = "Phone Number";
+			view.Columns["MaritalStatus"].HeaderText = "Marital Status";
+			view.Columns["HomeAddress"].HeaderText = "Home Address";
+			view.Columns["FatherName"].HeaderText = "Father's Name";
+			view.Columns["MotherName"].HeaderText = "Mother's Name";
+			view.Columns["Role"].HeaderText = "Role";
+			view.Columns["AccountId"].HeaderText = "Account ID";
+			view.Columns["Balance"].HeaderText = "Balance";
 		}
 
 		/**
@@ -253,11 +272,6 @@ namespace Martinez_BankApp.View.Forms.Admin
 			OnSelectPopulateFields();
 		}
 
-		private void ShowPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
-		{
-
-        }
-
         private void ProfileImagePictureBox_Click(object sender, EventArgs e)
 		{
 			try
@@ -275,9 +289,63 @@ namespace Martinez_BankApp.View.Forms.Admin
 			}
 		}
 
-		private void AllowNumericOnlyOnPress(object sender, KeyPressEventArgs e)
+		private DataGridView InitializeGridView<T>(IEnumerable<T> data)
 		{
+			AccountDataGridView.DataSource = data;
+			return AccountDataGridView;
+		}
 
-        }
-    }
+		private void AssignSearchTableHeader(DataGridView view)
+		{
+			view.Columns["Id"].HeaderText = "User ID";
+			view.Columns["ProfileImage"].HeaderText = "Profile Photo";
+			view.Columns["Fullname"].HeaderText = "Full Name";
+			view.Columns["Gender"].HeaderText = "Gender";
+			view.Columns["DateOfBirth"].HeaderText = "Date of Birth";
+			view.Columns["Email"].HeaderText = "Email";
+			view.Columns["Phone"].HeaderText = "Phone Number";
+			view.Columns["Marriage"].HeaderText = "Marital Status";
+			view.Columns["Address"].HeaderText = "Home Address";
+			view.Columns["Fathername"].HeaderText = "Father's Name";
+			view.Columns["Mothername"].HeaderText = "Mother's Name";
+			view.Columns["Role"].HeaderText = "Role";
+			view.Columns["BankAccountId"].HeaderText = "Account ID";
+			view.Columns["AccountBalance"].HeaderText = "Balance";
+		}
+
+		private void SearchFieldTextBox_TextChanged(object sender, EventArgs e)
+		{
+			string key = SearchFieldTextBox.Text;
+			var result = _repository.FindAccountByKey(key)?.ToList();
+			InitializeGridView(result);
+			AssignSearchTableHeader(AccountDataGridView);
+		}
+
+		private void ShowPasswordCheckBox_CheckedChanged_1(object sender, EventArgs e)
+		{
+			bool isVisible = false;
+			string show = "Show Password";
+			string hide = "Hide Password";
+			if (ShowPasswordCheckBox.Checked)
+			{
+				PasswordTextBox.UseSystemPasswordChar = isVisible;
+				RepeatPasswordTextBox.UseSystemPasswordChar = isVisible;
+				ShowPasswordCheckBox.Text = hide;
+			}
+			else
+			{
+				PasswordTextBox.UseSystemPasswordChar = !isVisible;
+				RepeatPasswordTextBox.UseSystemPasswordChar = !isVisible;
+				ShowPasswordCheckBox.Text = show;
+			}
+		}
+
+		private void PhoneTextBox_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+			{
+				e.Handled = true;
+			}
+		}
+	}
 }

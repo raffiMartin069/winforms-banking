@@ -44,8 +44,7 @@ namespace Martinez_BankApp.Repository.Admin
 							 FatherName = row.Father_s_Name,
 							 AccountId = row.Account_Number,
 							 Balance = row.Account_Balance,
-							 ProfilePhoto = new Bitmap(ProfilePictureUtility.ConvertyByteArrayToImage(row.Profile_Photo.ToArray()),
-							 new Size(60, ProfilePictureUtility.ConvertyByteArrayToImage(row.Profile_Photo.ToArray()).Height * 50 / ProfilePictureUtility.ConvertyByteArrayToImage(row.Profile_Photo.ToArray()).Width)) 
+							 ProfilePhoto = ProfilePictureUtility.ConvertyByteArrayToImage(row.Profile_Photo.ToArray())
 						 };
 			return result;
 		}
@@ -64,6 +63,32 @@ namespace Martinez_BankApp.Repository.Admin
 			return result.Message;
 		}
 
-		public ISingleResult<SP_SearchUserByKeyResult> FindAccountByKey(string key) => _context.SP_SearchUserByKey(key);
+		//public ISingleResult<SP_SearchUserByKeyResult> FindAccountByKey(string key) => _context.SP_SearchUserByKey(key);
+
+		public IEnumerable<NewAccountFinderDto> FindAccountByKey(string key)
+		{
+			var result = _context.SP_SearchUserByKey(key)
+				.Select(i => new NewAccountFinderDto
+				{
+					Id = i.Id,
+					Fullname = i.FullName,
+					Gender = i.Gender,
+					Role = i.Type,
+					Address = i.HomeAddress,
+					Email = i.Email,
+					Phone = i.Number,
+					Fathername = i.Name_of_Father,
+					Mothername = i.Name_of_Mother,
+					Marriage = i.Status,
+					ProfileImage = i.Image != null
+						? ProfilePictureUtility.ConvertyByteArrayToImage(i.Image.ToArray())
+						: null,
+					DateOfBirth = i.DateOfBirth.Date,
+					BankAccountId = i.BankAccountId.ToString(),
+					AccountBalance = i.Amount.ToString()
+				});
+
+			return result;
+		}
 	}
 }

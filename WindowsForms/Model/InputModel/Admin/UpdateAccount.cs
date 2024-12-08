@@ -110,6 +110,8 @@ namespace Martinez_BankApp.Model.InputModel.Admin
 
 		private void ValidatePhoneNumber()
 		{
+			PhoneNumber = PhoneNumber.TrimEnd();
+
 			if (string.IsNullOrEmpty(PhoneNumber))
 				throw new Exception("Phone Number is required");
 
@@ -141,6 +143,9 @@ namespace Martinez_BankApp.Model.InputModel.Admin
 					break;
 				}
 			}
+
+			if (MaritalStatus == "Never married")
+				isMatched = true;
 
 			if (!isMatched)
 				throw new Exception("Marital Status is invalid");

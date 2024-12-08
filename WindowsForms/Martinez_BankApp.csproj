@@ -33,9 +33,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +56,7 @@
   <ItemGroup>
     <Compile Include="Contract\Admin\IDeposit.cs" />
     <Compile Include="Contract\Admin\ITransaction.cs" />
+    <Compile Include="Contract\Admin\ITransactionReport.cs" />
     <Compile Include="Contract\Admin\IWithdraw.cs" />
     <Compile Include="Enum\GenderEnums.cs" />
     <Compile Include="Enum\MarriageStatusEnums.cs" />
@@ -58,10 +66,13 @@
     <Compile Include="Factory\MdiFactory.cs" />
     <Compile Include="Model\Dto\Admin\CreateAccountDto.cs" />
     <Compile Include="Model\Dto\Admin\DepositDto.cs" />
+    <Compile Include="Model\Dto\Admin\DepositReportDto.cs" />
+    <Compile Include="Model\Dto\Admin\NewAccountFinderDto.cs" />
     <Compile Include="Model\Dto\Admin\TransferBalanceDto.cs" />
     <Compile Include="Model\Dto\Admin\UpdateAccountDto.cs" />
     <Compile Include="Model\Dto\Admin\UserListDto.cs" />
     <Compile Include="Model\Dto\Admin\WithdrawDto.cs" />
+    <Compile Include="Model\Dto\Admin\WithdrawReportDto.cs" />
     <Compile Include="Model\Dto\LoginAccountDto.cs" />
     <Compile Include="Model\InputModel\Admin\Account.cs" />
     <Compile Include="Model\InputModel\Admin\Deposit.cs" />
@@ -75,6 +86,7 @@
       <DependentUpon>DBContext.dbml</DependentUpon>
     </Compile>
     <Compile Include="Repository\Admin\CustomerListRepository.cs" />
+    <Compile Include="Repository\Admin\ReportRepository.cs" />
     <Compile Include="Repository\Admin\SearchAccountRepository.cs" />
     <Compile Include="Repository\Admin\TransferBalanceRepository.cs" />
     <Compile Include="Repository\Admin\UpdateAccountRepository.cs" />
@@ -82,9 +94,34 @@
     <Compile Include="Repository\Admin\DepositRepository.cs" />
     <Compile Include="Repository\Admin\WithdrawRepository.cs" />
     <Compile Include="Repository\Authentication\ClientLoginRepository.cs" />
+    <Compile Include="resources\report\DepositReport_1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DepositReport_1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="resources\report\DepositReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DepositReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="resources\report\WithdrawReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>WithdrawReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Utility\AuthenticationUtility.cs" />
     <Compile Include="Utility\ComboBoxUtility.cs" />
     <Compile Include="Utility\ProfilePictureUtility.cs" />
+    <Compile Include="Factory\ReportFactory.cs" />
+    <Compile Include="View\Forms\Admin\ReportForm\ReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\Admin\ReportForm\ReportForm.Designer.cs">
+      <DependentUpon>ReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WinFormIdentity\Session.cs" />
     <Compile Include="Utility\TableUtility.cs" />
     <Compile Include="View\Common\LoginForm.cs">
@@ -171,6 +208,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="resources\report\DepositReport_1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DepositReport_1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\report\DepositReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DepositReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\report\WithdrawReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>WithdrawReport.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Common\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\Admin\CreateNewAccountForm.resx">
       <DependentUpon>CreateNewAccountForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\Admin\ReportForm\ReportForm.resx">
+      <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Forms\Client\ClientDepositForm.resx">
       <DependentUpon>ClientDepositForm.cs</DependentUpon>
@@ -248,6 +300,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

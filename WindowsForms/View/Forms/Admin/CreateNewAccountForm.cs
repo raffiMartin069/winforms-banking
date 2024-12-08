@@ -277,7 +277,34 @@ namespace Martinez_BankApp.View.Forms.Admin
 
 		private void SearchBoxTextField_TextChanged(object sender, EventArgs e)
 		{
-			NewAccountsDataTable.DataSource = _repository.FindAccountByKey(SearchBoxTextField.Text);
+			string key = SearchBoxTextField.Text;
+			var result = _repository.FindAccountByKey(key)?.ToList();
+			InitializeGridView(result);
+			AssignTableHeader(NewAccountsDataTable);
+		}
+
+		private void AssignTableHeader(DataGridView view)
+		{
+			view.Columns["Id"].HeaderText = "User ID";
+			view.Columns["ProfileImage"].HeaderText = "Profile Photo";
+			view.Columns["Fullname"].HeaderText = "Full Name";
+			view.Columns["Gender"].HeaderText = "Gender";
+			view.Columns["DateOfBirth"].HeaderText = "Date of Birth";
+			view.Columns["Email"].HeaderText = "Email";
+			view.Columns["Phone"].HeaderText = "Phone Number";
+			view.Columns["Marriage"].HeaderText = "Marital Status";
+			view.Columns["Address"].HeaderText = "Home Address";
+			view.Columns["Fathername"].HeaderText = "Father's Name";
+			view.Columns["Mothername"].HeaderText = "Mother's Name";
+			view.Columns["Role"].HeaderText = "Role";
+			view.Columns["BankAccountId"].HeaderText = "Account ID";
+			view.Columns["AccountBalance"].HeaderText = "Balance";
+		}
+
+		private DataGridView InitializeGridView<T>(IEnumerable<T> data)
+		{
+			NewAccountsDataTable.DataSource = data;
+			return NewAccountsDataTable;
 		}
 
 		private void AllowNumericOnlyOnPress(object sender, KeyPressEventArgs e)

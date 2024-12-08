@@ -10,7 +10,6 @@ namespace Martinez_BankApp
 	public partial class LoginForm : Form
 	{
 		private readonly ClientLoginRepository _repository;
-		private const string ADMIN = "Admin";
 
 		public LoginForm(ClientLoginRepository repository)
 		{
@@ -20,11 +19,13 @@ namespace Martinez_BankApp
 
 		private void LoginButton_Click(object sender, EventArgs e)
 		{
-			bool isValid = false;
 			try
 			{
 				string username = UserNameTextField.Text;
 				string password = PasswordTextField.Text;
+
+				AuthenticationUtility.ValidateFields(username, password);
+
 				var identity = _repository.Validate(username, password);
 
 				foreach(var item in identity)
@@ -33,30 +34,13 @@ namespace Martinez_BankApp
 					Session.SetClaim("Id", item.Id.ToString());
 					Session.SetClaim("Role", item.Role);
 				}
-
-
 				AuthenticationUtility.ValidateRole();
 				this.Hide();
 			}
 			catch (Exception ex)
 			{
-
-				LoginFieldError(ex, isValid);
-			}
-		}
-
-		private void LoginFieldError(Exception ex, bool isValid)
-		{
-			if (ex.Message.Contains("Username is required"))
-			{
-				UsernameErrorLabel.Text = "Username is required";
-				UsernameErrorLabel.Visible = !isValid;
-			}
-
-			if (ex.Message.Contains("Password is required"))
-			{
-				PasswordErrorLabel.Text = "Password is required";
-				PasswordErrorLabel.Visible = !isValid;
+				PasswordErrorLabel.Visible = true;
+				PasswordErrorLabel.Text = ex.Message;
 			}
 		}
 
@@ -71,15 +55,17 @@ namespace Martinez_BankApp
 		private void ShowPasswordCheckBox_CheckedChanged(object sender, EventArgs e)
 		{
 			bool isTicked = false;
+			string hide = "Hide Password";
+			string show = "Show Password";
 			if(ShowPasswordCheckBox.Checked)
 			{
 				PasswordTextField.UseSystemPasswordChar = isTicked;
-				ShowPasswordCheckBox.Text = "Hide Password";
+				ShowPasswordCheckBox.Text = hide;
 			}
 			else
 			{
 				PasswordTextField.UseSystemPasswordChar = !isTicked;
-				ShowPasswordCheckBox.Text = "Show Password";
+				ShowPasswordCheckBox.Text = show;
 			}
 		}
 	}

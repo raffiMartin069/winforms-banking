@@ -50,6 +50,8 @@ namespace Martinez_BankApp.Model.InputModel.Admin
 			bool isValidStr = CheckStrValidity();
 			bool isValidDecimal = CheckDecimalValidity();
 			string exception = "Something went wrong, please try again later";
+
+
 			return !isValidDecimal && !isValidStr ? throw new Exception(exception) : new WithdrawDto
 			(
 				int.Parse(AccountNumber),

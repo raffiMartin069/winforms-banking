@@ -19,9 +19,9 @@ namespace Martinez_BankApp.Repository.Admin
 
 		public IEnumerable FindRecordByKey(string key) => _context.SP_FindWithdrawById(key);
 
-		public string AddWithdraw(WithdrawDto dto)
-		{
-			return _context.SP_Withdraw(dto.AccountNumber, dto.Name, dto.OldBalance, dto.Mode, dto.WithdrawAmount).FirstOrDefault().Message;
-		}
+		public string AddWithdraw(WithdrawDto dto) => _context.SP_Withdraw
+			(dto.AccountNumber, dto.Name, dto.OldBalance, dto.Mode, dto.WithdrawAmount)
+			.FirstOrDefault()
+			.Message;
 	}
 }

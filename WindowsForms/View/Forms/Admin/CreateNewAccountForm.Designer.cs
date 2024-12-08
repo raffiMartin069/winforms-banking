@@ -402,7 +402,7 @@
 			// 
 			this.MaritalStatusComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.MaritalStatusComboBox.FormattingEnabled = true;
-			this.MaritalStatusComboBox.Location = new System.Drawing.Point(3, 34);
+			this.MaritalStatusComboBox.Location = new System.Drawing.Point(3, 30);
 			this.MaritalStatusComboBox.Margin = new System.Windows.Forms.Padding(0);
 			this.MaritalStatusComboBox.Name = "MaritalStatusComboBox";
 			this.MaritalStatusComboBox.Size = new System.Drawing.Size(236, 29);
@@ -413,7 +413,7 @@
 			this.GenderComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
 			this.GenderComboBox.DisplayMember = "Type";
 			this.GenderComboBox.FormattingEnabled = true;
-			this.GenderComboBox.Location = new System.Drawing.Point(241, 34);
+			this.GenderComboBox.Location = new System.Drawing.Point(241, 30);
 			this.GenderComboBox.Margin = new System.Windows.Forms.Padding(0);
 			this.GenderComboBox.Name = "GenderComboBox";
 			this.GenderComboBox.Size = new System.Drawing.Size(243, 29);

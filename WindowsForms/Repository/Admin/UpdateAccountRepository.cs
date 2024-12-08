@@ -24,6 +24,32 @@ namespace Martinez_BankApp.Repository.Admin
 
 		public IEnumerable GetAllMaritalStatus() => _context.SP_GetAllMartiralStatus();
 
+		public IEnumerable<NewAccountFinderDto> FindAccountByKey(string key)
+		{
+			var result = _context.SP_SearchUserByKey(key)
+				.Select(i => new NewAccountFinderDto
+				{
+					Id = i.Id,
+					Fullname = i.FullName,
+					Gender = i.Gender,
+					Role = i.Type,
+					Address = i.HomeAddress,
+					Email = i.Email,
+					Phone = i.Number,
+					Fathername = i.Name_of_Father,
+					Mothername = i.Name_of_Mother,
+					Marriage = i.Status,
+					ProfileImage = i.Image != null
+						? ProfilePictureUtility.ConvertyByteArrayToImage(i.Image.ToArray())
+						: null,
+					DateOfBirth = i.DateOfBirth.Date,
+					BankAccountId = i.BankAccountId.ToString(),
+					AccountBalance = i.Amount.ToString()
+				});
+
+			return result;
+		}
+
 		public IEnumerable<Account> GetAllAccount()
 		{
 			var imageUtil = new ProfilePictureUtility();
